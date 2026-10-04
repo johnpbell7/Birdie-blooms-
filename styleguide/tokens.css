@@ -1,0 +1,149 @@
+/* =========================================================================
+   tokens.css — THE SINGLE SOURCE OF TRUTH for this site's look.
+   Every component on the site reads these CSS variables, so changing a value
+   here reskins the whole site. Edit by hand, or use the style sheet page
+   (index.html) to edit visually and Save back into this file.
+   Birdie Blooms — gallery white, warm ink, one dusty-rose accent.
+   ========================================================================= */
+:root {
+  /* Brand */
+  --c-brand:        #1e1a17;
+  --c-brand-deep:   #0f0d0b;
+  --c-accent:       #a84e62;
+  --c-accent-ink:   #ffffff;
+
+  /* Surfaces & lines */
+  --c-bg:           #ffffff;
+  --c-surface:      #ffffff;
+  --c-cream:        #f7f4ef;
+  --c-border:       #e6dfd6;
+  --c-border-soft:  #efeae3;
+  --c-hairline:     #d9d0c5;
+  --nav-bg:         #ffffff;
+  --card-bg:        #f7f4ef;
+  --footer-bg:      #f7f4ef;
+  --input-bg:       #ffffff;
+
+  /* Text */
+  --c-ink:          #1e1a17;
+  --c-body:         #3d3631;
+  --c-muted:        #6f665f;
+  --c-muted-2:      #a69c93;
+  --c-on-brand:     #ffffff;
+  --c-placeholder:  #a69c93;
+
+  /* Links & focus */
+  --c-link:         #1e1a17;
+  --c-link-hover:   #a84e62;
+  --c-ring:         #a84e62;
+  --c-selection:    #f3dde2;
+  --ring-width:     2px;
+  --ring-offset:    3px;
+
+  /* Status — workflow */
+  --c-planning:     #b07823;
+  --c-planning-bg:  #f6ecd6;
+  --c-build:        #2f6f9e;
+  --c-build-bg:     #deebf5;
+  --c-idea:         #7a5bd0;
+  --c-idea-bg:      #e9e3f7;
+  --c-live:         #4f6b4a;
+  --c-live-bg:      #e4ebe1;
+
+  /* Status — standard */
+  --c-success:      #3f6b45;
+  --c-success-bg:   #e5efe4;
+  --c-warning:      #a1621c;
+  --c-warning-bg:   #f8ecda;
+  --c-error:        #a8323a;
+  --c-error-bg:     #f9e3e3;
+  --c-info:         #3b5b7a;
+  --c-info-bg:      #e3ebf3;
+
+  /* Typography */
+  --font-heading:   "Instrument Serif";
+  --font-body:      "Figtree";
+  --font-mono:      "JetBrains Mono";
+  --fs-display:     124px;
+  --fs-heading:     68px;
+  --fs-card:        26px;
+  --fs-body:        17px;
+  --fs-small:       14px;
+  --fs-caption:     12px;
+  --fw-heading:     400;
+  --fw-body:        400;
+  --tracking:       -0.02em;
+  --lh-heading:     0.98;
+  --lh-body:        1.65;
+  --measure:        58ch;
+  --prose:          68ch;
+  --type-ratio:     1.333;
+
+  /* Buttons */
+  --btn-radius:     999px;
+  --btn-py:         15px;
+  --btn-px:         28px;
+  --btn-weight:     500;
+  --btn-bw:         1px;
+  --btn-tracking:   0.01em;
+  --btn-transform:  none;
+
+  /* Components */
+  --card-pad:       28px;
+  --card-radius:    20px;
+  --card-bw:        1px;
+  --badge-radius:   4px;
+  --input-bw:       1px;
+  --input-py:       16px;
+  --input-px:       18px;
+  --input-radius:   10px;
+  --nav-h:          76px;
+  --icon-size:      20px;
+
+  /* Line weight */
+  --bw:             1px;
+  --bw-thick:       1.5px;
+
+  /* Radius */
+  --radius-sm:      4px;
+  --radius-md:      12px;
+  --radius-lg:      24px;
+  --radius-pill:    999px;
+
+  /* Elevation */
+  --shadow-sm:      0 1px 2px rgba(60,40,30,0.05);
+  --shadow:         0 6px 24px rgba(60,40,30,0.07), 0 1px 3px rgba(60,40,30,0.04);
+  --shadow-lg:      0 30px 70px rgba(60,40,30,0.16);
+
+  /* Layout */
+  --container:      1320px;
+  --section-y:      150px;
+  --hero-y:         120px;
+  --gutter:         32px;
+  --gap:            28px;
+  --space:          8px;
+
+  /* Spacing scale */
+  --space-xs:       6px;
+  --space-sm:       12px;
+  --space-md:       20px;
+  --space-lg:       36px;
+  --space-xl:       64px;
+
+  /* States */
+  --hover-bright:   1.05;
+  --disabled-opacity: 0.45;
+
+  /* Motion */
+  --dur:            450ms;
+  --dur-fast:       220ms;
+  --dur-slow:       900ms;
+  --ease:           cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Effects */
+  --grad:           radial-gradient(120% 90% at 85% 10%, #f3dde2 0%, rgba(243,221,226,0) 55%);
+  --backdrop-blur:  18px;
+  --overlay:        0.035;
+  --scrim:          rgba(30, 26, 23, 0.45);
+}
+

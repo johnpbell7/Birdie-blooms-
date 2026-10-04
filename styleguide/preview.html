@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="styleguide.css" />
+  <!-- Re-assert site styling here: styleguide.css keeps the editor chrome neutral,
+       so the preview document restates its body/headings/links from the site tokens. -->
+  <style>
+    body { margin: 0; padding: 0; background: var(--c-bg); color: var(--c-body); font-family: var(--font-body); font-size: var(--fs-body); line-height: var(--lh-body); -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { margin: 0; font-family: var(--font-heading); line-height: var(--lh-heading); letter-spacing: var(--tracking); color: var(--c-ink); }
+    a { color: var(--c-link); }
+    a:hover { color: var(--c-link-hover); }
+    ::selection { background: var(--c-selection); }
+    :focus-visible { outline: var(--ring-width) solid var(--c-ring); outline-offset: var(--ring-offset); }
+  </style>
+  <!-- Live-preview bridge: lets the style sheet push token changes in even cross-origin -->
+  <script>
+    window.addEventListener("message", function (e) {
+      var d = e.data; if (!d || d.source !== "studio-styleguide") return;
+      var r = document.documentElement;
+      if (d.type === "all" && d.vars) { for (var k in d.vars) r.style.setProperty(k, d.vars[k]); }
+      else if (d.type === "set") { r.style.setProperty(d.name, d.value); }
+      if (d.fonts) d.fonts.forEach(function (f) { if (!document.querySelector('link[data-f="' + f + '"]')) { var l = document.createElement("link"); l.rel = "stylesheet"; l.dataset.f = f; l.href = "https://fonts.googleapis.com/css2?family=" + f.replace(/ /g, "+") + ":wght@300;400;500;600;700;800&display=swap"; document.head.appendChild(l); } });
+    });
+  </script>
+</head>
+<body>
+  <div class="hp" style="border:0;border-radius:0;box-shadow:none">
+    <nav class="hp-nav"><span class="logo">Brandmark</span><span class="links"><span>Work</span><span>About</span><span>Pricing</span><span>Contact</span></span><button class="btn btn-primary">Get started</button></nav>
+
+    <div class="hp-hero">
+      <div>
+        <div class="eyebrow">New · launching this autumn</div>
+        <h1>A headline that sells the idea in one line.</h1>
+        <p>A supporting sentence that explains the value in plain language, sized from your body token and easy to scan on any device.</p>
+        <div class="cta"><button class="btn btn-primary">Primary action</button><button class="btn btn-secondary">Secondary</button></div>
+      </div>
+      <div class="art"></div>
+    </div>
+
+    <div class="pv-strip">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-accent">Accent</button>
+      <span class="badge badge-live">Live</span>
+      <span class="badge badge-build">In build</span>
+      <span class="badge badge-success">Success</span>
+      <span class="badge badge-warning">Warning</span>
+      <span class="badge badge-error">Error</span>
+    </div>
+
+    <div class="fx-row">
+      <div class="fx-tile"><div class="lbl">Hover &amp; disabled state</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary">Hover me</button><button class="btn btn-primary" disabled>Disabled</button></div></div>
+      <div class="fx-tile fx-lift"><div class="lbl">Motion — lift on hover</div><div class="hint">Hover this card. Speed &amp; easing come from your motion tokens.</div></div>
+      <div class="fx-tile"><div class="lbl">Brand gradient</div><div class="fx-gradient"></div></div>
+      <div class="fx-tile"><div class="lbl">Backdrop blur (glass)</div><div class="fx-stage"><span class="fx-glass">Glass panel</span></div></div>
+      <div class="fx-tile"><div class="lbl">Overlay opacity</div><div class="fx-stage fx-overlay"><span>Text over image</span></div></div>
+    </div>
+
+    <div class="hp-feats">
+      <div class="hp-feat"><div class="ico"></div><h4>Fast to ship</h4><p>Short supporting copy describing the benefit in a sentence.</p></div>
+      <div class="hp-feat"><div class="ico"></div><h4>Consistent</h4><p>Every component pulls from the same tokens, so it stays coherent.</p></div>
+      <div class="hp-feat"><div class="ico"></div><h4>Yours to brand</h4><p>Change a token here and the whole site follows.</p></div>
+    </div>
+
+    <div class="hp-pricing">
+      <div class="hp-tier"><div class="nm">Starter</div><div class="amt">£9<small>/mo</small></div><button class="btn btn-secondary">Choose</button></div>
+      <div class="hp-tier featured"><div class="nm">Pro</div><div class="amt">£24<small>/mo</small></div><button class="btn btn-primary">Choose</button></div>
+      <div class="hp-tier"><div class="nm">Team</div><div class="amt">£59<small>/mo</small></div><button class="btn btn-secondary">Choose</button></div>
+    </div>
+
+    <div class="hp-quote"><blockquote>“They captured exactly the feel we wanted — calm, credible, and clearly ours.”</blockquote><div class="who">— A happy client</div></div>
+
+    <div class="hp-band"><h2>Ready when you are.</h2><p>One more line of reassurance before the call-to-action.</p><button class="btn btn-accent">Start your project</button></div>
+
+    <footer class="hp-foot"><span>© Brandmark</span><span>Privacy · Terms</span></footer>
+  </div>
+</body>
+</html>

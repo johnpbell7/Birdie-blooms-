@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand style sheet</title>
+  <meta name="description" content="Editable living style sheet with a live split-screen preview of your site." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="styleguide.css" />
+</head>
+<body>
+  <header class="sg-top">
+    <span class="mark">B</span>
+    <span class="title">Brand style sheet</span>
+    <span class="spacer"></span>
+    <span class="hint">Edit on the left — your site updates live on the right</span>
+  </header>
+
+  <div class="sg-layout">
+    <main class="sg-main">
+      <div class="sg-head">
+        <h1>Design system</h1>
+        <p>Every value is a CSS variable in <code>tokens.css</code>. Change it here and the live preview re-skins instantly; Save writes it back so the whole site follows.</p>
+      </div>
+
+      <div class="mode-switch">
+        <span>Editing for</span>
+        <button class="ms-btn on" data-mode="desktop">Desktop</button>
+        <button class="ms-btn" data-mode="mobile">Mobile</button>
+        <span class="ms-hint" id="ms-hint"></span>
+      </div>
+
+      <div class="sg-banner">
+        <span class="b-ic">i</span>
+        <div>
+          <b>How this works:</b> when Claude builds the site it sets these tokens from the design it makes — so this sheet arrives <b>pre-filled</b>. You tweak it, hit <b>Save to tokens.css</b>, and the whole site re-skins. Saving only changes your <b>local</b> file — pushing to git stays your call.
+          <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--c-brand);font-weight:600">Show the note to paste to Claude</summary>
+            <div class="claude-note" style="margin-top:8px">When you build or edit this site, read styleguide/tokens.css and use ONLY those CSS variables for ALL styling — colours, link/focus colours, fonts, font sizes, line-heights, letter-spacing, button shape/padding/weight/case, radius, line weights, shadows, section padding, gaps and container width. Never hard-code a colour or size; never invent a palette. On the first build, write the values you chose into tokens.css so the style sheet reflects the real design. Respect any later edits I make there. If tokens.css starts with a "CHANGE REQUESTS" comment block, apply those structural/content edits to the site, then delete that block.</div>
+          </details>
+        </div>
+      </div>
+
+      <details class="sg-section acc" open>
+        <summary><h2>Change requests</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Plain-English structural / content changes tokens can't express. Saved into <span class="mono">tokens.css</span>; when you push, Claude reads &amp; applies them to the site, then clears the list.</div>
+          <textarea class="notes-area" id="change-notes" placeholder="e.g.&#10;- Remove the ‘NEW · LAUNCHING THIS AUTUMN’ eyebrow from the hero&#10;- Swap the order of the Features and Pricing sections&#10;- Make the nav sticky on scroll&#10;- Drop the third pricing tier"></textarea>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>Themes</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Apply a whole look at once (colours + fonts). Usually you'll only do this if you're starting fresh.</div>
+          <div id="themes"></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>Palette generator</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Generate a harmonious palette — lock the ones you like, shuffle the rest, then send a colour to a role. Hidden by default since Claude usually fills the colours in.</div>
+          <div class="gen" id="generator"></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc" open>
+        <summary><h2>Colours</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Click a colour to pick, or type a hex. Everything updates live in the preview.</div>
+          <div id="palette"></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc" open>
+        <summary><h2>Presets</h2></summary>
+        <div class="acc-body">
+          <div class="sub">One-click shapes and feels. These set the underlying tokens — tweak them further below.</div>
+          <div id="presets"></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>Typography</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Fonts, sizes, line-heights, tracking and max text width.</div>
+          <div id="type-controls" class="ctrl-grid" style="margin-bottom:14px"></div>
+          <div id="typescale" style="margin-bottom:18px"></div>
+          <div class="demo">
+            <div class="type-row"><span class="meta">Display</span><span class="t-display">The quick brown fox</span></div>
+            <div class="type-row"><span class="meta">Heading</span><span class="t-heading">Section heading</span></div>
+            <div class="type-row"><span class="meta">Card title</span><span class="t-card">Project card title</span></div>
+            <div class="type-row"><span class="meta">Body</span><span class="t-body">Default body text for descriptions and most content.</span></div>
+            <div class="type-row"><span class="meta">Small</span><span class="t-small">Helper copy, secondary metadata.</span></div>
+            <div class="type-row"><span class="meta">Caption</span><span class="t-caption">Updated 2 days ago</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>Buttons</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Shape, padding, weight, letter-spacing and case — all live.</div>
+          <div id="button-controls" class="ctrl-grid" style="margin-bottom:16px"></div>
+          <div class="demo"><div class="row">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-ghost">Ghost</button>
+            <button class="btn btn-accent">Accent</button>
+          </div></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>Components</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Per-component knobs: card padding/radius/border, badge radius, input style, nav height.</div>
+          <div id="component-controls" class="ctrl-grid"></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>States, motion &amp; effects</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Hover/disabled, transition duration &amp; easing, the brand gradient, backdrop-blur and overlay opacity.</div>
+          <div id="fx-controls" class="ctrl-grid"></div>
+        </div>
+      </details>
+
+      <details class="sg-section acc">
+        <summary><h2>Foundations</h2></summary>
+        <div class="acc-body">
+          <div class="sub">Line weight, radius, elevation, layout (section padding, gaps, container width) and spacing.</div>
+          <div id="foundation-controls" class="ctrl-grid" style="margin-bottom:18px"></div>
+          <div class="sg-label">Radius</div>
+          <div class="found-grid">
+            <div class="found-tile"><div class="box" style="border-radius:var(--radius-sm)"></div><div class="nm">Small</div><div class="val">--radius-sm</div></div>
+            <div class="found-tile"><div class="box" style="border-radius:var(--radius-md)"></div><div class="nm">Medium</div><div class="val">--radius-md</div></div>
+            <div class="found-tile"><div class="box" style="border-radius:var(--radius-lg)"></div><div class="nm">Large</div><div class="val">--radius-lg</div></div>
+          </div>
+          <div class="sg-label">Elevation</div>
+          <div class="found-grid">
+            <div class="found-tile"><div class="box" style="box-shadow:var(--shadow);background:var(--c-surface)"></div><div class="nm">Shadow</div><div class="val">--shadow</div></div>
+            <div class="found-tile"><div class="box" style="box-shadow:var(--shadow-lg);background:var(--c-surface)"></div><div class="nm">Shadow lg</div><div class="val">--shadow-lg</div></div>
+          </div>
+        </div>
+      </details>
+    </main>
+
+    <aside class="sg-preview" id="sg-preview">
+      <div class="pv-bar">
+        <span class="pv-title">Live preview</span>
+        <div class="pv-devices">
+          <button class="pv-dev on" data-device="full" title="Desktop">▭</button>
+          <button class="pv-dev" data-device="820" title="Tablet">▯</button>
+          <button class="pv-dev" data-device="390" title="Mobile">▮</button>
+        </div>
+        <span class="spacer"></span>
+        <button class="pv-icon" id="pv-reload" title="Reload">⟳</button>
+      </div>
+      <div class="pv-url-row">
+        <input class="pv-url" id="pv-url" value="../index.html" spellcheck="false" />
+        <details class="pv-help"><summary>?</summary>
+          <div class="pv-help-body">Point this at your real local homepage (e.g. <span class="mono">../index.html</span>). If it’s on a dev server on another port, paste its URL and add this once to that site’s <span class="mono">&lt;head&gt;</span> so edits flow in live:
+            <div class="claude-note" id="bridge-snippet" style="margin-top:8px"></div>
+            <button class="btn-bar" id="copy-bridge" style="margin-top:8px">Copy bridge snippet</button>
+          </div>
+        </details>
+      </div>
+      <div class="pv-frame-wrap"><iframe id="pv-frame" src="../index.html" title="Live preview"></iframe></div>
+    </aside>
+  </div>
+
+  <div class="savebar">
+    <span class="status" id="sg-status">Saved</span>
+    <span class="spacer"></span>
+    <button class="btn-bar" id="sg-reset">Revert</button>
+    <button class="btn-bar" id="sg-copy">Copy CSS</button>
+    <button class="btn-bar" id="sg-download">Download</button>
+    <button class="btn-bar primary" id="sg-save">Save to tokens.css</button>
+  </div>
+
+  <script src="styleguide.js"></script>
+</body>
+</html>
