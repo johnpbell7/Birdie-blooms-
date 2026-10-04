@@ -46,7 +46,7 @@ The site changes its colours by date, four times a year:
 |---|---|---|---|---|---|
 | Winter | 1 Dec – end Feb | Amaryllis & hellebores | plum `#5a2b4b` | berry `#b8323a` | frost `#f2f3f0` |
 | Spring | 1 Mar – 31 May | Tulips & narcissi | tulip `#a8385a` | narcissus `#e8b32a` | blossom `#fcf3f1` |
-| Summer | 1 Jun – 31 Aug | Sweet peas & cornflowers | cornflower `#34529c` | sweet pea `#c46aa8` | lavender `#f4f4fa` |
+| Summer | 1 Jun – 31 Aug | Sweet peas & cornflowers | cornflower `#34529c` | sweet pea `#c4649f` | lavender `#f4f4fa` |
 | Autumn | 1 Sep – 30 Nov | Dahlias & amaranth | amaranth `#7a2431` | dahlia `#d9662e` | linen `#f6efe7` |
 
 Each season changes all of these:
