@@ -33,7 +33,7 @@
       ["--c-error", "Error", "color"], ["--c-error-bg", "Error bg", "color"],
       ["--c-info", "Info", "color"], ["--c-info-bg", "Info bg", "color"] ] },
     { group: "Typography", ui: "type", items: [
-      ["--font-heading", "Heading font", "font"], ["--font-body", "Body font", "font"], ["--font-mono", "Mono font", "font"],
+      ["--font-heading", "Heading font", "font"], ["--font-body", "Body font", "font"], ["--font-ui", "UI & label font", "font"], ["--font-mono", "Mono font", "font"],
       ["--fw-heading", "Heading weight", "weight"], ["--fw-body", "Body weight", "weight"],
       ["--fs-display", "Display size", "text"], ["--fs-heading", "Heading size", "text"], ["--fs-card", "Card size", "text"],
       ["--fs-body", "Body size", "text"], ["--fs-small", "Small size", "text"], ["--fs-caption", "Caption size", "text"],
@@ -71,7 +71,7 @@
     "Be Vietnam Pro", "Epilogue", "Lexend", "Mulish", "Nunito Sans", "Rubik", "Poppins", "Montserrat", "Karla",
     "Public Sans", "Red Hat Display", "Urbanist", "Figtree", "Familjen Grotesk", "Syne", "Unbounded", "Big Shoulders Display",
     "Fraunces", "Lora", "Playfair Display", "DM Serif Display", "Source Serif 4", "Spectral", "Libre Baskerville",
-    "Cormorant", "EB Garamond", "Newsreader", "Bitter", "Crimson Pro", "Domine", "Instrument Serif",
+    "Cormorant", "EB Garamond", "Della Respira", "Josefin Sans", "Gilda Display", "Bellefair", "Newsreader", "Bitter", "Crimson Pro", "Domine", "Instrument Serif",
     "JetBrains Mono", "IBM Plex Mono", "Geist Mono", "Space Mono", "Fira Code", "DM Mono"];
   var WEIGHTS = ["300", "400", "500", "600", "700", "800"];
 
@@ -209,7 +209,7 @@
 
   /* ---- fonts ---- */
   var loadedFonts = {};
-  function loadFont(name) { name = stripQuotes(name); if (!name || loadedFonts[name]) return; loadedFonts[name] = true; var link = document.createElement("link"); link.rel = "stylesheet"; link.href = "https://fonts.googleapis.com/css2?family=" + name.replace(/ /g, "+") + ":wght@300;400;500;600;700;800&display=swap"; document.head.appendChild(link); }
+  function loadFont(name) { name = stripQuotes(name); if (!name || loadedFonts[name]) return; loadedFonts[name] = true; var link = document.createElement("link"); link.rel = "stylesheet"; link.href = "https://fonts.googleapis.com/css2?family=" + name.replace(/ /g, "+") + ":wght@300;400;500;600;700;800&display=swap"; document.head.appendChild(link); var plain = document.createElement("link"); plain.rel = "stylesheet"; plain.href = "https://fonts.googleapis.com/css2?family=" + name.replace(/ /g, "+") + "&display=swap"; document.head.appendChild(plain); }
 
   /* ---- themes ---- */
   function applyTheme(name) {
@@ -528,7 +528,7 @@
 
   /* ---- boot ---- */
   readInitial();
-  loadFont(values["--font-heading"]); loadFont(values["--font-body"]);
+  loadFont(values["--font-heading"]); loadFont(values["--font-body"]); loadFont(values["--font-ui"]);
   loadDraft();
   loadPalette();
   loadMobile();

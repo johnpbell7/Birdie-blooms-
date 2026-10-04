@@ -33,8 +33,23 @@ Every colour, font, size, radius, spacing value and motion duration lives in `st
 - Open `/styleguide/` and use the visual editor. It shows the real site live on the right, and **Save to tokens.css** writes your changes back.
 
 Current look:
-- **Instrument Serif** for headings and **Figtree** for body text
-- White background, warm off-black ink (`#1e1a17`), and one dusty-rose accent (`#a84e62`)
+- **Della Respira** for headings. It's a 1920s Art Nouveau serif that sits naturally next to her wordmark.
+- **EB Garamond** for reading text.
+- **Josefin Sans** for labels, buttons and navigation. It's the font in her logo tagline, set lowercase and spaced the same way.
+- White background, chocolate ink (`#2b1f19`), and one dusty-rose accent (`#a84e62`).
+
+## Brand assets: `assets/brand/`
+
+The logo is traced from the first post on [@birdie.blooms](https://www.instagram.com/birdie.blooms/) and rebuilt as clean vectors:
+
+| File | Use |
+|---|---|
+| `birdie-blooms-logo.svg` / `-cream.svg` | Full lockup: wordmark plus the "flowers with a little bit of yesterday" tagline |
+| `birdie-blooms-wordmark.svg` / `-cream.svg` | Wordmark only (used in the header) |
+| `birdie-blooms-squiggle.svg` | The swash from the "B", used as the brand device (intro, hero, marquee, success messages) |
+| `birdie-blooms-monogram.svg` | The "B" on its own (the favicon is built from it) |
+
+The cream versions are for photos and dark backgrounds. The trace came from a 1080px Instagram image, so it's sharp on screen but has a faintly hand-drawn edge when blown up very large. For print or signage, export the original logo file at full size (from Canva or wherever it was made) and swap it in.
 
 ## Change products and prices: `assets/js/products.js`
 
@@ -69,7 +84,8 @@ Delivery fee (£6.50), the free-delivery threshold (£75) and the open days (Tue
 | What | Where it appears now | Replace with |
 |---|---|---|
 | Founder name **"Hannah"** and her story | Home, About, page titles | Your real name and story |
-| Location **"Harpenden, Hertfordshire"** | Hero eyebrow, footer, contact, FAQ | Your town |
+| Location: **Ravenstone & Kibworth, Leicestershire** (taken from her Instagram) | Footer, contact, FAQ | The exact studio address, if she wants it shown |
+| Products | `products.js` | Her real first edit from Instagram: The Pumpkin Edit (orange and ghost, £35 each) and The Birdie Bunch (£35) |
 | Phone **07700 900418** (an Ofcom fictional number) | Footer, contact, forms | Your number |
 | `hello@birdieblooms.co.uk` and `@birdie.blooms` | `CONFIG.email` and footer links | Your real email address and Instagram |
 | **Photography** (free Pexels stock in `assets/img/`) | Everywhere | Your own photos, saved at the same file names |
@@ -84,7 +100,7 @@ The site deliberately has **no invented reviews, ratings or press logos**. Add r
 GSAP 3.13 is loaded from cdnjs, with ScrollTrigger, SplitText and Flip. The motion includes:
 
 - masked line-by-line headline reveals and clip-path image wipes
-- a hero intro with a once-per-visit loader
+- her logo squiggle inking itself in, in the once-per-visit loader and the hero
 - a values marquee that speeds up with scroll velocity
 - statement words that "ink in" as you read
 - an image that follows the cursor over the occasions list

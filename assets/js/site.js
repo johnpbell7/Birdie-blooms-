@@ -55,7 +55,7 @@
   var ICON = {
     arrow: '<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg>',
     leaf: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 13.5C3 7 7 3 13.5 2.5 13 9 9 13 2.5 13.5Z"/><path d="M2.5 13.5 9 7"/></svg>',
-    bird: '<svg viewBox="0 0 72 62" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 40C20 28 34 22 45 27c6 3 8 6 13 5h8l-7 5c-3 8-12 13-24 12-8-1-14-4-17-9Z"/><path d="m18 40-11 6 9-2"/><path d="M29 39c6 5 15 3 19-3"/><path d="m35 49-2 9m9-9v9"/><circle cx="55" cy="31" r="1.2" fill="currentColor" stroke="none"/></svg>'
+    squiggle: '<svg class="squiggle" viewBox="0 0 422 606" aria-hidden="true" focusable="false"><use href="#bb-squiggle" width="422" height="606"/></svg>'
   };
 
   /* ---------------------------------------------------------------------
@@ -155,7 +155,7 @@
     if (!drawer) return;
     var list = $("[data-basket-lines]", drawer), foot = $(".drawer-foot", drawer);
     if (!basket.length) {
-      list.innerHTML = '<div class="basket-empty">' + ICON.bird.replace("<svg", '<svg class="bird"') + '<p class="h4">Your basket is empty.</p><p>Let’s fix that. This week’s flowers are in.</p><a class="btn" href="shop.html"><span class="btn-label">Shop flowers</span>' + ICON.arrow + "</a></div>";
+      list.innerHTML = '<div class="basket-empty">' + ICON.squiggle + '<p class="h4">Your basket is empty.</p><p>Let’s fix that. This week’s flowers are in.</p><a class="btn" href="shop.html"><span class="btn-label">Shop flowers</span>' + ICON.arrow + "</a></div>";
       foot.hidden = true; return;
     }
     foot.hidden = step !== 1;
@@ -520,6 +520,15 @@
     return SplitText.create(el, { type: "lines", mask: "lines", linesClass: "split-line" });
   }
 
+  // Ink the brand squiggle in along its centre line (mask path inside each [data-draw] svg)
+  function drawSquiggle(svg, opts) {
+    var line = $(".sq-line", svg); if (!line) return null;
+    var len = line.getTotalLength();
+    gsap.set(line, { strokeDasharray: len, strokeDashoffset: len });
+    gsap.set(svg, { visibility: "visible" });
+    return gsap.to(line, Object.assign({ strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut" }, opts || {}));
+  }
+
   function heroIntro() {
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
     var kids = [];
@@ -539,8 +548,8 @@
       tl.fromTo(f, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.inOut" }, 0.15 + n * 0.25)
         .from($("img", f), { scale: 1.35, duration: 1.9, ease: "expo.out" }, 0.25 + n * 0.25);
     });
-    var stamp = $(".hero-visual .stamp");
-    if (stamp) tl.from(stamp, { scale: 0, rotation: -120, duration: 1.2, ease: "back.out(1.6)" }, 1.1);
+    var sq = $(".hero-squiggle");
+    if (sq) { var d = drawSquiggle(sq, { duration: 1.8 }); if (d) tl.add(d, 0.9); }
     return tl;
   }
 
@@ -549,8 +558,9 @@
     if (!loader || !root.classList.contains("intro")) return null;
     try { sessionStorage.setItem("bb-seen", "1"); } catch (e) {}
     var tl = gsap.timeline({ onComplete: function () { root.classList.remove("intro"); gsap.set(loader, { clearProps: "all" }); } });
-    tl.from($$(".loader-word span", loader), { yPercent: 115, duration: 0.9, stagger: 0.09, ease: "power4.out" })
-      .from($(".loader-bird", loader), { y: 30, x: -40, rotation: -20, autoAlpha: 0, duration: 0.9, ease: "power3.out" }, 0.1)
+    var sq = $(".loader-squiggle", loader);
+    if (sq) tl.add(drawSquiggle(sq, { duration: 1.1, ease: "power2.inOut" }), 0);
+    tl.from($(".loader-logo", loader), { autoAlpha: 0, y: 14, duration: 0.8, ease: "power3.out" }, 0.55)
       .to(loader, { clipPath: "inset(0% 0% 100% 0%)", duration: 1, ease: "expo.inOut" }, "+=0.35");
     return tl;
   }
@@ -613,8 +623,12 @@
         } });
       });
 
-      // stamp ring keeps turning
-      $$(".stamp .ring").forEach(function (r) { gsap.to(r, { rotation: 360, duration: 24, ease: "none", repeat: -1, transformOrigin: "50% 50%" }); });
+      // any other squiggles ink in as they scroll into view
+      $$("[data-draw]").forEach(function (svg) {
+        if (svg.closest(".hero-visual") || svg.closest(".loader")) return;
+        var t = drawSquiggle(svg, { paused: true });
+        if (t) ScrollTrigger.create({ trigger: svg, start: "top 85%", once: true, onEnter: function () { t.play(); } });
+      });
 
       // horizontal gallery — pinned on desktop only (mobile swipes natively)
       mm.add("(min-width: 901px)", function () {
@@ -641,12 +655,6 @@
       $$("[data-count-to]").forEach(function (el) {
         var end = parseFloat(el.getAttribute("data-count-to")), o = { v: 0 };
         gsap.to(o, { v: end, duration: 1.8, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 85%", once: true }, onUpdate: function () { el.textContent = Math.round(o.v); } });
-      });
-
-      // footer wordmark rises
-      $$(".footer-word").forEach(function (el) {
-        var split = window.SplitText ? SplitText.create(el, { type: "chars", mask: "chars" }) : null;
-        if (split) gsap.from(split.chars, { yPercent: 110, duration: 1.1, stagger: 0.035, ease: "power4.out", scrollTrigger: { trigger: el, start: "top 95%", once: true } });
       });
 
       // occasions list: an image follows the cursor

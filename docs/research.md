@@ -93,7 +93,7 @@ London studios sit roughly 25–40% above regional ones.
 
 | Decision | Why |
 |---|---|
-| **Instrument Serif + Figtree** | Instrument Serif gives the editorial, couture feel of Studio Mondine and reveals beautifully line by line; Figtree is a friendly geometric sans that nods to the category's Garamond + Futura convention and keeps prices and forms easy to read. High-end headline, approachable body. |
+| **Della Respira + EB Garamond + Josefin Sans** | Revised once her real logo was found. Her wordmark is a high-contrast Art Nouveau serif and her tagline is set in Josefin Sans. Della Respira echoes the wordmark without copying it, EB Garamond gives warm, bookish reading text ("a little bit of yesterday"), and Josefin Sans carries labels and buttons exactly as in her logo. The first pass (Instrument Serif + Figtree) read as generic and AI-made, so it was dropped. |
 | **White, warm ink, one dusty-rose accent** | "White and clean", with warm off-black and a paper-cream for alternate sections so it never feels clinical. |
 | **Named bouquets with Classic / Generous / Abundant sizes** | Mirrors the S&V / Wild at Heart ladders; prices pitched at the upper end of regional indie. |
 | **Seasonal disclaimer, cut-off and fee everywhere it matters** | Announcement bar, shop strip, basket and FAQ. |
