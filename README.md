@@ -14,6 +14,7 @@ The design brief was **high-end yet approachable, white and clean**. The researc
 | `about.html` | The founder's story, "clear rules" sustainability bento, and a week in the studio |
 | `contact.html` | General enquiry form, contact details, studio hours and FAQ |
 | `policies.html` | Delivery, substitutions, flower care, refunds, wedding terms, privacy and terms |
+| `seasons.html` | Through the seasons: the four seasonal looks, what's in bloom in each, and buttons to preview the site in any season |
 | `404.html` | Branded not-found page |
 
 ## Run it locally
@@ -33,10 +34,36 @@ Every colour, font, size, radius, spacing value and motion duration lives in `st
 - Open `/styleguide/` and use the visual editor. It shows the real site live on the right, and **Save to tokens.css** writes your changes back.
 
 Current look:
-- **Della Respira** for headings. It's a 1920s Art Nouveau serif that sits naturally next to her wordmark.
-- **EB Garamond** for reading text.
-- **Josefin Sans** for labels, buttons and navigation. It's the font in her logo tagline, set lowercase and spaced the same way.
-- Colours sampled from her own photos: white background, chocolate ink (`#2b1a16`), linen-curtain cream (`#f3ede4`) and one amaranth-burgundy accent (`#7a2431`).
+- **Gilda Display** for headings.
+- **Josefin Sans** for everything else, light (300) for reading text. It's the font in her logo tagline; labels are set lowercase and spaced the same way.
+- White background, chocolate ink (`#2b1a16`), and **seasonal colour** (see below). `tokens.css` holds the autumn values.
+
+## Seasons: colours that follow the flowers
+
+The site changes its colours by date, four times a year:
+
+| Season | Dates | Flowers | Accent | Splash | Tint |
+|---|---|---|---|---|---|
+| Winter | 1 Dec – end Feb | Amaryllis & hellebores | plum `#5a2b4b` | berry `#b8323a` | frost `#f2f3f0` |
+| Spring | 1 Mar – 31 May | Tulips & narcissi | tulip `#a8385a` | narcissus `#e8b32a` | blossom `#fcf3f1` |
+| Summer | 1 Jun – 31 Aug | Sweet peas & cornflowers | cornflower `#34529c` | sweet pea `#c46aa8` | lavender `#f4f4fa` |
+| Autumn | 1 Sep – 30 Nov | Dahlias & amaranth | amaranth `#7a2431` | dahlia `#d9662e` | linen `#f6efe7` |
+
+Each season changes all of these:
+- the **accent**: buttons, the announcement bar, the squiggle and tags
+- the **splash**: step lines and the marquee squiggles
+- the **tint**: cream sections and the footer
+- the hero's **close-up colour texture** (`assets/img/season-*.webp`)
+- the **hero photos**
+- the **tab icon** (`assets/img/favicon-*.svg`)
+- the **"in season now" flower list** and the announcement bar text
+
+How it works:
+- A tiny script at the top of each page sets `data-season` on `<html>` before anything is drawn, so there's no flash of the wrong colours.
+- The colours live in `assets/css/seasons.css`.
+- On **Through the seasons** (`seasons.html`), "See the site in…" previews any season. A "Back to today" chip resets it, and the preview lasts only for that browser tab.
+
+**Seasonal photos.** Autumn uses her own photos. Winter, spring and summer use stock stand-ins: winter candles and white blooms, spring tulips, summer peonies and hydrangea. Replace them as she photographs each season's flowers. They're listed in `HERO_IMGS` near the hero in `index.html`. Also update The First Edit (`products.js`) and its "Three for autumn" heading when the next collection launches.
 
 ## Brand assets: `assets/brand/`
 
@@ -49,7 +76,9 @@ The logo is traced from the first post on [@birdie.blooms](https://www.instagram
 | `birdie-blooms-squiggle.svg` | The swash from the "B", used as the brand device (intro, hero, marquee, success messages) |
 | `birdie-blooms-monogram.svg` | The "B" on its own (the favicon is built from it) |
 
-The cream versions are for photos and dark backgrounds. The trace came from a 1080px Instagram image, so it's sharp on screen but has a faintly hand-drawn edge when blown up very large. For print or signage, export the original logo file at full size (from Canva or wherever it was made) and swap it in.
+The cream versions are for photos and dark backgrounds.
+
+All the marks have been smoothed into clean vector curves: the wordmark, the B monogram and the squiggle (which keeps its original pinched "beak"). They're traced from a 1080px Instagram image, so for large print or signage it's still worth exporting her original logo file at full size and comparing. The tab icon is the B in each season's accent colour.
 
 ## Change products and prices: `assets/js/products.js`
 
@@ -78,6 +107,7 @@ Where submissions go is set at the top of `assets/js/site.js`, in `CONFIG.formMo
 | `"mailto"` (default) | Opens the visitor's email app with everything filled in, addressed to `CONFIG.email`. Works anywhere with no account. |
 | `"endpoint"` | Sends the form to `CONFIG.formEndpoint`, for example a Formspree, Basin or Web3Forms URL. **Recommended before launch.** |
 | `"netlify"` | For Netlify hosting. The forms are already tagged for Netlify Forms. |
+| `"preview"` | Design previews only. Nothing is sent, and the success message says so. Pair it with `preview: true`, which shows a small "Design preview · not live yet" badge. |
 
 The basket sends an **order request**, not a payment. The flow is:
 1. The customer sends the request.
@@ -94,6 +124,7 @@ Delivery fee (£6.50), the free-delivery threshold (£75) and the open days (Tue
 | Location: **Ravenstone & Kibworth, Leicestershire** (taken from her Instagram) | Footer, contact, FAQ | The exact studio address, if she wants it shown |
 | Ghost pumpkin photo | `products.js` (`pumpkin-edit-ghost`) | A photo of the white Pumpkin Edit (4:5, about 1080×1350) |
 | Placeholder range | `products.js`, below The First Edit | Confirm, re-price or delete |
+| Winter, spring and summer hero photos | `index.html` (`HERO_IMGS`) | Her own photos of each season's flowers |
 | Phone **07700 900418** (an Ofcom fictional number) | Footer, contact, forms | Your number |
 | `hello@birdieblooms.co.uk` and `@birdie.blooms` | `CONFIG.email` and footer links | Your real email address and Instagram |
 | **Photography** | Her Instagram photos (`assets/img/bb-*.webp`) are used for the hero, The First Edit, the statement and the Instagram strip. Everything else is free Pexels stock. | Her own photos as she takes them, saved at the same file names. Weddings, the studio and her portrait are the biggest gaps. |
@@ -108,7 +139,8 @@ The site deliberately has **no invented reviews, ratings or press logos**. Add r
 GSAP 3.13 is loaded from cdnjs, with ScrollTrigger, SplitText and Flip. The motion includes:
 
 - masked line-by-line headline reveals and clip-path image wipes
-- her logo squiggle inking itself in, in the once-per-visit loader and the hero
+- her logo squiggle inking itself in, in the once-per-visit loader, the hero and the seasons page
+- a seasonal close-up colour texture behind the hero, with her photo laid over it like a print
 - a values marquee that speeds up with scroll velocity
 - statement words that "ink in" as you read
 - an image that follows the cursor over the occasions list

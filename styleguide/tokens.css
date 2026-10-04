@@ -3,9 +3,10 @@
    Every component on the site reads these CSS variables, so changing a value
    here reskins the whole site. Edit by hand, or use the style sheet page
    (index.html) to edit visually and Save back into this file.
-   Birdie Blooms — gallery white, chocolate ink, linen cream and one amaranth accent,
-   all sampled from her own photographs.
-   Type: Della Respira (headings) · EB Garamond (reading) · Josefin Sans (labels & buttons, from the logo tagline).
+   Birdie Blooms — gallery white, chocolate ink, and seasonal colour.
+   These are the AUTUMN values (dahlias & amaranth). assets/css/seasons.css swaps
+   --c-accent, --c-splash, --c-cream and friends for winter, spring and summer by date.
+   Type: Gilda Display (headings) · Josefin Sans (everything else, from the logo tagline).
    ========================================================================= */
 :root {
   /* Brand */
@@ -13,17 +14,18 @@
   --c-brand-deep:   #1a0f0c;
   --c-accent:       #7a2431;
   --c-accent-ink:   #ffffff;
+  --c-splash:       #d9662e;
 
   /* Surfaces & lines */
   --c-bg:           #ffffff;
   --c-surface:      #ffffff;
-  --c-cream:        #f3ede4;
-  --c-border:       #e5dbcf;
-  --c-border-soft:  #eee6dc;
+  --c-cream:        #f6efe7;
+  --c-border:       #ebe3da;
+  --c-border-soft:  #f2ece5;
   --c-hairline:     #d6c9ba;
   --nav-bg:         #ffffff;
-  --card-bg:        #f3ede4;
-  --footer-bg:      #f3ede4;
+  --card-bg:        #f6efe7;
+  --footer-bg:      #f6efe7;
   --input-bg:       #ffffff;
 
   /* Text */
@@ -63,21 +65,21 @@
   --c-info-bg:      #e3ebf3;
 
   /* Typography */
-  --font-heading:   "Della Respira";
-  --font-body:      "EB Garamond";
+  --font-heading:   "Gilda Display";
+  --font-body:      "Josefin Sans";
   --font-ui:        "Josefin Sans";
   --font-mono:      "JetBrains Mono";
-  --fs-display:     96px;
-  --fs-heading:     56px;
+  --fs-display:     92px;
+  --fs-heading:     54px;
   --fs-card:        25px;
-  --fs-body:        19px;
+  --fs-body:        18px;
   --fs-small:       15px;
   --fs-caption:     12px;
   --fw-heading:     400;
-  --fw-body:        400;
-  --tracking:       -0.005em;
-  --lh-heading:     1.06;
-  --lh-body:        1.55;
+  --fw-body:        300;
+  --tracking:       0em;
+  --lh-heading:     1.1;
+  --lh-body:        1.7;
   --measure:        58ch;
   --prose:          68ch;
   --type-ratio:     1.333;
@@ -120,10 +122,10 @@
 
   /* Layout */
   --container:      1320px;
-  --section-y:      150px;
+  --section-y:      176px;
   --hero-y:         120px;
   --gutter:         32px;
-  --gap:            28px;
+  --gap:            32px;
   --space:          8px;
 
   /* Spacing scale */

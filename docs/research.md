@@ -93,7 +93,7 @@ London studios sit roughly 25–40% above regional ones.
 
 | Decision | Why |
 |---|---|
-| **Della Respira + EB Garamond + Josefin Sans** | Revised once her real logo was found. Her wordmark is a high-contrast Art Nouveau serif and her tagline is set in Josefin Sans. Della Respira echoes the wordmark without copying it, EB Garamond gives warm, bookish reading text ("a little bit of yesterday"), and Josefin Sans carries labels and buttons exactly as in her logo. The first pass (Instrument Serif + Figtree) read as generic and AI-made, so it was dropped. |
+| **Gilda Display + Josefin Sans** | Revised twice. Her real logo is a high-contrast Art Nouveau wordmark with a Josefin Sans tagline, so Josefin Sans now carries all the text (light for reading, lowercase and spaced for labels), and Gilda Display adds a calm, elegant serif for headings. The first pass (Instrument Serif + Figtree) read as generic and AI-made; the second (Della Respira + EB Garamond) was replaced by the client's choice. |
 | **White, warm ink, one dusty-rose accent** | "White and clean", with warm off-black and a paper-cream for alternate sections so it never feels clinical. |
 | **Named bouquets with Classic / Generous / Abundant sizes** | Mirrors the S&V / Wild at Heart ladders; prices pitched at the upper end of regional indie. |
 | **Seasonal disclaimer, cut-off and fee everywhere it matters** | Announcement bar, shop strip, basket and FAQ. |

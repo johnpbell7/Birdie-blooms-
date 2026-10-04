@@ -14,7 +14,7 @@
   var SCHEMA = [
     { group: "Brand", ui: "palette", items: [
       ["--c-brand", "Brand", "color"], ["--c-brand-deep", "Brand deep", "color"],
-      ["--c-accent", "Accent", "color"], ["--c-accent-ink", "Accent text", "color"] ] },
+      ["--c-accent", "Accent", "color"], ["--c-splash", "Splash (second seasonal colour)", "color"], ["--c-accent-ink", "Accent text", "color"] ] },
     { group: "Surfaces & lines", ui: "palette", items: [
       ["--c-bg", "Background", "color"], ["--c-surface", "Surface", "color"], ["--c-cream", "Cream", "color"],
       ["--c-border", "Border", "color"], ["--c-border-soft", "Border soft", "color"], ["--c-hairline", "Hairline", "color"],
@@ -71,7 +71,7 @@
     "Be Vietnam Pro", "Epilogue", "Lexend", "Mulish", "Nunito Sans", "Rubik", "Poppins", "Montserrat", "Karla",
     "Public Sans", "Red Hat Display", "Urbanist", "Figtree", "Familjen Grotesk", "Syne", "Unbounded", "Big Shoulders Display",
     "Fraunces", "Lora", "Playfair Display", "DM Serif Display", "Source Serif 4", "Spectral", "Libre Baskerville",
-    "Cormorant", "EB Garamond", "Della Respira", "Josefin Sans", "Gilda Display", "Bellefair", "Newsreader", "Bitter", "Crimson Pro", "Domine", "Instrument Serif",
+    "Cormorant", "EB Garamond", "Gilda Display", "Josefin Sans", "Della Respira", "Bellefair", "Newsreader", "Bitter", "Crimson Pro", "Domine", "Instrument Serif",
     "JetBrains Mono", "IBM Plex Mono", "Geist Mono", "Space Mono", "Fira Code", "DM Mono"];
   var WEIGHTS = ["300", "400", "500", "600", "700", "800"];
 

@@ -16,12 +16,15 @@
        "endpoint" → POSTs to formEndpoint (Formspree, Basin, Web3Forms, your
                     own API). Set formEndpoint to the URL they give you.
        "netlify"  → for sites hosted on Netlify (forms are pre-tagged).
+       "preview"  → design previews only: nothing is sent, and the success
+                    message says so.
      --------------------------------------------------------------------- */
   var CONFIG = {
     business: "Birdie Blooms",
     email: "hello@birdieblooms.co.uk",
     formMode: "mailto",
     formEndpoint: "",
+    preview: false, // true shows a small "design preview" badge
     currency: "£",
     deliveryFee: 6.5,
     freeDeliveryOver: 75,
@@ -55,7 +58,7 @@
   var ICON = {
     arrow: '<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg>',
     leaf: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 13.5C3 7 7 3 13.5 2.5 13 9 9 13 2.5 13.5Z"/><path d="M2.5 13.5 9 7"/></svg>',
-    squiggle: '<svg class="squiggle" viewBox="0 0 422 606" aria-hidden="true" focusable="false"><use href="#bb-squiggle" width="422" height="606"/></svg>'
+    squiggle: '<svg class="squiggle" viewBox="0 0 418.7 600.3" aria-hidden="true" focusable="false"><use href="#bb-squiggle" width="418.7" height="600.3"/></svg>'
   };
 
   /* ---------------------------------------------------------------------
@@ -361,6 +364,7 @@
       return fetch(CONFIG.formEndpoint, { method: "POST", body: fd, headers: { Accept: "application/json" } })
         .then(function (r) { if (!r.ok) throw new Error("bad status"); });
     }
+    if (CONFIG.formMode === "preview") return new Promise(function (res) { setTimeout(res, 400); });
     if (CONFIG.formMode === "netlify") {
       return fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(fd).toString() })
         .then(function (r) { if (!r.ok) throw new Error("bad status"); });
@@ -400,13 +404,13 @@
           if (form.hasAttribute("data-order")) {
             basket = []; store(BASKET_KEY, basket); form.reset(); attempted = false;
             drawer.classList.add("is-done"); setStep(3); renderBasket();
-            $$("[data-mailto-note]", drawer).forEach(function (n) { n.hidden = CONFIG.formMode !== "mailto"; });
+            $$("[data-mailto-note]", drawer).forEach(function (n) { noteFor(n); });
             var done = $("[data-step='3'] .form-success", drawer); if (done) { done.setAttribute("tabindex", "-1"); done.focus(); }
             return;
           }
           var shell = form.closest("[data-form-shell]") || form.parentElement;
           shell.classList.add("is-sent");
-          $$("[data-mailto-note]", shell).forEach(function (n) { n.hidden = CONFIG.formMode !== "mailto"; });
+          $$("[data-mailto-note]", shell).forEach(function (n) { noteFor(n); });
           var ok = $(".form-success", shell) || $(".is-sent-msg", shell);
           if (ok) {
             ok.setAttribute("tabindex", "-1"); ok.focus({ preventScroll: true });
@@ -432,6 +436,11 @@
         var m = $("#w-message"); if (m && !m.value) m.value = "We're interested in " + b.getAttribute("data-package") + ". ";
       });
     });
+  }
+
+  function noteFor(n) {
+    if (CONFIG.formMode === "preview") { n.textContent = "Preview only: this form isn’t connected yet, so nothing was sent."; n.hidden = false; }
+    else n.hidden = CONFIG.formMode !== "mailto";
   }
 
   /* ---------------------------------------------------------------------
@@ -512,6 +521,26 @@
     });
   }
 
+  // seasons: preview another season from the seasons page (this tab only)
+  function initSeasons() {
+    var key = "bb-season-preview";
+    $$("[data-preview-season]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        try { sessionStorage.setItem(key, b.getAttribute("data-preview-season")); } catch (e) {}
+        location.href = "index.html";
+      });
+    });
+    if (!root.hasAttribute("data-season-preview")) return;
+    var season = root.getAttribute("data-season");
+    var chip = doc.createElement("div"); chip.className = "season-chip"; chip.setAttribute("role", "status");
+    chip.innerHTML = "<span>Previewing " + esc(season) + "</span><button type=\"button\">Back to today</button>";
+    chip.querySelector("button").addEventListener("click", function () {
+      try { sessionStorage.removeItem(key); } catch (e) {}
+      location.reload();
+    });
+    doc.body.appendChild(chip);
+  }
+
   function initYear() { $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); }); }
 
   /* ---------------------------------------------------------------------
@@ -548,7 +577,7 @@
     frames.forEach(function (f, n) {
       gsap.set(f, { visibility: "visible" });
       tl.fromTo(f, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.inOut" }, 0.15 + n * 0.25)
-        .from($("img", f), { scale: 1.35, duration: 1.9, ease: "expo.out" }, 0.25 + n * 0.25);
+        .from($$("img", f).filter(function (im) { return im.offsetParent !== null; }), { scale: 1.35, duration: 1.9, ease: "expo.out" }, 0.25 + n * 0.25);
     });
     var sq = $(".hero-squiggle");
     if (sq) { var d = drawSquiggle(sq, { duration: 1.8 }); if (d) tl.add(d, 0.9); }
@@ -721,6 +750,11 @@
   initFilters();
   initQuotes();
   initYear();
+  initSeasons();
+  if (CONFIG.preview) {
+    var badge = doc.createElement("p"); badge.className = "preview-badge"; badge.textContent = "Design preview · not live yet";
+    doc.body.appendChild(badge);
+  }
   if (motionOn) {
     // wait for fonts so SplitText measures real line breaks (max 1.2s)
     var started = false;
