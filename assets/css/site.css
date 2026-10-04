@@ -808,6 +808,30 @@ h1, h2, h3, h4 {
 .form-grid-sub[hidden] { display: none; }
 .order-summary { padding: 18px 0 4px; }
 
+/* ---- products without a photo yet -------------------------------------- */
+.media-soon { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 18px; padding: 28px; text-align: center; background: var(--c-cream); }
+.media-soon .squiggle { width: 54px; height: 78px; color: var(--c-accent); }
+.media-soon p { font-family: var(--ui); font-size: 14px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--c-muted); max-width: 22ch; margin: 0; }
+.li-soon { width: 76px; height: 95px; border-radius: var(--radius-sm); background: var(--c-cream); display: grid; place-items: center; }
+.li-soon .squiggle { width: 22px; height: 32px; color: var(--c-accent); }
+
+/* ---- first edit + instagram ----------------------------------------------- */
+.edit-head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--gap) calc(var(--gap) * 2); align-items: end; margin-bottom: clamp(44px, 6vw, var(--space-xl)); }
+@media (max-width: 860px) { .edit-head { grid-template-columns: 1fr; } }
+.insta-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); }
+.insta-tile { display: grid; gap: 12px; min-width: 0; color: var(--c-ink); text-decoration: none; }
+.insta-tile .media-frame { aspect-ratio: 4 / 5; }
+.insta-tile img { transition: transform var(--dur-slow) var(--ease); }
+.insta-tile:hover img { transform: scale(1.04); }
+.insta-cap { font-family: var(--ui); font-size: 14px; letter-spacing: 0.04em; color: var(--c-muted); }
+.insta-tile:hover .insta-cap { color: var(--c-accent); }
+.insta-tile.follow { align-content: start; }
+.follow-card { aspect-ratio: 4 / 5; border-radius: var(--radius-sm); background: var(--c-cream); display: grid; place-content: center; justify-items: center; gap: 16px; padding: 24px; text-align: center; transition: background var(--dur) var(--ease); }
+.insta-tile.follow:hover .follow-card { background: var(--c-border-soft); }
+.follow-card .squiggle { width: 60px; height: 86px; color: var(--c-accent); }
+.follow-handle { font-family: var(--serif); font-size: clamp(18px, 2vw, 28px); color: var(--c-ink); overflow-wrap: anywhere; }
+@media (max-width: 900px) { .insta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .follow-card { padding: 16px; } .follow-card .squiggle { width: 44px; height: 63px; } }
+
 /* ---- brand squiggle (the swash from the B in the logo) ------------------ */
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .squiggle { display: inline-block; overflow: visible; fill: currentColor; }

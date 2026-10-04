@@ -8,8 +8,8 @@ The design brief was **high-end yet approachable, white and clean**. The researc
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Hero, values marquee, this week's flowers, ways to send, subscriptions, a weddings teaser, meet the florist, the studio notebook, and a pinned gallery |
-| `shop.html` | 12 named bouquets with size and price pickers, filters, a basket, subscription tiers, and how delivery works |
+| `index.html` | Hero (her pumpkin arrangement), values marquee, The First Edit, ways to send, subscriptions, a weddings teaser, meet the florist, the studio notebook, and an Instagram strip linking to her posts |
+| `shop.html` | The First Edit, then the wider range with size and price pickers and filters, a basket, subscription tiers, and how delivery works |
 | `weddings.html` | Approach, three packages, an à la carte price guide, a pinned 4-step process, events, FAQ, and a full wedding enquiry form |
 | `about.html` | The founder's story, "clear rules" sustainability bento, and a week in the studio |
 | `contact.html` | General enquiry form, contact details, studio hours and FAQ |
@@ -36,7 +36,7 @@ Current look:
 - **Della Respira** for headings. It's a 1920s Art Nouveau serif that sits naturally next to her wordmark.
 - **EB Garamond** for reading text.
 - **Josefin Sans** for labels, buttons and navigation. It's the font in her logo tagline, set lowercase and spaced the same way.
-- White background, chocolate ink (`#2b1f19`), and one dusty-rose accent (`#a84e62`).
+- Colours sampled from her own photos: white background, chocolate ink (`#2b1a16`), linen-curtain cream (`#f3ede4`) and one amaranth-burgundy accent (`#7a2431`).
 
 ## Brand assets: `assets/brand/`
 
@@ -53,8 +53,15 @@ The cream versions are for photos and dark backgrounds. The trace came from a 10
 
 ## Change products and prices: `assets/js/products.js`
 
-Each bouquet has a name, description, photo, category and one or more sizes with prices. Change them there and both the shop and the homepage update. Two flags change how a product behaves:
+Each bouquet has a name, description, photo, category and one or more sizes with prices. Change them there and both the shop and the homepage update.
 
+**The First Edit** (her real autumn collection from Instagram) sits at the top of the file: The Birdie Bunch, The Pumpkin Edit · Orange and The Pumpkin Edit · Ghost, at £35 each. Anything with the `edit` category is featured on the homepage and in its own section at the top of the shop. To launch the next collection, give the new products `edit` and remove it from the old ones.
+
+Everything below The First Edit is a **placeholder range** with stock photos and researched prices. Confirm, re-price or delete those.
+
+A few settings change how a product looks or behaves:
+
+- `img: null` with `placeholder: "…"` shows a cream "photo coming soon" panel with the squiggle. The Ghost pumpkin uses this until it's photographed.
 - `enquire: true` shows an **Enquire** button instead of **Add to basket**. Funeral tributes use this.
 - `badge` adds a small label to the photo.
 
@@ -85,10 +92,11 @@ Delivery fee (£6.50), the free-delivery threshold (£75) and the open days (Tue
 |---|---|---|
 | Founder name **"Hannah"** and her story | Home, About, page titles | Your real name and story |
 | Location: **Ravenstone & Kibworth, Leicestershire** (taken from her Instagram) | Footer, contact, FAQ | The exact studio address, if she wants it shown |
-| Products | `products.js` | Her real first edit from Instagram: The Pumpkin Edit (orange and ghost, £35 each) and The Birdie Bunch (£35) |
+| Ghost pumpkin photo | `products.js` (`pumpkin-edit-ghost`) | A photo of the white Pumpkin Edit (4:5, about 1080×1350) |
+| Placeholder range | `products.js`, below The First Edit | Confirm, re-price or delete |
 | Phone **07700 900418** (an Ofcom fictional number) | Footer, contact, forms | Your number |
 | `hello@birdieblooms.co.uk` and `@birdie.blooms` | `CONFIG.email` and footer links | Your real email address and Instagram |
-| **Photography** (free Pexels stock in `assets/img/`) | Everywhere | Your own photos, saved at the same file names |
+| **Photography** | Her Instagram photos (`assets/img/bb-*.webp`) are used for the hero, The First Edit, the statement and the Instagram strip. Everything else is free Pexels stock. | Her own photos as she takes them, saved at the same file names. Weddings, the studio and her portrait are the biggest gaps. |
 | **Prices, cut-offs, delivery radius** | `products.js`, `shop.html`, `weddings.html`, `policies.html` | Your real figures (current ones are set from the research) |
 | **Policies** | `policies.html` | Review them against your real terms before launch |
 | `og:image` | Each page `<head>` | Change it to an absolute URL (`https://yourdomain/assets/img/og-image.jpg`) once you have a domain |
@@ -104,7 +112,7 @@ GSAP 3.13 is loaded from cdnjs, with ScrollTrigger, SplitText and Flip. The moti
 - a values marquee that speeds up with scroll velocity
 - statement words that "ink in" as you read
 - an image that follows the cursor over the occasions list
-- a pinned horizontal gallery and a pinned wedding process
+- a pinned wedding process
 - Flip-animated shop filters
 - a fly-to-basket effect, magnetic buttons and page fades
 

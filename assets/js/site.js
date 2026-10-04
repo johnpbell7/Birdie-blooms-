@@ -74,7 +74,9 @@
     return '<article class="product" data-id="' + esc(p.id) + '" data-cat="' + esc(p.category) + '" data-reveal>' +
       '<div class="product-media" data-reveal-img>' +
         (p.badge ? '<span class="tag' + (p.badgeAccent ? " accent" : "") + '">' + esc(p.badge) + "</span>" : "") +
-        '<img src="' + esc(p.img) + '" alt="' + esc(p.alt) + '" width="' + (p.w || 800) + '" height="' + (p.h || 1000) + '" loading="' + (i < 3 ? "eager" : "lazy") + '" decoding="async">' +
+        (p.img
+          ? '<img src="' + esc(p.img) + '" alt="' + esc(p.alt) + '" width="' + (p.w || 800) + '" height="' + (p.h || 1000) + '" loading="' + (i < 3 ? "eager" : "lazy") + '" decoding="async">'
+          : '<div class="media-soon">' + ICON.squiggle + '<p>' + esc(p.placeholder || "Photo coming soon.") + "</p></div>") +
         (p.enquire ? "" : '<div class="product-quick"><button class="btn light block sm" type="button" data-add><span class="btn-label">Quick add · ' + esc(first.label) + " " + money(first.price) + "</span></button></div>") +
       "</div>" +
       '<div class="product-top"><h3 class="product-name h4">' + esc(p.name) + '</h3><p class="product-price num">' + (many ? '<span class="from">from</span>' : "") + '<span data-price>' + money(first.price) + "</span></p></div>" +
@@ -160,7 +162,7 @@
     }
     foot.hidden = step !== 1;
     list.innerHTML = basket.map(function (l, i) {
-      return '<div class="line-item"><img src="' + esc(l.img) + '" alt="" width="76" height="95" loading="lazy">' +
+      return '<div class="line-item">' + (l.img ? '<img src="' + esc(l.img) + '" alt="" width="76" height="95" loading="lazy">' : '<div class="li-soon">' + ICON.squiggle + "</div>") +
         '<div><p class="li-name">' + esc(l.name) + '</p><p class="li-meta">' + esc(l.size) + (l.cadence ? " · " + esc(l.cadence) : "") + "</p>" +
         '<div class="qty" role="group" aria-label="Quantity for ' + esc(l.name) + '"><button type="button" data-qty="-1" data-i="' + i + '" aria-label="One fewer">−</button><output aria-live="polite">' + l.qty + '</output><button type="button" data-qty="1" data-i="' + i + '" aria-label="One more">+</button></div>' +
         '<button type="button" class="li-remove" data-remove="' + i + '">Remove</button></div>' +

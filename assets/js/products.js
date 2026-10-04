@@ -1,21 +1,49 @@
 /* =========================================================================
    Birdie Blooms — the shop list.
    Edit names, words and prices here; the shop and the homepage update.
-   category: any of  hand-tied · vase · posy · dried · sympathy  (space-separated)
+   category: any of  edit · hand-tied · vase · posy · dried · sympathy  (space-separated)
+             "edit" = the current seasonal collection, shown first on the home page and shop
    sizes:    one or more { label, price } — the first is the "from" price
+   img:      a photo, or null to show a "photo coming soon" panel (set placeholder text)
    enquire:  true → shows an "Enquire" button instead of "Add to basket"
+
+   The First Edit (top three) is her real autumn collection from Instagram.
+   Everything below it is a placeholder range to confirm, re-price or delete.
    ========================================================================= */
 window.BB_PRODUCTS = [
   {
-    id: "seasonal-hand-tied",
-    name: "Seasonal Hand-tied",
-    category: "hand-tied",
-    badge: "Most loved",
-    desc: "My pick of the best stems this week, tied loose and garden-style and wrapped in recycled paper. Never the same twice.",
-    img: "assets/img/shop-seasonal-hand-tied.webp", w: 734, h: 1100,
-    alt: "A loose seasonal bouquet of orange, coral and cream flowers wrapped in deep green paper and tied with red ribbon",
-    sizes: [{ label: "Classic", price: 48 }, { label: "Generous", price: 68 }, { label: "Abundant", price: 95 }],
-    note: "Same-day when ordered by 11am"
+    id: "the-birdie-bunch",
+    name: "The Birdie Bunch",
+    category: "edit hand-tied",
+    badge: "The First Edit", badgeAccent: true,
+    desc: "A hand-tied, florist’s-choice seasonal bouquet. Dahlias, hydrangea, eucalyptus and whatever else the week brings, wrapped and ready to give.",
+    img: "assets/img/bb-birdie-bunch.webp", w: 1080, h: 1350,
+    alt: "Seen from behind, a woman in a denim jacket holds a large hand-tied bouquet of pink dahlias, white hydrangea, eucalyptus and dried grasses",
+    sizes: [{ label: "Hand-tied", price: 35 }],
+    note: "Collection or local delivery"
+  },
+  {
+    id: "pumpkin-edit-orange",
+    name: "The Pumpkin Edit · Orange",
+    category: "edit",
+    badge: "The First Edit", badgeAccent: true,
+    desc: "Seasonal flowers styled in an orange pumpkin: dahlias, burgundy hydrangea, amaranth and pincushion protea, finished with a chocolate satin bow.",
+    img: "assets/img/bb-pumpkin-orange.webp", w: 1080, h: 1350,
+    alt: "An autumn arrangement of red dahlias, burgundy hydrangea, amaranth and eucalyptus in an orange pumpkin, tied with a brown satin ribbon",
+    sizes: [{ label: "In an orange pumpkin", price: 35 }],
+    note: "Collection or local delivery"
+  },
+  {
+    id: "pumpkin-edit-ghost",
+    name: "The Pumpkin Edit · Ghost",
+    category: "edit",
+    badge: "The First Edit", badgeAccent: true,
+    desc: "A white pumpkin with a seasonal floral arrangement. Softer and paler than its orange twin, for people who like their autumn quiet.",
+    img: null,
+    placeholder: "A white pumpkin, seasonal flowers. Photo coming soon.",
+    alt: "",
+    sizes: [{ label: "In a white pumpkin", price: 35 }],
+    note: "Collection or local delivery"
   },
   {
     id: "peony-season",

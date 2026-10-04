@@ -3,41 +3,42 @@
    Every component on the site reads these CSS variables, so changing a value
    here reskins the whole site. Edit by hand, or use the style sheet page
    (index.html) to edit visually and Save back into this file.
-   Birdie Blooms — gallery white, chocolate ink, one dusty-rose accent.
+   Birdie Blooms — gallery white, chocolate ink, linen cream and one amaranth accent,
+   all sampled from her own photographs.
    Type: Della Respira (headings) · EB Garamond (reading) · Josefin Sans (labels & buttons, from the logo tagline).
    ========================================================================= */
 :root {
   /* Brand */
-  --c-brand:        #2b1f19;
-  --c-brand-deep:   #0f0d0b;
-  --c-accent:       #a84e62;
+  --c-brand:        #2b1a16;
+  --c-brand-deep:   #1a0f0c;
+  --c-accent:       #7a2431;
   --c-accent-ink:   #ffffff;
 
   /* Surfaces & lines */
   --c-bg:           #ffffff;
   --c-surface:      #ffffff;
-  --c-cream:        #f7f4ef;
-  --c-border:       #e6dfd6;
-  --c-border-soft:  #efeae3;
-  --c-hairline:     #d9d0c5;
+  --c-cream:        #f3ede4;
+  --c-border:       #e5dbcf;
+  --c-border-soft:  #eee6dc;
+  --c-hairline:     #d6c9ba;
   --nav-bg:         #ffffff;
-  --card-bg:        #f7f4ef;
-  --footer-bg:      #f7f4ef;
+  --card-bg:        #f3ede4;
+  --footer-bg:      #f3ede4;
   --input-bg:       #ffffff;
 
   /* Text */
-  --c-ink:          #2b1f19;
-  --c-body:         #3f322b;
-  --c-muted:        #6f665f;
-  --c-muted-2:      #a69c93;
+  --c-ink:          #2b1a16;
+  --c-body:         #3d2b25;
+  --c-muted:        #6a5c53;
+  --c-muted-2:      #a8998c;
   --c-on-brand:     #ffffff;
-  --c-placeholder:  #a69c93;
+  --c-placeholder:  #a8998c;
 
   /* Links & focus */
-  --c-link:         #2b1f19;
-  --c-link-hover:   #a84e62;
-  --c-ring:         #a84e62;
-  --c-selection:    #f3dde2;
+  --c-link:         #2b1a16;
+  --c-link-hover:   #7a2431;
+  --c-ring:         #7a2431;
+  --c-selection:    #f0dcd8;
   --ring-width:     2px;
   --ring-offset:    3px;
 
@@ -143,9 +144,9 @@
   --ease:           cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Effects */
-  --grad:           linear-gradient(180deg, #f7f4ef, #ffffff);
+  --grad:           linear-gradient(180deg, #f3ede4, #ffffff);
   --backdrop-blur:  18px;
   --overlay:        0.035;
-  --scrim:          rgba(43, 31, 25, 0.45);
+  --scrim:          rgba(43, 26, 22, 0.45);
 }
 
