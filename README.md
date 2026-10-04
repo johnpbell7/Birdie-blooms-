@@ -165,10 +165,7 @@ Motion is switched off for visitors who ask their device for reduced motion. All
 
 `.github/workflows/pages.yml` publishes the site every time the `ccr-6ac9390c-7l5oj2` branch is pushed. It takes about a minute. Progress shows in the repo's **Actions** tab.
 
-One-time setup:
-1. Open the repo on GitHub and go to **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. To publish without pushing, open **Actions → Publish to GitHub Pages → Run workflow**.
+**Settings → Pages → Source** is already set to **GitHub Actions**. If the site ever stops updating, check that setting first. To republish without pushing anything, open **Actions → Publish to GitHub Pages → Run workflow**.
 
 If you later rename the branch, change the branch name in the workflow too.
 
