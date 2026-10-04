@@ -641,6 +641,9 @@ h1, h2, h3, h4 {
 @media (max-width: 860px) { .footer-cols { grid-template-columns: 1fr 1fr; } .footer-cols > div:first-child { grid-column: 1 / -1; } }
 .footer-logo { max-width: 1060px; margin: 24px auto clamp(40px, 5vw, 64px); }
 .footer-logo img { width: 100%; height: auto; }
+.footer-seasons { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 16px; border-top: var(--bw) solid var(--c-border); }
+.footer-seasons p { margin: 0; min-width: 0; font-family: var(--ui); font-size: 13px; color: var(--c-muted); }
+.footer-seasons p a { color: var(--c-ink); }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-top: 24px; border-top: var(--bw) solid var(--c-border); font-size: 13px; color: var(--c-muted); }
 .footer-legal ul { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; }
 .footer-legal a { color: var(--c-muted); text-decoration: none; }
@@ -844,7 +847,7 @@ h1, h2, h3, h4 {
 .in-season { padding-block: clamp(28px, 4vw, 44px); }
 .in-season-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 36px; }
 .in-season-row .eyebrow { margin: 0; }
-.in-season-row > div { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; flex: 1; min-width: 0; }
+.in-season-row > [data-season-only] { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; flex: 1; min-width: 0; }
 .is-name { margin: 0; font-family: var(--serif); font-size: 26px; color: var(--c-ink); }
 .is-name span { font-family: var(--ui); font-size: 13px; letter-spacing: 0.08em; color: var(--c-muted); margin-left: 8px; }
 .dots { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; font-family: var(--ui); font-size: 15px; color: var(--c-body); }
@@ -852,6 +855,28 @@ h1, h2, h3, h4 {
 .dots i { width: 13px; height: 13px; border-radius: 50%; background: var(--dot); box-shadow: inset 0 0 0 1px rgba(43, 26, 22, 0.08); flex: none; }
 .dots.big { gap: 12px 26px; font-size: 17px; margin-block: var(--space-lg); }
 .dots.big i { width: 18px; height: 18px; }
+
+.in-season-foot { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; padding-top: 18px; border-top: var(--bw) solid var(--c-border); }
+
+/* ---- season switcher (footer of every page + homepage strip) ---------------- */
+.season-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; min-width: 0; font-family: var(--ui); font-size: 13px; letter-spacing: 0.05em; }
+.ss-label { margin-right: 8px; color: var(--c-muted); }
+.season-switch button { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 8px 13px 6px; border: var(--bw) solid transparent; border-radius: var(--radius-pill); background: none; color: var(--c-muted); font: inherit; letter-spacing: inherit; cursor: pointer; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease); }
+.season-switch button:hover { color: var(--c-ink); border-color: var(--c-border); }
+.season-switch button[aria-pressed="true"] { color: var(--c-ink); border-color: var(--c-accent); background: var(--c-bg); }
+/* each dot wears that season's accent and splash (data-panel sets them) */
+.season-switch i { width: 14px; height: 14px; margin-top: -2px; border-radius: 50%; flex: none; background: linear-gradient(135deg, var(--c-accent) 50%, var(--c-splash) 50%); transition: transform var(--dur-fast) var(--ease); }
+.season-switch button:hover i, .season-switch button[aria-pressed="true"] i { transform: scale(1.15); }
+.season-switch .is-today::after { content: "now"; margin-left: -2px; font-size: 10px; letter-spacing: 0.1em; color: var(--c-accent); }
+
+@media (max-width: 560px) {
+  .season-switch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px; }
+  .ss-label { grid-column: 1 / -1; margin: 0 0 2px; }
+  .season-switch button { justify-self: start; }
+}
+
+/* switching seasons cross-fades the whole page where the browser supports it */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.7s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
 
 /* ---- seasons page ----------------------------------------------------------- */
 .season-panel { padding-block: clamp(72px, 9vw, 130px); background: var(--c-cream); }
@@ -882,6 +907,9 @@ h1, h2, h3, h4 {
 
 /* ---- design-preview badge (CONFIG.preview) ------------------------------- */
 .preview-badge { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: var(--z-toast); margin: 0; padding: 9px 14px 6px; border-radius: var(--radius-pill); background: var(--c-surface); color: var(--c-ink); border: var(--bw) solid var(--c-border); box-shadow: var(--shadow); font-family: var(--ui); font-size: 12px; letter-spacing: 0.08em; pointer-events: none; }
+
+/* on phones the badge steps up out of the way of the "Back to today" chip */
+@media (max-width: 640px) { html[data-season-preview] .preview-badge { bottom: calc(72px + env(safe-area-inset-bottom, 0px)); } }
 
 /* ---- motion helpers (only hide when GSAP is driving) -------------------- */
 .js.motion [data-reveal], .js.motion [data-reveal-img] { visibility: hidden; }

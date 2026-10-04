@@ -58,10 +58,16 @@ Each season changes all of these:
 - the **tab icon** (`assets/img/favicon-*.svg`)
 - the **"in season now" flower list** and the announcement bar text
 
+**See it in any season.** Every page has a season switcher in the footer, and the homepage has one under the hero, in the "in season now" strip. Pick Winter, Spring, Summer or Autumn and the whole site cross-fades into that season's colours, photos and flower lists. Nothing reloads. "now" marks today's season.
+- The choice follows you from page to page.
+- A "Back to today" chip resets it.
+- It lasts only for that browser tab, so every new visitor sees the real season.
+
 How it works:
 - A tiny script at the top of each page sets `data-season` on `<html>` before anything is drawn, so there's no flash of the wrong colours.
 - The colours live in `assets/css/seasons.css`.
-- On **Through the seasons** (`seasons.html`), "See the site in…" previews any season. A "Back to today" chip resets it, and the preview lasts only for that browser tab.
+- The switcher is `initSeasons()` in `assets/js/site.js`.
+- The buttons on **Through the seasons** (`seasons.html`) open the homepage in the season you picked.
 
 **Seasonal photos.** Autumn uses her own photos. Winter, spring and summer use stock stand-ins: winter candles and white blooms, spring tulips, summer peonies and hydrangea. Replace them as she photographs each season's flowers. They're listed in `HERO_IMGS` near the hero in `index.html`. Also update The First Edit (`products.js`) and its "Three for autumn" heading when the next collection launches.
 
@@ -104,10 +110,12 @@ Where submissions go is set at the top of `assets/js/site.js`, in `CONFIG.formMo
 
 | `formMode` | What happens |
 |---|---|
-| `"mailto"` (default) | Opens the visitor's email app with everything filled in, addressed to `CONFIG.email`. Works anywhere with no account. |
+| `"mailto"` | Opens the visitor's email app with everything filled in, addressed to `CONFIG.email`. Works anywhere with no account. |
 | `"endpoint"` | Sends the form to `CONFIG.formEndpoint`, for example a Formspree, Basin or Web3Forms URL. **Recommended before launch.** |
 | `"netlify"` | For Netlify hosting. The forms are already tagged for Netlify Forms. |
-| `"preview"` | Design previews only. Nothing is sent, and the success message says so. Pair it with `preview: true`, which shows a small "Design preview · not live yet" badge. |
+| `"preview"` (**current setting**) | Design previews only. Nothing is sent, and the success message says so. Pair it with `preview: true`, which shows a small "Design preview · not live yet" badge. |
+
+The site is in preview mode for now, because the GitHub Pages address is public and the contact details are still placeholders. At launch, set `preview: false` and choose `"endpoint"` (or `"mailto"`/`"netlify"`).
 
 The basket sends an **order request**, not a payment. The flow is:
 1. The customer sends the request.
@@ -130,6 +138,7 @@ Delivery fee (£6.50), the free-delivery threshold (£75) and the open days (Tue
 | **Photography** | Her Instagram photos (`assets/img/bb-*.webp`) are used for the hero, The First Edit, the statement and the Instagram strip. Everything else is free Pexels stock. | Her own photos as she takes them, saved at the same file names. Weddings, the studio and her portrait are the biggest gaps. |
 | **Prices, cut-offs, delivery radius** | `products.js`, `shop.html`, `weddings.html`, `policies.html` | Your real figures (current ones are set from the research) |
 | **Policies** | `policies.html` | Review them against your real terms before launch |
+| **Preview mode** | `CONFIG.preview` and `CONFIG.formMode` in `assets/js/site.js` | `preview: false` and a real `formMode`, so orders and enquiries reach her |
 | `og:image` | Each page `<head>` | Change it to an absolute URL (`https://yourdomain/assets/img/og-image.jpg`) once you have a domain |
 
 The site deliberately has **no invented reviews, ratings or press logos**. Add real client words when you have them; under the DMCC Act 2024, fake reviews are illegal in the UK. The quote carousel on the homepage currently shows the florist's own notes.
@@ -150,6 +159,19 @@ GSAP 3.13 is loaded from cdnjs, with ScrollTrigger, SplitText and Flip. The moti
 
 Motion is switched off for visitors who ask their device for reduced motion. All content still shows if the scripts fail to load.
 
-## Deploy
+## See it live: GitHub Pages
 
-Upload the folder to any static host: Netlify, Vercel, Cloudflare Pages or GitHub Pages. `serve.py` is only for local preview.
+**https://johnpbell7.github.io/Birdie-blooms-/**
+
+`.github/workflows/pages.yml` publishes the site every time the `ccr-6ac9390c-7l5oj2` branch is pushed. It takes about a minute. Progress shows in the repo's **Actions** tab.
+
+One-time setup:
+1. Open the repo on GitHub and go to **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. To publish without pushing, open **Actions → Publish to GitHub Pages → Run workflow**.
+
+If you later rename the branch, change the branch name in the workflow too.
+
+## Deploy elsewhere
+
+Upload the folder to any static host: Netlify, Vercel, Cloudflare Pages or GitHub Pages with your own domain. `serve.py` is only for local preview.

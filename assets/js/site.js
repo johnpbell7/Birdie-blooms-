@@ -22,9 +22,9 @@
   var CONFIG = {
     business: "Birdie Blooms",
     email: "hello@birdieblooms.co.uk",
-    formMode: "mailto",
+    formMode: "preview", // design preview: nothing is sent. At launch use "mailto", "endpoint" or "netlify" (see README)
     formEndpoint: "",
-    preview: false, // true shows a small "design preview" badge
+    preview: true, // shows a small "Design preview · not live yet" badge; set to false at launch
     currency: "£",
     deliveryFee: 6.5,
     freeDeliveryOver: 75,
@@ -522,23 +522,70 @@
   }
 
   // seasons: preview another season from the seasons page (this tab only)
+  // Season switcher: [data-season-pick] recolours the site in place; [data-preview-season]
+  // (seasons page) previews a season on the homepage. Either lasts for this tab only.
   function initSeasons() {
     var key = "bb-season-preview";
+    var m = new Date().getMonth();
+    var today = m < 2 || m === 11 ? "winter" : m < 5 ? "spring" : m < 8 ? "summer" : "autumn";
+    var chip = null;
+
+    function remember(s) {
+      try { if (s === today) sessionStorage.removeItem(key); else sessionStorage.setItem(key, s); } catch (e) {}
+    }
+    function seasonImgs(s) { return $$('img[data-season-only~="' + s + '"]'); }
+    function warm(s) { seasonImgs(s).forEach(function (im) { im.loading = "eager"; }); }
+
+    function sync() {
+      var s = root.getAttribute("data-season");
+      $$("[data-season-pick]").forEach(function (b) {
+        var k = b.getAttribute("data-season-pick");
+        b.setAttribute("aria-pressed", String(k === s));
+        b.classList.toggle("is-today", k === today);
+      });
+      var previewing = s !== today;
+      root.toggleAttribute("data-season-preview", previewing);
+      if (previewing && !chip) {
+        chip = doc.createElement("div"); chip.className = "season-chip"; chip.setAttribute("role", "status");
+        chip.innerHTML = "<span></span><button type=\"button\">Back to today</button>";
+        chip.querySelector("button").addEventListener("click", function () { setSeason(today); });
+        doc.body.appendChild(chip);
+      }
+      if (chip) { chip.hidden = !previewing; chip.querySelector("span").textContent = "Previewing " + s; }
+    }
+
+    function apply(s) {
+      root.setAttribute("data-season", s);
+      var fav = doc.getElementById("favicon"); if (fav) fav.href = "assets/img/favicon-" + s + ".svg";
+      sync();
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    }
+
+    function setSeason(s) {
+      if (s === root.getAttribute("data-season")) return;
+      remember(s);
+      // let that season's hero photos arrive before the colours cross-fade (max 0.8s)
+      var imgs = seasonImgs(s); warm(s);
+      var ready = Promise.all(imgs.map(function (im) { return im.decode ? im.decode().catch(function () {}) : null; }));
+      Promise.race([ready, new Promise(function (r) { setTimeout(r, 800); })]).then(function () {
+        if (doc.startViewTransition && !reduceMotion) doc.startViewTransition(function () { apply(s); });
+        else apply(s);
+      });
+    }
+
+    $$("[data-season-pick]").forEach(function (b) {
+      var s = b.getAttribute("data-season-pick");
+      b.addEventListener("click", function () { setSeason(s); });
+      b.addEventListener("pointerenter", function () { warm(s); });
+      b.addEventListener("focus", function () { warm(s); });
+    });
     $$("[data-preview-season]").forEach(function (b) {
       b.addEventListener("click", function () {
-        try { sessionStorage.setItem(key, b.getAttribute("data-preview-season")); } catch (e) {}
+        remember(b.getAttribute("data-preview-season"));
         location.href = "index.html";
       });
     });
-    if (!root.hasAttribute("data-season-preview")) return;
-    var season = root.getAttribute("data-season");
-    var chip = doc.createElement("div"); chip.className = "season-chip"; chip.setAttribute("role", "status");
-    chip.innerHTML = "<span>Previewing " + esc(season) + "</span><button type=\"button\">Back to today</button>";
-    chip.querySelector("button").addEventListener("click", function () {
-      try { sessionStorage.removeItem(key); } catch (e) {}
-      location.reload();
-    });
-    doc.body.appendChild(chip);
+    sync();
   }
 
   function initYear() { $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); }); }
