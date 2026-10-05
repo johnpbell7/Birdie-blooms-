@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="../assets/img/favicon-autumn.svg?v=3" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=IM+Fell+English:ital@0;1&family=Young+Serif&family=Josefin+Sans:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Newsreader:opsz,wght@6..72,400&family=IM+Fell+English:ital@0;1&family=Young+Serif&family=Josefin+Sans:wght@300;400;600&display=swap">
 <style>
   :root { --ink: #2b1a16; --paper: #fbfaf8; --muted: #7a6c64; --line: rgba(43, 26, 22, 0.12); --gut: clamp(16px, 4vw, 56px); }
   * { box-sizing: border-box; }
@@ -40,6 +40,8 @@
   .shots:hover .desk { transform: translateY(-6px); }
   .shots:hover .phone { transform: translateY(-12px); }
 
+  .d0 h2 { font-family: "Newsreader", Georgia, serif; }
+  .tag.new { background: #2b1a16; }
   .d1 h2 { font-family: "Josefin Sans", sans-serif; font-weight: 300; }
   .d2 h2 { font-family: "Gilda Display", Georgia, serif; }
   .d3 h2 { font-family: "IM Fell English", Georgia, serif; font-style: italic; }
@@ -54,14 +56,25 @@
 <body>
 <header class="wrap">
   <span class="mark" role="img" aria-label="Birdie Blooms"></span>
-  <h1>Four directions</h1>
-  <p>Same content in each: one line, three bouquets, weddings, a way to say hello. Pick one, or mix and match.</p>
+  <h1>Directions</h1>
+  <p>The newest is at the top. Studio is the bold rebuild, a mix of Worm and Petalon.</p>
 </header>
 
 <main class="wrap">
+  <section class="dir d0">
+    <div>
+      <span class="num">05</span><span class="tag new">new · bold</span>
+      <h2>Studio</h2>
+      <p>Worm × Petalon. Her logo huge over her flowers, solid colour blocks, one sturdy serif, chunky ink drawings, photo collages, the Birdie Card and reviews.</p>
+      <ul class="chips" aria-label="Colours"><li style="--c:#2b1a16"></li><li style="--c:#e0662c"></li><li style="--c:#f4e4a4"></li><li style="--c:#f7e2d0"></li><li style="--c:#fbf7f0"></li></ul>
+      <div class="opens"><a class="open" href="studio.html">open it</a></div>
+    </div>
+    <a class="shots" href="studio.html" aria-label="Open Studio"><img class="desk" src="shots/studio-d.jpg" alt="" width="1200" height="750"><img class="phone" src="shots/studio-m.jpg" alt="" width="390" height="844"></a>
+  </section>
+
   <section class="dir d1">
     <div>
-      <span class="num">01</span><span class="tag">your pick · developed</span>
+      <span class="num">01</span><span class="tag">developed</span>
       <h2>Signature</h2>
       <p>The logo leads. One accent colour that follows the seasons, her B as a pattern and a stamp, and thin accent lines.</p>
       <ul class="chips" aria-label="Colours"><li style="--c:#2b1a16"></li><li style="--c:#b3303b"></li><li style="--c:#cf4f78"></li><li style="--c:#3d62c2"></li><li style="--c:#d9662e"></li></ul>
