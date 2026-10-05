@@ -556,6 +556,8 @@
         doc.body.appendChild(chip);
       }
       if (chip) { chip.hidden = !previewing; chip.querySelector("span").textContent = "Previewing " + s; }
+      $$("[data-season-name]").forEach(function (el) { el.textContent = s; });
+      $$("[data-season-reset]").forEach(function (el) { el.hidden = !previewing; });
     }
 
     function apply(s) {
@@ -563,6 +565,8 @@
       var fav = doc.getElementById("favicon"); if (fav) fav.href = "assets/img/favicon-" + s + ".svg?v=3";
       sync();
       if (window.ScrollTrigger) ScrollTrigger.refresh();
+      // the little window onto the site gives a nudge, so you see your choice land
+      if (motionOn) $$(".es-window").forEach(function (w) { gsap.fromTo(w, { scale: 0.96, rotation: -1.5 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(2.2)" }); });
     }
 
     function setSeason(s) {
@@ -583,6 +587,7 @@
       b.addEventListener("pointerenter", function () { warm(s); });
       b.addEventListener("focus", function () { warm(s); });
     });
+    $$("[data-season-reset]").forEach(function (b) { b.addEventListener("click", function () { setSeason(today); }); });
     $$("[data-preview-season]").forEach(function (b) {
       b.addEventListener("click", function () {
         remember(b.getAttribute("data-preview-season"));

@@ -175,6 +175,7 @@ h1, h2, h3, h4 {
   letter-spacing: 0.12em; text-transform: uppercase;
 }
 .link:hover, .text-link:hover { color: var(--c-ink); }
+button.text-link { border-width: 0 0 var(--bw); border-style: solid; border-color: currentColor; padding: 0 0 6px; background: none; cursor: pointer; }
 .link .arrow, .text-link .arrow { width: 18px; height: 18px; flex: none; transition: transform var(--dur) var(--ease); }
 .link:hover .arrow, .text-link:hover .arrow { transform: translateX(4px); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 30px; }
@@ -275,20 +276,67 @@ h1, h2, h3, h4 {
 .js.motion .hero-mark .wm, .js.motion .hero-line, .js.motion .hero-center .btn { visibility: hidden; }
 @media (max-width: 860px) { .hero-center { gap: 24px; } }
 
-/* ---- intro + in season now ----------------------------------------------- */
+/* ---- intro ------------------------------------------------------------------ */
 .intro { text-align: center; padding-block: var(--sec-y); }
 .intro-text { max-width: 24ch; margin-inline: auto; }
-.in-season { display: grid; justify-items: center; gap: 18px; margin-top: clamp(56px, 7vw, 96px); padding-top: var(--space-lg); border-top: var(--bw) solid var(--c-ink); }
-.in-season .eyebrow { margin: 0; }
-.in-season-list > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; }
-.is-name { margin: 0; font-family: var(--serif); font-size: 30px; line-height: 1.1; color: var(--c-ink); }
-.is-name span { margin-left: 8px; font-family: var(--ui); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); }
 .dots { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin: 0; padding: 0; font-size: 19px; color: var(--c-body); }
 .dots li { display: inline-flex; align-items: center; gap: 9px; }
 .dots i { width: 14px; height: 14px; border-radius: 50%; background: var(--dot); border: var(--bw) solid var(--c-ink); flex: none; }
 .dots.big { justify-content: flex-start; gap: 12px 26px; font-size: 20px; margin-block: var(--space-lg); }
 .dots.big i { width: 20px; height: 20px; }
-.in-season-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 32px; margin-top: 8px; }
+
+/* ---- flowers for every season: tap one and watch the site change ---------- */
+.every-season { padding-block: var(--sec-y); }
+.es-head { max-width: 760px; margin: 0 auto clamp(48px, 6vw, 80px); text-align: center; }
+.es-head .h2 { margin-bottom: var(--space-md); }
+.es-head .lede { max-width: 46ch; margin-inline: auto; }
+.es-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.es-hint { margin: 0 0 20px; font-family: var(--ui); font-size: var(--fs-caption); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-ink); }
+.es-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 22px); }
+/* each card wears its own season's colours (data-panel sets them) */
+.es-card { position: relative; display: grid; justify-items: start; align-content: start; gap: 6px; padding: 22px 20px 20px; border: var(--card-bw) solid var(--c-brand); border-radius: var(--card-radius); background: var(--c-surface); color: var(--c-brand); font: inherit; text-align: left; cursor: pointer; transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+.es-card:hover { transform: translate(-3px, -3px); box-shadow: 5px 6px 0 var(--c-brand); }
+.es-card[aria-pressed="true"] { background: var(--c-bloom); color: var(--c-on-bloom); transform: translate(-4px, -4px); box-shadow: var(--shadow-hard); }
+.es-dot { display: grid; place-items: center; width: 64px; aspect-ratio: 1; margin-bottom: 10px; border: var(--bw) solid var(--c-brand); border-radius: 50%; background: var(--c-bloom); color: var(--c-on-bloom); transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+.es-card[aria-pressed="true"] .es-dot { background: var(--c-bg); color: var(--c-brand); }
+.es-illo { width: 54%; color: inherit; }
+.es-illo [stroke] { stroke-width: 4.5; }
+.es-name { font-family: var(--serif); font-size: clamp(26px, 2.4vw, 34px); line-height: 1; }
+.es-months { font-family: var(--ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+.es-makes { margin-top: 4px; font-size: 16px; line-height: 1.35; }
+.es-today { display: none; position: absolute; top: -13px; right: 16px; padding: 6px 11px 4px; border-radius: var(--radius-pill); background: var(--c-brand); color: var(--c-bg); font-family: var(--ui); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.es-card.is-today .es-today { display: block; }
+/* a little window onto the site, drawn in whichever season is showing */
+.es-preview { margin: 0; }
+.es-window { overflow: hidden; border: var(--bw) solid var(--c-brand); border-radius: var(--card-radius); background: var(--c-bg); box-shadow: var(--shadow-hard); }
+.es-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: var(--bw) solid var(--c-brand); }
+.es-bar i { width: 10px; height: 10px; border: 1.5px solid var(--c-brand); border-radius: 50%; }
+.es-bar span { margin-left: 10px; font-family: var(--ui); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--c-muted); }
+.es-hero { position: relative; isolation: isolate; display: grid; justify-items: center; align-content: center; gap: 12px; aspect-ratio: 16 / 9; padding: 20px; overflow: hidden; color: var(--c-on-brand); text-align: center; }
+.es-hero img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+.es-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--grad); }
+.es-hero .wm-mark { width: 76%; }
+.es-line { font-family: var(--serif); font-size: clamp(16px, 1.7vw, 22px); line-height: 1.1; }
+.es-btn { padding: 8px 14px 6px; border: 1.5px solid var(--c-brand); border-radius: var(--radius-pill); background: var(--c-brand); color: var(--c-bg); font-family: var(--ui); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.es-btn.light { border-color: var(--c-bg); background: var(--c-bg); color: var(--c-brand); }
+.es-block { display: grid; gap: 12px; padding: 18px 20px 20px; background: var(--c-bloom); color: var(--c-on-bloom); }
+.es-block .es-btn { justify-self: start; border-color: var(--c-on-bloom); background: var(--c-on-bloom); color: var(--c-bloom); }
+.es-title { font-family: var(--serif); font-size: 20px; line-height: 1; }
+.es-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.es-tiles i { aspect-ratio: 5 / 3; border-radius: 4px; background: color-mix(in srgb, var(--c-on-bloom) 22%, transparent); }
+.es-strip { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 20px; background: var(--c-butter); color: var(--c-brand); }
+.es-stamps { display: flex; gap: 6px; }
+.es-stamps i { width: 18px; height: 18px; border: 1.5px dashed var(--c-brand); border-radius: 50%; }
+.es-stamps i.on { border-style: solid; background: var(--c-bloom); }
+.es-cap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 20px; margin-top: 24px; font-size: 18px; }
+.es-cap b { font-weight: 600; text-transform: capitalize; }
+@media (max-width: 900px) { .es-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) {
+  .es-card { padding: 16px 14px 14px; }
+  .es-dot { width: 48px; margin-bottom: 6px; }
+  .es-makes { display: none; }
+  .es-today { right: 10px; }
+}
 
 /* ---- season switcher (footer of every page + homepage intro) -------------- */
 .season-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }

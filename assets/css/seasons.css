@@ -58,5 +58,5 @@ html[data-season="autumn"] [data-season-only]:not([data-season-only~="autumn"]),
 html:not([data-season]) [data-season-only]:not([data-season-only~="autumn"]) { display: none !important; }
 
 /* colour blocks recolour smoothly when a preview switches season */
-.bloom, .pastel, .page-hero, .season-switch i, .stamps li { transition: background-color var(--dur-slow) var(--ease), color var(--dur-slow) var(--ease); }
-@media (prefers-reduced-motion: reduce) { .bloom, .pastel, .page-hero, .season-switch i, .stamps li { transition: none; } }
+.bloom, .pastel, .page-hero, .season-switch i, .stamps li, .es-block, .es-stamps i { transition: background-color var(--dur-slow) var(--ease), color var(--dur-slow) var(--ease); }
+@media (prefers-reduced-motion: reduce) { .bloom, .pastel, .page-hero, .season-switch i, .stamps li, .es-block, .es-stamps i { transition: none; } }

@@ -8,7 +8,7 @@ The look is **Studio**: bold and certain rather than light and airy. Her photos 
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Full-screen hero (her photo with the logo big across it and "Flowers for big days, and Tuesdays."), a pastel intro with what's in season, flowers-to-send and weddings collages, The First Edit on the season's colour, ways to send, the Birdie Card, subscriptions, a full-bleed weddings band, the studio notebook, meet the florist, and an Instagram strip linking to her posts |
+| `index.html` | Full-screen hero (her photo with the logo big across it and "Flowers for big days, and Tuesdays."), a pastel intro, flowers-to-send and weddings collages, "Flowers for every season" (she makes flowers all year round; tap a season to see the site in its colours, with a mini preview of the site that changes as you pick), The First Edit on the season's colour, ways to send, the Birdie Card, subscriptions, a full-bleed weddings band, the studio notebook, meet the florist, and an Instagram strip linking to her posts |
 | `shop.html` | The First Edit, then the wider range with size and price pickers and filters, a basket, subscription tiers, and how delivery works |
 | `weddings.html` | Approach, three packages, an à la carte price guide, a pinned 4-step process, events, FAQ, and a full wedding enquiry form |
 | `about.html` | The founder's story, "clear rules" sustainability bento, and a week in the studio |
@@ -60,10 +60,9 @@ Each season changes all of these:
 - the **accent**: link hovers and small touches
 - the **homepage photo**
 - the **tab icon** (`assets/img/favicon-*.svg`)
-- the **"in season now" flower list**
 - the close-up colour textures on **Through the seasons** (`assets/img/season-*.webp`)
 
-**See it in any season.** Every page has a season switcher in the footer, and the homepage has one in its intro, under "In season now". Pick Winter, Spring, Summer or Autumn and the whole site cross-fades into that season's colours, photos and flower lists. Nothing reloads. "now" marks today's season.
+**See it in any season.** Every page has a season switcher in the footer. On the homepage, the **Flowers for every season** section has four season cards: tap one and the section, the card, a little preview of the site and everything below it change to that season's colours and photo. "This season" marks today's season, and "Back to today" returns to it. The cards say what she makes in each season (wreaths and winter weddings, Mother's Day and Easter, wedding season and garden parties, harvest tables and pumpkin edits), not which flowers will be available, because that changes week to week. Pick Winter, Spring, Summer or Autumn and the whole site cross-fades into that season's colours, photos and flower lists. Nothing reloads. "now" marks today's season.
 - The choice follows you from page to page.
 - A "Back to today" chip resets it.
 - It lasts only for that browser tab, so every new visitor sees the real season.
