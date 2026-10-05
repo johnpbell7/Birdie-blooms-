@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Birdie Blooms · 1 Signature</title>
 <meta name="robots" content="noindex">
-<link rel="icon" id="favicon" href="../assets/img/favicon-autumn.svg" type="image/svg+xml">
+<link rel="icon" id="favicon" href="../assets/img/favicon-autumn.svg?v=3" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Josefin+Sans:wght@300;400;600&display=swap">
 <script>
@@ -14,7 +14,7 @@
     var r = d.documentElement, m = new Date().getMonth();
     var s = m < 2 || m === 11 ? "winter" : m < 5 ? "spring" : m < 8 ? "summer" : "autumn";
     r.setAttribute("data-season", s); r.setAttribute("data-today", s);
-    d.getElementById("favicon").href = "../assets/img/favicon-" + s + ".svg";
+    d.getElementById("favicon").href = "../assets/img/favicon-" + s + ".svg?v=3";
     setTimeout(function () { if (!window.gsap) r.classList.remove("m"); }, 2500);
   })(document);
 </script>
@@ -44,14 +44,14 @@
 
   /* brand marks, coloured by currentColor */
   .mark { display: block; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
-  .wordmark { --src: url("../assets/brand/birdie-blooms-wordmark.svg"); aspect-ratio: 6174 / 828; }
-  .logo { --src: url("../assets/brand/birdie-blooms-logo.svg"); aspect-ratio: 6174 / 1312; }
-  .mono { --src: url("../assets/brand/birdie-blooms-monogram.svg"); aspect-ratio: 597 / 817; }
+  .wordmark { --src: url("../assets/brand/birdie-blooms-wordmark.svg?v=3"); aspect-ratio: 6174 / 828; }
+  .logo { --src: url("../assets/brand/birdie-blooms-logo.svg?v=3"); aspect-ratio: 6174 / 1312; }
+  .mono { --src: url("../assets/brand/birdie-blooms-monogram.svg?v=3"); aspect-ratio: 597 / 817; }
 
   /* the B monogram pattern: faint, in the season's colour, fading out */
   .pat { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; border-radius: inherit; }
   .pat i { position: absolute; inset: -160px; background: var(--accent); opacity: 0.12; transition: background-color 0.8s var(--ease);
-    -webkit-mask: url("../assets/brand/birdie-blooms-pattern.svg") 0 0 / 128px repeat; mask: url("../assets/brand/birdie-blooms-pattern.svg") 0 0 / 128px repeat;
+    -webkit-mask: url("../assets/brand/birdie-blooms-pattern.svg?v=3") 0 0 / 128px repeat; mask: url("../assets/brand/birdie-blooms-pattern.svg?v=3") 0 0 / 128px repeat;
     animation: drift 60s linear infinite; }
   @keyframes drift { to { transform: translate(128px, 128px); } }
   .fade-down { -webkit-mask-image: linear-gradient(180deg, #000 10%, transparent 85%); mask-image: linear-gradient(180deg, #000 10%, transparent 85%); }
@@ -258,7 +258,7 @@
     function sync() { btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.s === r.dataset.season)); }); }
     btns.forEach(function (b) { b.addEventListener("click", function () {
       r.setAttribute("data-season", b.dataset.s);
-      document.getElementById("favicon").href = "../assets/img/favicon-" + b.dataset.s + ".svg";
+      document.getElementById("favicon").href = "../assets/img/favicon-" + b.dataset.s + ".svg?v=3";
       sync();
     }); });
     sync();

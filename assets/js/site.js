@@ -556,7 +556,7 @@
 
     function apply(s) {
       root.setAttribute("data-season", s);
-      var fav = doc.getElementById("favicon"); if (fav) fav.href = "assets/img/favicon-" + s + ".svg";
+      var fav = doc.getElementById("favicon"); if (fav) fav.href = "assets/img/favicon-" + s + ".svg?v=3";
       sync();
       if (window.ScrollTrigger) ScrollTrigger.refresh();
     }
