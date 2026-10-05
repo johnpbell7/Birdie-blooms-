@@ -1,10 +1,10 @@
-# Publishes the site to GitHub Pages every time this branch is pushed.
+# Publishes the site to GitHub Pages every time one of these branches is pushed.
 # Settings → Pages → Build and deployment → Source must be "GitHub Actions".
 name: Publish to GitHub Pages
 
 on:
   push:
-    branches: [ccr-6ac9390c-7l5oj2]
+    branches: [ccr-6ac9390c-7l5oj2, claude/modest-noether-try4h3]
   workflow_dispatch:
 
 permissions:
