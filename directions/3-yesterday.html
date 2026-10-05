@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB" class="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birdie Blooms · 3 Yesterday</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon-autumn.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Josefin+Sans:wght@300;400;600&display=swap">
+<script>setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove("m"); }, 2500);</script>
+<style>
+  /* Direction 3 — Yesterday: "flowers with a little bit of yesterday", told like an old florist's shop. */
+  :root { --ink: #3a2a20; --paper: #f3ebdd; --card: #f8f2e7; --rose: #a3574f; --sage: #6f7e5f; --rule: rgba(58, 42, 32, 0.4); --gut: clamp(16px, 4vw, 56px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); font: 300 17px/1.6 "Josefin Sans", "Futura", system-ui, sans-serif;
+    background: var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .16 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, .fell { font-family: "IM Fell English", "Garamond", Georgia, serif; font-weight: 400; margin: 0; text-wrap: balance; }
+  .wrap { padding-inline: var(--gut); max-width: 1240px; margin-inline: auto; }
+  .mark { display: block; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+  .logo { --src: url("../assets/brand/birdie-blooms-logo.svg"); aspect-ratio: 6174 / 1312; }
+  .squiggle { --src: url("../assets/brand/birdie-blooms-squiggle.svg"); aspect-ratio: 1256 / 1801; }
+  .caps { font-size: 12px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; }
+  .oval { border-radius: 50%; overflow: hidden; }
+  .rule { border: 0; border-top: 3px double var(--rule); margin: 0; }
+
+  .est { margin: 0; text-align: center; padding-block: 12px 10px; }
+  .top { text-align: center; padding-block: clamp(44px, 6vw, 80px) 0; }
+  .top .logo { width: min(720px, 88vw); margin-inline: auto; }
+  .top nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 34px; margin-top: 34px; }
+  .top nav a:hover { color: var(--rose); }
+
+  .cameo { margin-block: 0; display: grid; justify-items: center; padding-block: clamp(48px, 7vw, 90px) 0; }
+  .cameo .frame { padding: 10px; border: 1px solid var(--rule); border-radius: 50%; }
+  .cameo .oval { width: clamp(240px, 26vw, 340px); aspect-ratio: 4 / 5; }
+  .cameo img { width: 100%; height: 100%; object-fit: cover; }
+  .cameo figcaption { margin-top: 18px; font-family: "IM Fell English", Georgia, serif; font-style: italic; font-size: 18px; color: var(--rose); }
+
+  .strap { text-align: center; padding-block: clamp(56px, 8vw, 100px) clamp(80px, 10vw, 130px); }
+  .strap p { margin: 0 auto; max-width: 16ch; font-family: "IM Fell English", Georgia, serif; font-style: italic; font-size: clamp(36px, 4.6vw, 66px); line-height: 1.08; text-wrap: balance; }
+  .btn { display: inline-block; margin-top: 40px; padding: 15px 28px 12px; border: 3px double var(--ink); transition: background-color 0.3s, color 0.3s; }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+
+  .book-head { display: flex; justify-content: center; align-items: center; gap: 22px; margin-bottom: 44px; font-size: clamp(34px, 3.6vw, 50px); }
+  .book-head::before, .book-head::after { content: ""; width: clamp(28px, 6vw, 72px); border-top: 1px solid var(--rose); }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
+  .ticket { display: grid; justify-items: center; text-align: center; padding: 30px 26px 28px; background: var(--card); border: 1px solid var(--rule); outline: 1px solid var(--rule); outline-offset: -8px; }
+  .ticket .oval { width: 78%; aspect-ratio: 4 / 5; }
+  .ticket img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .ticket:hover img { transform: scale(1.05); }
+  .ticket .no { margin: 22px 0 0; color: var(--rose); }
+  .ticket h3 { margin-top: 6px; font-size: 27px; }
+  .price { margin-bottom: 0; display: flex; align-items: baseline; gap: 10px; width: 100%; margin-top: 12px; font-size: 16px; }
+  .price::before { content: ""; flex: 1; border-bottom: 1px dotted var(--rule); }
+  .price span:first-child { order: -1; }
+
+  .weddings { text-align: center; padding-block: clamp(96px, 12vw, 150px) clamp(80px, 10vw, 120px); }
+  .weddings .frame { display: inline-block; padding: 10px; border: 1px solid var(--rule); border-radius: 50%; }
+  .weddings .oval { width: clamp(220px, 22vw, 290px); aspect-ratio: 4 / 5; }
+  .weddings img { width: 100%; height: 100%; object-fit: cover; }
+  .weddings h2 { margin-top: 34px; font-size: clamp(36px, 4vw, 56px); font-style: italic; }
+  .weddings a { display: inline-block; margin-top: 18px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+  footer { text-align: center; padding-block: 56px 120px; }
+  footer .rule { margin-bottom: 56px; }
+  footer svg { width: 132px; height: 132px; color: var(--sage); }
+  footer p { margin: 26px 0 0; }
+
+  @media (max-width: 760px) { .grid3 { grid-template-columns: 1fr; gap: 28px; } .top nav { gap: 8px 22px; } }
+  .m [data-hero], .m [data-rise] { visibility: hidden; }
+
+  .cn { position: fixed; z-index: 50; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; gap: 4px; padding: 5px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14); font: 400 12px/1 system-ui, sans-serif; letter-spacing: 0.02em; white-space: nowrap; }
+  .cn a, .cn span { padding: 9px 13px; border-radius: 999px; color: #222; }
+  .cn span { background: #222; color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap"><hr class="rule"><p class="est caps">est. 2026 · ravenstone &amp; kibworth · leicestershire</p><hr class="rule"></div>
+
+<header class="top wrap">
+  <h1><span class="mark logo" role="img" aria-label="Birdie Blooms, flowers with a little bit of yesterday" data-hero></span></h1>
+  <nav class="caps" aria-label="Primary" data-hero><a href="#book">shop</a><a href="#weddings">weddings</a><a href="#about">about</a><a href="#book">order</a></nav>
+</header>
+
+<main>
+  <figure class="cameo wrap">
+    <div class="frame" data-hero><div class="oval"><img src="../assets/img/bb-bunch-detail.webp" alt="A hand-tied bouquet of dahlias, hydrangea and wheat"></div></div>
+    <figcaption data-hero>The Birdie Bunch, this autumn</figcaption>
+  </figure>
+
+  <section class="strap wrap">
+    <p data-rise>Flowers for big days, and Tuesdays.</p>
+    <a class="btn caps" href="#book" data-rise>order flowers</a>
+  </section>
+
+  <section class="book wrap" id="book">
+    <h2 class="book-head" data-rise>The Order Book</h2>
+    <div class="grid3">
+      <a class="ticket" href="#" data-rise><div class="oval"><img src="../assets/img/bb-birdie-bunch.webp" alt="" loading="lazy"></div><p class="no caps">No. 1</p><h3>The Birdie Bunch</h3><p class="price"><span>hand-tied</span><span>£35</span></p></a>
+      <a class="ticket" href="#" data-rise><div class="oval"><img src="../assets/img/bb-pumpkin-orange.webp" alt="" loading="lazy"></div><p class="no caps">No. 2</p><h3>The Pumpkin Edit</h3><p class="price"><span>arranged</span><span>£35</span></p></a>
+      <a class="ticket" href="#" data-rise><div class="oval"><img src="../assets/img/bb-motion.webp" alt="" loading="lazy"></div><p class="no caps">No. 3</p><h3>Florist’s Choice</h3><p class="price"><span>wrapped</span><span>from £30</span></p></a>
+    </div>
+  </section>
+
+  <section class="weddings wrap" id="weddings">
+    <div class="frame" data-rise><div class="oval"><img src="../assets/img/wed-bride-garden.webp" alt="A bride holding a garden bouquet" loading="lazy"></div></div>
+    <h2 data-rise>Weddings, by appointment</h2>
+    <a class="caps" href="#" data-rise>write to me</a>
+  </section>
+</main>
+
+<footer class="wrap" id="about">
+  <hr class="rule">
+  <svg viewBox="0 0 140 140" role="img" aria-label="Birdie Blooms stamp" data-rise>
+    <defs><path id="ring" d="M70 70m-52 0a52 52 0 1 1 104 0a52 52 0 1 1-104 0"/></defs>
+    <circle cx="70" cy="70" r="68" fill="none" stroke="currentColor"/>
+    <circle cx="70" cy="70" r="38" fill="none" stroke="currentColor" stroke-width=".8"/>
+    <text font-family="Josefin Sans, sans-serif" font-size="11" letter-spacing="3.2" fill="currentColor"><textPath href="#ring">BIRDIE BLOOMS · EST. 2026 · LEICESTERSHIRE ·</textPath></text>
+    <image href="../assets/brand/birdie-blooms-monogram.svg" x="56" y="51" width="28" height="38"/>
+  </svg>
+  <p class="caps">@birdie.blooms · hello@birdieblooms.co.uk</p>
+</footer>
+
+<nav class="cn" aria-label="Concepts"><a href="2-ribbon.html">← Back</a><span>3 Yesterday</span><a href="4-bloom.html">Next →</a></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>

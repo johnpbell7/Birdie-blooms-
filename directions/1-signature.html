@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-GB" class="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birdie Blooms · 1 Signature</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon-autumn.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap">
+<script>setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove("m"); }, 2500);</script>
+<style>
+  /* Direction 1 — Signature: the logo is the website. White, chocolate ink, her photos bring the colour. */
+  :root { --ink: #2b1a16; --paper: #ffffff; --soft: #f6f2ee; --line: rgba(43, 26, 22, 0.14); --gut: clamp(16px, 4vw, 56px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 300 17px/1.6 "Josefin Sans", "Futura", system-ui, sans-serif; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { padding-inline: var(--gut); }
+  .mark { display: block; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+  .wordmark { --src: url("../assets/brand/birdie-blooms-wordmark.svg"); aspect-ratio: 6174 / 828; }
+  .mono { --src: url("../assets/brand/birdie-blooms-monogram.svg"); aspect-ratio: 597 / 817; }
+  .label { font-size: 13px; font-weight: 400; letter-spacing: 0.16em; text-transform: lowercase; }
+
+  header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-block: 22px; }
+  header nav { display: flex; gap: 28px; }
+  header .mono { width: 22px; }
+  header .order { justify-self: end; }
+  header a:hover { opacity: 0.6; }
+
+  .hero { padding-top: clamp(32px, 7vh, 88px); }
+  .hero h1 { margin: 0; }
+  .hero .wordmark { width: 100%; }
+  .hero-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: clamp(18px, 2.4vw, 32px); padding-bottom: clamp(36px, 5vw, 64px); }
+
+  .spread { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(8px, 1.2vw, 16px); }
+  .spread figure { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
+  .spread img { width: 100%; height: 112%; object-fit: cover; }
+
+  .statement { text-align: center; padding-block: clamp(96px, 14vw, 200px); }
+  .statement p { margin: 0 auto; max-width: 13ch; font-size: clamp(38px, 5.6vw, 84px); line-height: 1.06; letter-spacing: -0.01em; text-wrap: balance; }
+  .btn { display: inline-block; margin-top: 44px; padding: 17px 30px 13px; border: 1px solid var(--ink); border-radius: 999px; font-size: 14px; font-weight: 400; letter-spacing: 0.14em; text-transform: lowercase; transition: background-color 0.3s, color 0.3s; }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+
+  .edit h2 { margin: 0 0 28px; font-weight: 400; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 28px); }
+  .card figure { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--soft); }
+  .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .card:hover img { transform: scale(1.04); }
+  .card p { display: flex; justify-content: space-between; margin: 14px 0 0; font-size: 18px; }
+
+  .weddings { position: relative; margin-top: clamp(96px, 14vw, 200px); height: min(92vh, 860px); overflow: hidden; color: #fff; }
+  .weddings img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 45%; }
+  .weddings::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(43, 26, 22, 0.45), rgba(43, 26, 22, 0) 45%); }
+  .weddings div { position: absolute; z-index: 1; left: var(--gut); right: var(--gut); bottom: clamp(28px, 5vw, 64px); display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+  .weddings h2 { margin: 0; font-weight: 300; font-size: clamp(48px, 9vw, 140px); line-height: 0.9; letter-spacing: -0.02em; }
+  .weddings a { border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+
+  footer { text-align: center; padding-block: clamp(80px, 10vw, 140px) 110px; }
+  footer .logo { --src: url("../assets/brand/birdie-blooms-logo.svg"); aspect-ratio: 6174 / 1312; width: min(420px, 80vw); margin: 0 auto 36px; }
+  footer ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 32px; margin: 0; padding: 0; }
+
+  @media (max-width: 720px) {
+    header { grid-template-columns: 1fr auto; }
+    header nav { display: none; }
+    header .mono { justify-self: start; }
+    .spread { grid-template-columns: 1fr; }
+    .spread figure + figure { display: none; }
+    .grid3 { grid-template-columns: 1fr; gap: 36px; }
+  }
+  .m [data-hero], .m [data-rise] { visibility: hidden; }
+
+  /* concept navigation (not part of the design) */
+  .cn { position: fixed; z-index: 50; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; gap: 4px; padding: 5px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14); font: 400 12px/1 system-ui, sans-serif; letter-spacing: 0.02em; white-space: nowrap; }
+  .cn a, .cn span { padding: 9px 13px; border-radius: 999px; color: #222; }
+  .cn span { background: #222; color: #fff; }
+</style>
+</head>
+<body>
+<header class="wrap label">
+  <nav aria-label="Primary"><a href="#edit">shop</a><a href="#weddings">weddings</a><a href="#about">about</a></nav>
+  <a href="#" aria-label="Birdie Blooms, home"><span class="mark mono"></span></a>
+  <a class="order" href="#edit">order flowers</a>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1><span class="mark wordmark" role="img" aria-label="Birdie Blooms" data-hero></span></h1>
+    <div class="hero-row label" data-hero><span>flowers with a little bit of yesterday</span><span>ravenstone &amp; kibworth</span></div>
+  </section>
+
+  <section class="spread wrap" aria-label="Her flowers">
+    <figure data-wipe><img src="../assets/img/bb-birdie-bunch.webp" alt="A bouquet of dahlias and hydrangea carried over a shoulder" data-drift></figure>
+    <figure data-wipe><img src="../assets/img/bb-pumpkin-orange.webp" alt="An autumn arrangement with dahlias and a small pumpkin" data-drift></figure>
+  </section>
+
+  <section class="statement wrap">
+    <p data-rise>Flowers for big days, and Tuesdays.</p>
+    <a class="btn" href="#edit" data-rise>order flowers</a>
+  </section>
+
+  <section class="edit wrap" id="edit">
+    <h2 class="label" data-rise>the first edit</h2>
+    <div class="grid3">
+      <a class="card" href="#" data-rise><figure><img src="../assets/img/bb-bunch-detail.webp" alt="" loading="lazy"></figure><p><span>The Birdie Bunch</span><span>£35</span></p></a>
+      <a class="card" href="#" data-rise><figure><img src="../assets/img/bb-pumpkin-orange.webp" alt="" loading="lazy"></figure><p><span>The Pumpkin Edit</span><span>£35</span></p></a>
+      <a class="card" href="#" data-rise><figure><img src="../assets/img/bb-motion.webp" alt="" loading="lazy"></figure><p><span>Florist’s choice</span><span>from £30</span></p></a>
+    </div>
+  </section>
+
+  <section class="weddings" id="weddings">
+    <img src="../assets/img/wed-bride-garden.webp" alt="A bride holding a garden bouquet" loading="lazy">
+    <div><h2 data-rise>Weddings</h2><a class="label" href="#" data-rise>tell me about your day</a></div>
+  </section>
+</main>
+
+<footer class="wrap" id="about">
+  <span class="mark logo" role="img" aria-label="Birdie Blooms, flowers with a little bit of yesterday" data-rise></span>
+  <ul class="label"><li><a href="https://www.instagram.com/birdie.blooms/">@birdie.blooms</a></li><li>hello@birdieblooms.co.uk</li><li>ravenstone &amp; kibworth, leicestershire</li></ul>
+</footer>
+
+<nav class="cn" aria-label="Concepts"><a href="index.html">All four</a><span>1 Signature</span><a href="2-ribbon.html">Next →</a></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>
