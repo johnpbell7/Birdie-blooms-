@@ -23,8 +23,11 @@ The design brief was **high-end yet approachable, white and clean**. The researc
 python3 serve.py
 ```
 
-- Site: http://localhost:4178/index.html
-- Visual style sheet: http://localhost:4178/styleguide/
+- Site: http://localhost:4190/index.html
+- Visual style sheet: http://localhost:4190/styleguide/
+- The Studio direction: http://localhost:4190/directions/studio.html
+
+It uses port 4190 so it doesn't collide with other local projects. If that port is busy, run `PORT=4191 python3 serve.py`.
 
 ## Change the look: `styleguide/tokens.css`
 

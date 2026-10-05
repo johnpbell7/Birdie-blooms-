@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Tiny static file server (no dependencies). Run: python3 serve.py
-Serves this folder on http://localhost:4178 with caching disabled, so token
+Serves this folder on http://localhost:4190 with caching disabled, so token
 edits always show up on a refresh.
 """
 import functools
@@ -8,7 +8,7 @@ import os
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PORT = int(os.environ.get("PORT", "4178"))
+PORT = int(os.environ.get("PORT", "4190"))
 
 
 class Handler(SimpleHTTPRequestHandler):
