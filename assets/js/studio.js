@@ -58,8 +58,11 @@
     $$(".menu-btn").forEach(function (b) { b.setAttribute("aria-expanded", String(open)); });
     if (open) { var f = $("nav a", menu); if (f) f.focus(); }
   }
-  $$(".menu-btn").forEach(function (b) { b.addEventListener("click", function () { openMenu(true); }); });
-  $$(".menu-close, .menu nav a, .menu .btn").forEach(function (b) { b.addEventListener("click", function () { openMenu(false); }); });
+  $$(".menu-btn").forEach(function (b) { b.addEventListener("click", function () {
+    openMenu(true);
+    if (motion) gsap.fromTo(".menu-link, .menu-side", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.05 });
+  }); });
+  $$(".menu-close, .menu-nav a, .menu-side a").forEach(function (b) { b.addEventListener("click", function () { openMenu(false); }); });
   d.addEventListener("keydown", function (e) { if (e.key === "Escape") openMenu(false); });
 
   /* ---- enquiry forms: write the email for you ----------------------------------------------- */

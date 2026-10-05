@@ -8,7 +8,7 @@ Edit the words, products and reviews here, then run it again. Pages are written 
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "?v=6"            # bump to make browsers fetch new CSS/JS/logo files
+V = "?v=7"            # bump to make browsers fetch new CSS/JS/logo files
 EMAIL = "hello@birdieblooms.co.uk"
 INSTA = "https://www.instagram.com/birdie.blooms/"
 IMG = "assets/img/"
@@ -45,6 +45,17 @@ SEASONS = [
 ]
 
 NAV = [("Flowers", "shop.html"), ("Weddings", "weddings.html"), ("Seasons", "seasons.html"), ("About", "about.html")]
+
+# every page, for the menu and the "Where next?" cards: link, name, what's there, drawing
+SITE = [
+    ("index.html", "Home", "The start: this season’s flowers and the Birdie Card", "bird"),
+    ("shop.html", "Flowers", "Seasonal bouquets to send, made to order", "dahlia"),
+    ("weddings.html", "Weddings &amp; events", "Flowers for the whole day, gathered from the season", "tulip"),
+    ("seasons.html", "What’s in season", "What each season brings, and the colours that come with it", "sprig"),
+    ("about.html", "About", "Who I am, how I work and where I deliver", "wheat"),
+    ("contact.html", "Enquire", "Tell me what you’d like and I’ll come back with ideas and a price", "bird"),
+    ("policies.html", "Good to know", "Ordering, delivery, flower care and privacy", "pumpkin"),
+]
 
 # ---- building blocks ----------------------------------------------------------------------
 ARROW = '<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg>'
@@ -107,13 +118,43 @@ def bar(current, home):
     return f'''<header class="bar{'' if home else ' show'}" aria-label="Site">
   <a class="bar-logo" href="index.html" aria-label="Birdie Blooms, home">{wordmark("wm-bar")}</a>
   <nav class="bar-nav" aria-label="Primary">{nav_links(current)}</nav>
-  <div class="bar-right"><a class="pill-cta" href="{enquire_link()}">Enquire</a><button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false">{MENU_ICON}</button></div>
+  <div class="bar-right"><a class="pill-cta" href="{enquire_link()}">Enquire</a>{MENU_BUTTON}</div>
 </header>
-<div class="menu" role="dialog" aria-modal="true" aria-label="Menu">
-  <div class="menu-top"><a href="index.html" aria-label="Birdie Blooms, home">{wordmark("wm-menu")}</a><button class="menu-btn menu-close" type="button" aria-label="Close menu" style="display:grid">{CLOSE_ICON}</button></div>
-  <nav aria-label="Menu">{"".join(f'<a href="{h}">{l}</a>' for l, h in [("Home", "index.html")] + NAV)}</nav>
-  <a class="btn" href="{enquire_link()}">Make an enquiry {ARROW}</a>
+{menu(current)}'''
+
+MENU_BUTTON = f'<button class="menu-btn" type="button" aria-label="Open the menu" aria-expanded="false"><span class="mb-label">Menu</span>{MENU_ICON}</button>'
+
+def menu(current):
+    links = "".join(
+        f'<a class="menu-link" href="{h}"{" aria-current=page" if h == current else ""}><span class="ml-no">0{i + 1}</span>'
+        f'<span class="ml-title">{n}</span>{ARROW}<span class="ml-desc">{d}</span></a>'
+        for i, (h, n, d, a) in enumerate(SITE))
+    return f'''<div class="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-top"><a href="index.html" aria-label="Birdie Blooms, home">{wordmark("wm-menu")}</a><button class="menu-close" type="button" aria-label="Close the menu"><span class="mb-label">Close</span>{CLOSE_ICON}</button></div>
+  <div class="menu-body">
+    <nav class="menu-nav" aria-label="Every page">{links}</nav>
+    <aside class="menu-side">
+      {illo("bird", "menu-bird")}
+      <p class="mid-serif">Something in mind?</p>
+      <p>Big day or a Tuesday, tell me about it and I’ll come back to you with ideas and a price.</p>
+      <a class="btn" href="{enquire_link()}">Make an enquiry {ARROW}</a>
+      <p class="menu-contact"><a href="mailto:{EMAIL}">{EMAIL}</a><br><a href="{INSTA}">Instagram @birdie.blooms</a></p>
+    </aside>
+  </div>
 </div>
+'''
+
+def explore(current):
+    """'Where next?': a card for every other page, at the foot of each page."""
+    cards = [s for s in SITE if s[0] != current and s[0] != "index.html"]
+    cols = len(cards) if len(cards) <= 5 else 3
+    items = "".join(
+        f'<a class="explore-card" href="{h}" data-up>{illo(a)}<h3>{n}</h3><p>{d}</p><span class="go">Go {ARROW}</span></a>'
+        for h, n, d, a in cards)
+    return f'''<section class="explore" aria-labelledby="where-next">
+  <div class="section-head center" data-up><p class="label">Where next?</p><h2 class="big-serif" id="where-next">There’s more to see.</h2></div>
+  <div class="explore-grid" style="--cols:{cols}">{items}</div>
+</section>
 '''
 
 def footer():
@@ -282,6 +323,7 @@ def cta_band(title, text, label, href, block=""):
   </section>'''
 
 def write(name, html):
+    html = html.replace('<footer class="foot">', explore(name) + '<footer class="foot">', 1)
     open(os.path.join(ROOT, name), "w").write(html)
     print("wrote", name, f"{len(html) // 1024} KB")
 
@@ -297,7 +339,7 @@ home += bar("index.html", home=True) + f'''
   <header class="hero-top">
     <a class="hero-b" href="index.html" aria-label="Birdie Blooms, home"><span class="mark mono"></span></a>
     <nav aria-label="Primary">{nav_links("index.html")}</nav>
-    <div class="hero-right"><a class="pill-cta" href="{enquire_link()}">Enquire</a><button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false">{MENU_ICON}</button></div>
+    <div class="hero-right"><a class="pill-cta" href="{enquire_link()}">Enquire</a>{MENU_BUTTON}</div>
   </header>
   <div class="hero-center">
     <h1 class="hero-mark">{wordmark("wm-hero", label=True)}</h1>

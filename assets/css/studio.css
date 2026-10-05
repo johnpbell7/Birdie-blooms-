@@ -438,3 +438,54 @@ fieldset.field { margin: 0; padding: 0; border: 0; }
 
 /* logo links never get the underline */
 .hero-b, .bar-logo, .menu-top a { background: none !important; text-decoration: none; }
+
+/* ===================================================================================== */
+/* Getting around: the menu button, the full menu, and "Where next?" cards                */
+/* ===================================================================================== */
+.menu-btn, .menu-close { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: auto; height: 46px; padding: 0 16px 0 20px; border: 2px solid currentColor; border-radius: 999px; background: none; color: inherit; font: 700 13px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background-color 0.3s, color 0.3s; }
+.menu-btn svg, .menu-close svg { width: 20px; height: 20px; }
+.mb-label { padding-top: 2px; }
+.bar .menu-btn:hover, .menu-close:hover { background: var(--ink); color: var(--paper); }
+.hero-top .menu-btn:hover { background: var(--paper); color: var(--ink); }
+
+.menu { display: grid; grid-template-rows: auto 1fr; align-content: start; gap: clamp(24px, 4vw, 50px); padding: 16px var(--gut) 40px; overflow-y: auto; overscroll-behavior: contain; }
+.menu-top { display: flex; justify-content: space-between; align-items: center; }
+.menu-top .wm { width: clamp(140px, 14vw, 190px); }
+.menu-body { display: grid; grid-template-columns: 1.7fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: start; width: 100%; max-width: 1240px; margin: 0 auto; }
+.menu .menu-nav { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.menu .menu-nav a.menu-link { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 4px 20px; padding: 16px 0 14px; border-bottom: 2px solid var(--ink); font-size: 17px; line-height: 1.3; text-decoration: none; }
+.ml-no { font: 700 13px/1 var(--sans); letter-spacing: 0.12em; color: var(--muted); }
+.ml-title { font-size: clamp(32px, 4.2vw, 56px); line-height: 1; transition: color 0.3s; }
+.ml-desc { grid-column: 2; color: var(--muted); }
+.menu-link .arr { grid-column: 3; grid-row: 1; align-self: center; width: 26px; height: 26px; }
+.menu-link:hover .ml-title { color: var(--bloom); }
+.menu-link:hover .arr { transform: translateX(6px); }
+.menu-link[aria-current="page"] .ml-no { color: var(--ink); }
+.menu-link[aria-current="page"] .ml-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.12em; }
+.menu-side { display: grid; justify-items: start; gap: 18px; padding: 30px 28px; border: 2px solid var(--ink); border-radius: 16px; background: var(--butter); box-shadow: 8px 10px 0 var(--ink); }
+.menu-side .menu-bird { width: 70px; }
+.menu-side p { font-size: 18px; line-height: 1.45; }
+.menu-side .mid-serif { font-size: clamp(28px, 2.6vw, 36px); }
+.menu-contact a { text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
+.explore { padding: clamp(90px, 11vw, 140px) var(--gut); border-top: 2px solid var(--ink); }
+.explore-grid { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); max-width: 1240px; margin: 0 auto; }
+.explore-card { display: grid; align-content: start; gap: 10px; padding: 26px 24px 24px; border: 2px solid var(--ink); border-radius: 16px; background: var(--paper); text-decoration: none; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background-color 0.3s; }
+.explore-card:hover { transform: translate(-4px, -4px); box-shadow: 8px 10px 0 var(--ink); background: var(--pastel); }
+.explore-card .illo { width: 48px; margin-bottom: 6px; }
+.explore-card h3 { font-size: clamp(24px, 2vw, 28px); line-height: 1.1; }
+.explore-card p { font-size: 16px; line-height: 1.4; color: var(--muted); }
+.explore-card .go { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; font: 700 12px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; }
+.explore-card:hover .arr { transform: translateX(4px); }
+
+@media (max-width: 860px) {
+  .menu-btn { width: 46px; padding: 0; }
+  .menu-btn .mb-label { display: none; }
+  .menu-body { grid-template-columns: 1fr; }
+  .menu .menu-nav a.menu-link { padding: 14px 0 12px; }
+  .ml-desc { font-size: 15px; }
+  .explore-grid { grid-template-columns: 1fr; }
+  .explore-card { grid-template-columns: auto 1fr; column-gap: 18px; align-items: center; padding: 20px 20px 18px; }
+  .explore-card .illo { grid-row: span 3; width: 42px; margin: 0; }
+  .explore-card .go { display: none; }
+}
