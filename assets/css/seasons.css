@@ -2,20 +2,20 @@
    Birdie Blooms — seasonal colour.
    The <html> element carries data-season="winter|spring|summer|autumn", set by
    date in each page's <head> (Dec–Feb winter, Mar–May spring, Jun–Aug summer,
-   Sep–Nov autumn). Each season swaps the accent, the splash, the soft tint used
-   for cream sections, and the hero's close-up colour texture.
+   Sep–Nov autumn). Each season swaps:
+     --c-bloom / --c-on-bloom  the solid colour block (The First Edit, stamps, dots)
+     --c-cream                 the soft pastel block (intro, page heads, story)
+     --c-accent                a deeper shade for small accents and link hovers
+     --hero-texture            the close-up colour texture on Through the seasons
    Base (autumn) values live in styleguide/tokens.css.
    ========================================================================= */
 
 /* Winter — amaryllis, hellebore, paperwhites, eucalyptus */
 html[data-season="winter"], [data-panel="winter"] {
   --c-accent:      #5a2b4b;
-  --c-splash:      #b8323a;
-  --c-cream:       #f2f3f0;
-  --card-bg:       #f2f3f0;
-  --footer-bg:     #f2f3f0;
-  --c-selection:   #eadfe6;
-  --c-ring:        #5a2b4b;
+  --c-bloom:       #a8313c;
+  --c-on-bloom:    #fbf7f0;
+  --c-cream:       #f1e2e4;
   --c-link-hover:  #5a2b4b;
   --hero-texture:  url("../img/season-winter.webp");
 }
@@ -23,12 +23,9 @@ html[data-season="winter"], [data-panel="winter"] {
 /* Spring — tulips, narcissi, ranunculus, blossom */
 html[data-season="spring"], [data-panel="spring"] {
   --c-accent:      #a8385a;
-  --c-splash:      #e8b32a;
-  --c-cream:       #fcf3f1;
-  --card-bg:       #fcf3f1;
-  --footer-bg:     #fcf3f1;
-  --c-selection:   #f8dde4;
-  --c-ring:        #a8385a;
+  --c-bloom:       #e8879f;
+  --c-on-bloom:    #2b1a16;
+  --c-cream:       #fbe5ea;
   --c-link-hover:  #a8385a;
   --hero-texture:  url("../img/season-spring.webp");
 }
@@ -36,12 +33,9 @@ html[data-season="spring"], [data-panel="spring"] {
 /* Summer — sweet peas, cornflowers, peonies, garden roses */
 html[data-season="summer"], [data-panel="summer"] {
   --c-accent:      #34529c;
-  --c-splash:      #c4649f;
-  --c-cream:       #f4f4fa;
-  --card-bg:       #f4f4fa;
-  --footer-bg:     #f4f4fa;
-  --c-selection:   #e0e6f6;
-  --c-ring:        #34529c;
+  --c-bloom:       #3f62c6;
+  --c-on-bloom:    #fbf7f0;
+  --c-cream:       #e3e9f8;
   --c-link-hover:  #34529c;
   --hero-texture:  url("../img/season-summer.webp");
 }
@@ -49,23 +43,20 @@ html[data-season="summer"], [data-panel="summer"] {
 /* Autumn — dahlias, amaranth, rosehips, pumpkins (matches tokens.css) */
 html[data-season="autumn"], html:not([data-season]), [data-panel="autumn"] {
   --c-accent:      #7a2431;
-  --c-splash:      #d9662e;
-  --c-cream:       #f6efe7;
-  --card-bg:       #f6efe7;
-  --footer-bg:     #f6efe7;
-  --c-selection:   #f1dcd6;
-  --c-ring:        #7a2431;
+  --c-bloom:       #e0662c;
+  --c-on-bloom:    #2b1a16;
+  --c-cream:       #f7e2d0;
   --c-link-hover:  #7a2431;
   --hero-texture:  url("../img/season-autumn.webp");
 }
 
-/* show only the current season's words */
+/* show only the current season's words and photos */
 html[data-season="winter"] [data-season-only]:not([data-season-only~="winter"]),
 html[data-season="spring"] [data-season-only]:not([data-season-only~="spring"]),
 html[data-season="summer"] [data-season-only]:not([data-season-only~="summer"]),
 html[data-season="autumn"] [data-season-only]:not([data-season-only~="autumn"]),
 html:not([data-season]) [data-season-only]:not([data-season-only~="autumn"]) { display: none !important; }
 
-/* colour washes recolour smoothly when a preview switches season */
-.announce, .cream, .site-footer, .in-season { transition: background-color var(--dur-slow) var(--ease), color var(--dur-slow) var(--ease); }
-@media (prefers-reduced-motion: reduce) { .announce, .cream, .site-footer, .in-season { transition: none; } }
+/* colour blocks recolour smoothly when a preview switches season */
+.bloom, .pastel, .page-hero, .season-switch i, .stamps li { transition: background-color var(--dur-slow) var(--ease), color var(--dur-slow) var(--ease); }
+@media (prefers-reduced-motion: reduce) { .bloom, .pastel, .page-hero, .season-switch i, .stamps li { transition: none; } }

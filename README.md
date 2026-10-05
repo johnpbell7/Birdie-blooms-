@@ -2,13 +2,13 @@
 
 The website for Birdie Blooms, a one-woman seasonal flower studio. It is a fast, static site: plain HTML, CSS and JavaScript with no build step. GSAP handles the motion.
 
-The design brief was **high-end yet approachable, white and clean**. The research behind it is in [`docs/research.md`](docs/research.md). It covers 11 independent florists and includes their fonts, price ladders, forms and tone of voice.
+The look is **Studio**: bold and certain rather than light and airy. Her photos run full-bleed with the logo huge across them, sections are solid blocks of colour, one sturdy serif is used big everywhere, labels are bold capitals, and chunky ink drawings draw themselves as you scroll. It was chosen from the design directions in [`directions/`](directions/index.html). The research behind the site is in [`docs/research.md`](docs/research.md). It covers 11 independent florists and includes their fonts, price ladders, forms and tone of voice.
 
 ## Pages
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Hero (her pumpkin arrangement), values marquee, The First Edit, ways to send, subscriptions, a weddings teaser, meet the florist, the studio notebook, and an Instagram strip linking to her posts |
+| `index.html` | Full-screen hero (her photo with the logo big across it and "Flowers for big days, and Tuesdays."), a pastel intro with what's in season, flowers-to-send and weddings collages, The First Edit on the season's colour, ways to send, the Birdie Card, subscriptions, a full-bleed weddings band, the studio notebook, meet the florist, and an Instagram strip linking to her posts |
 | `shop.html` | The First Edit, then the wider range with size and price pickers and filters, a basket, subscription tiers, and how delivery works |
 | `weddings.html` | Approach, three packages, an à la carte price guide, a pinned 4-step process, events, FAQ, and a full wedding enquiry form |
 | `about.html` | The founder's story, "clear rules" sustainability bento, and a week in the studio |
@@ -36,32 +36,34 @@ Every colour, font, size, radius, spacing value and motion duration lives in `st
 - Edit the file by hand.
 - Open `/styleguide/` and use the visual editor. It shows the real site live on the right, and **Save to tokens.css** writes your changes back.
 
-Current look:
-- **Gilda Display** for headings.
-- **Josefin Sans** for everything else, light (300) for reading text. It's the font in her logo tagline; labels are set lowercase and spaced the same way.
-- White background, chocolate ink (`#2b1a16`), and **seasonal colour** (see below). `tokens.css` holds the autumn values.
+Current look (Studio):
+- **Newsreader** for headings and reading text: one sturdy serif, used big.
+- **Josefin Sans** in bold capitals for labels, buttons and small print. It's the font in her logo tagline.
+- Warm paper (`#fbf7f0`), chocolate ink (`#2b1a16`), butter (`#f4e4a4`) and stone (`#ece6dc`) blocks, 2px ink lines and hard ink shadows on cards.
+- A **seasonal bloom colour** for the big solid blocks, plus a matching pastel (see below). `tokens.css` holds the autumn values.
 
 ## Seasons: colours that follow the flowers
 
 The site changes its colours by date, four times a year:
 
-| Season | Dates | Flowers | Accent | Splash | Tint |
+| Season | Dates | Flowers | Bloom | Tint | Accent |
 |---|---|---|---|---|---|
-| Winter | 1 Dec – end Feb | Amaryllis & hellebores | plum `#5a2b4b` | berry `#b8323a` | frost `#f2f3f0` |
-| Spring | 1 Mar – 31 May | Tulips & narcissi | tulip `#a8385a` | narcissus `#e8b32a` | blossom `#fcf3f1` |
-| Summer | 1 Jun – 31 Aug | Sweet peas & cornflowers | cornflower `#34529c` | sweet pea `#c4649f` | lavender `#f4f4fa` |
-| Autumn | 1 Sep – 30 Nov | Dahlias & amaranth | amaranth `#7a2431` | dahlia `#d9662e` | linen `#f6efe7` |
+| Winter | 1 Dec – end Feb | Amaryllis & hellebores | berry `#a8313c` | rose `#f1e2e4` | plum `#5a2b4b` |
+| Spring | 1 Mar – 31 May | Tulips & narcissi | tulip pink `#e8879f` | blossom `#fbe5ea` | tulip `#a8385a` |
+| Summer | 1 Jun – 31 Aug | Sweet peas & cornflowers | cornflower `#3f62c6` | sky `#e3e9f8` | navy `#34529c` |
+| Autumn | 1 Sep – 30 Nov | Dahlias & amaranth | dahlia `#e0662c` | peach `#f7e2d0` | amaranth `#7a2431` |
 
 Each season changes all of these:
-- the **accent**: buttons, the announcement bar, the squiggle and tags
-- the **splash**: step lines and the marquee squiggles
-- the **tint**: cream sections and the footer
-- the hero's **close-up colour texture** (`assets/img/season-*.webp`)
-- the **hero photos**
+- the **bloom** colour: the solid block behind The First Edit (on the homepage and in the shop), the Birdie Card stamps, the season dots and the featured subscription
+- the **text on bloom** (`--c-on-bloom`): ink on the light blooms, paper on the dark ones
+- the **tint**: the pastel blocks (the homepage intro, page headers, meet the florist)
+- the **accent**: link hovers and small touches
+- the **homepage photo**
 - the **tab icon** (`assets/img/favicon-*.svg`)
-- the **"in season now" flower list** and the announcement bar text
+- the **"in season now" flower list**
+- the close-up colour textures on **Through the seasons** (`assets/img/season-*.webp`)
 
-**See it in any season.** Every page has a season switcher in the footer, and the homepage has one under the hero, in the "in season now" strip. Pick Winter, Spring, Summer or Autumn and the whole site cross-fades into that season's colours, photos and flower lists. Nothing reloads. "now" marks today's season.
+**See it in any season.** Every page has a season switcher in the footer, and the homepage has one in its intro, under "In season now". Pick Winter, Spring, Summer or Autumn and the whole site cross-fades into that season's colours, photos and flower lists. Nothing reloads. "now" marks today's season.
 - The choice follows you from page to page.
 - A "Back to today" chip resets it.
 - It lasts only for that browser tab, so every new visitor sees the real season.
@@ -72,7 +74,7 @@ How it works:
 - The switcher is `initSeasons()` in `assets/js/site.js`.
 - The buttons on **Through the seasons** (`seasons.html`) open the homepage in the season you picked.
 
-**Seasonal photos.** Autumn uses her own photos. Winter, spring and summer use stock stand-ins: winter candles and white blooms, spring tulips, summer peonies and hydrangea. Replace them as she photographs each season's flowers. They're listed in `HERO_IMGS` near the hero in `index.html`. Also update The First Edit (`products.js`) and its "Three for autumn" heading when the next collection launches.
+**Seasonal photos.** The homepage photo changes with the season. Autumn uses her own pumpkin arrangement. Winter, spring and summer use stock stand-ins: winter candles and white blooms, spring tulips, summer peonies. Replace them as she photographs each season's flowers. They're the four `<img data-season-only="…">` tags at the top of the hero in `index.html`. Landscape photos at least 1600px wide work best, because they fill the whole screen. Also update The First Edit (`products.js`) and its "Three for autumn" heading when the next collection launches.
 
 ## Brand assets: `assets/brand/`
 
@@ -81,11 +83,13 @@ The logo is traced from the first post on [@birdie.blooms](https://www.instagram
 | File | Use |
 |---|---|
 | `birdie-blooms-logo.svg` / `-cream.svg` | Full lockup: wordmark plus the "flowers with a little bit of yesterday" tagline |
-| `birdie-blooms-wordmark.svg` / `-cream.svg` | Wordmark only (used in the header) |
-| `birdie-blooms-squiggle.svg` | The swash from the "B", used as the brand device (intro, hero, marquee, success messages) |
-| `birdie-blooms-monogram.svg` | The "B" on its own (the favicon is built from it) |
+| `birdie-blooms-wordmark.svg` / `-cream.svg` | Wordmark only (the header, and big at the foot of every page) |
+| `birdie-blooms-squiggle.svg` | The swash from the "B", used as a small brand device (the Instagram follow card, "photo coming soon" panels, the basket and success messages, Through the seasons) |
+| `birdie-blooms-monogram.svg` | The "B" on its own (the favicon, the header over the homepage photo, and the Birdie Card stamps) |
 
-The cream versions are for photos and dark backgrounds.
+The cream versions are for photos and dark backgrounds. On the site the marks are drawn as CSS masks, so they take any colour. The big hero logo is inline SVG, one path per letter, so the letters can rise in one by one.
+
+The hand-drawn illustrations (bird, dahlia, wheat, tulip, sprig, pumpkin) are in `assets/illustrations/`. On the site they're inline, drawn with a thick ink line and one touch of the season's bloom colour.
 
 All the marks have been smoothed into clean vector curves: the wordmark, the B monogram and the squiggle (which keeps its original pinched "beak"). They're traced from a 1080px Instagram image, so for large print or signage it's still worth exporting her original logo file at full size and comparing. The tab icon is the B in each season's accent colour.
 
@@ -107,7 +111,7 @@ Subscription tiers are in `shop.html`, and wedding packages and the price guide 
 
 ## Forms and orders
 
-There are four forms: the basket order request, the contact form, the wedding enquiry form and the newsletter sign-up. All of them validate inline. Spam is caught by a hidden honeypot field.
+There are four forms: the basket order request, the contact form, the wedding enquiry form and the newsletter sign-up ("Seasonal letters", at the foot of every page). All of them validate inline. Spam is caught by a hidden honeypot field.
 
 Where submissions go is set at the top of `assets/js/site.js`, in `CONFIG.formMode`:
 
@@ -132,10 +136,11 @@ Delivery fee (£6.50), the free-delivery threshold (£75) and the open days (Tue
 | What | Where it appears now | Replace with |
 |---|---|---|
 | Founder name **"Hannah"** and her story | Home, About, page titles | Your real name and story |
+| **The Birdie Card** (every bunch earns a B, the sixth is free) | Homepage, menu and footer | Confirm she wants to run it, and how the stamps are given (a paper card in each bouquet works). Otherwise delete the `#card` section in `index.html` and its links |
 | Location: **Ravenstone & Kibworth, Leicestershire** (taken from her Instagram) | Footer, contact, FAQ | The exact studio address, if she wants it shown |
 | Ghost pumpkin photo | `products.js` (`pumpkin-edit-ghost`) | A photo of the white Pumpkin Edit (4:5, about 1080×1350) |
 | Placeholder range | `products.js`, below The First Edit | Confirm, re-price or delete |
-| Winter, spring and summer hero photos | `index.html` (`HERO_IMGS`) | Her own photos of each season's flowers |
+| Winter, spring and summer homepage photos | `index.html` (the hero's `data-season-only` images) | Her own photos of each season's flowers |
 | Phone **07700 900418** (an Ofcom fictional number) | Footer, contact, forms | Your number |
 | `hello@birdieblooms.co.uk` and `@birdie.blooms` | `CONFIG.email` and footer links | Your real email address and Instagram |
 | **Photography** | Her Instagram photos (`assets/img/bb-*.webp`) are used for the hero, The First Edit, the statement and the Instagram strip. Everything else is free Pexels stock. | Her own photos as she takes them, saved at the same file names. Weddings, the studio and her portrait are the biggest gaps. |
@@ -144,21 +149,21 @@ Delivery fee (£6.50), the free-delivery threshold (£75) and the open days (Tue
 | **Preview mode** | `CONFIG.preview` and `CONFIG.formMode` in `assets/js/site.js` | `preview: false` and a real `formMode`, so orders and enquiries reach her |
 | `og:image` | Each page `<head>` | Change it to an absolute URL (`https://yourdomain/assets/img/og-image.jpg`) once you have a domain |
 
-The site deliberately has **no invented reviews, ratings or press logos**. Add real client words when you have them; under the DMCC Act 2024, fake reviews are illegal in the UK. The quote carousel on the homepage currently shows the florist's own notes.
+The site deliberately has **no invented reviews, ratings or press logos**. Add real client words when you have them; under the DMCC Act 2024, fake reviews are illegal in the UK. The big quote carousel on the homepage ("From the studio notebook") currently shows the florist's own notes. The Studio direction mock-up showed example reviews there; they were left out of the real site on purpose.
 
 ## Motion
 
-GSAP 3.13 is loaded from cdnjs, with ScrollTrigger, SplitText and Flip. The motion includes:
+GSAP 3.13 is loaded from cdnjs, with ScrollTrigger, SplitText, Flip and DrawSVG. The motion is confident and unfussy:
 
-- masked line-by-line headline reveals and clip-path image wipes
-- her logo squiggle inking itself in, in the once-per-visit loader, the hero and the seasons page
-- a seasonal close-up colour texture behind the hero, with her photo laid over it like a print
-- a values marquee that speeds up with scroll velocity
-- statement words that "ink in" as you read
-- an image that follows the cursor over the occasions list
-- a pinned wedding process
-- Flip-animated shop filters
-- a fly-to-basket effect, magnetic buttons and page fades
+- on the homepage, her photo settles and the Birdie Blooms logo rises letter by letter, then the strapline and button
+- the header floats over the homepage photo (just the B), then turns into a solid bar with the full wordmark once you scroll past it
+- blocks rise in as they arrive, and big inner-page titles rise line by line
+- photo collages where the back photo moves at a different pace to the front one
+- the ink drawings draw themselves, then their touch of colour pops in
+- the Birdie Card lands on the table; tap it to stamp a B, and a full card bursts petals
+- the big logo at the foot of every page rises as you arrive
+- an image that follows the cursor over the "ways to send" list
+- a pinned wedding process, Flip-animated shop filters, a fly-to-basket effect and page fades
 
 Motion is switched off for visitors who ask their device for reduced motion. All content still shows if the scripts fail to load.
 
@@ -166,7 +171,9 @@ Motion is switched off for visitors who ask their device for reduced motion. All
 
 **https://johnpbell7.github.io/Birdie-blooms-/**
 
-`.github/workflows/pages.yml` publishes the site every time the `ccr-6ac9390c-7l5oj2` branch is pushed. It takes about a minute. Progress shows in the repo's **Actions** tab.
+`.github/workflows/pages.yml` publishes the site every time the `ccr-6ac9390c-7l5oj2` or `claude/modest-noether-try4h3` branch is pushed. It takes about a minute. Progress shows in the repo's **Actions** tab.
+
+GitHub only lets the branches listed under **Settings → Environments → github-pages → Deployment branches and tags** publish. If a push to a new branch shows a failed run that stopped after a couple of seconds, add that branch there, then re-run the workflow.
 
 **Settings → Pages → Source** is already set to **GitHub Actions**. If the site ever stops updating, check that setting first. To republish without pushing anything, open **Actions → Publish to GitHub Pages → Run workflow**.
 

@@ -14,7 +14,8 @@
   var SCHEMA = [
     { group: "Brand", ui: "palette", items: [
       ["--c-brand", "Brand", "color"], ["--c-brand-deep", "Brand deep", "color"],
-      ["--c-accent", "Accent", "color"], ["--c-splash", "Splash (second seasonal colour)", "color"], ["--c-accent-ink", "Accent text", "color"] ] },
+      ["--c-accent", "Accent", "color"], ["--c-accent-ink", "Accent text", "color"],
+      ["--c-bloom", "Bloom (seasonal block colour)", "color"], ["--c-on-bloom", "Text on bloom", "color"], ["--c-butter", "Butter", "color"] ] },
     { group: "Surfaces & lines", ui: "palette", items: [
       ["--c-bg", "Background", "color"], ["--c-surface", "Surface", "color"], ["--c-cream", "Cream", "color"],
       ["--c-border", "Border", "color"], ["--c-border-soft", "Border soft", "color"], ["--c-hairline", "Hairline", "color"],
@@ -48,7 +49,7 @@
     { group: "Radius", ui: "foundation", items: [
       ["--radius-sm", "Radius small", "text"], ["--radius-md", "Radius medium", "text"], ["--radius-lg", "Radius large", "text"], ["--radius-pill", "Radius pill", "text"] ] },
     { group: "Elevation", ui: "foundation", items: [
-      ["--shadow-sm", "Shadow small", "shadow"], ["--shadow", "Shadow", "shadow"], ["--shadow-lg", "Shadow large", "shadow"] ] },
+      ["--shadow-sm", "Shadow small", "shadow"], ["--shadow", "Shadow", "shadow"], ["--shadow-lg", "Shadow large", "shadow"], ["--shadow-hard", "Ink shadow (cards)", "shadow"] ] },
     { group: "Layout", ui: "foundation", items: [
       ["--container", "Container width", "text"], ["--section-y", "Section padding", "text"], ["--hero-y", "Hero padding", "text"], ["--gutter", "Page gutter", "text"], ["--gap", "Grid gap", "text"], ["--space", "Base space", "text"] ] },
     { group: "Spacing scale", ui: "foundation", items: [

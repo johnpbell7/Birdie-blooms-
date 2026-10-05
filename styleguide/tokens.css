@@ -3,44 +3,49 @@
    Every component on the site reads these CSS variables, so changing a value
    here reskins the whole site. Edit by hand, or use the style sheet page
    (index.html) to edit visually and Save back into this file.
-   Birdie Blooms — gallery white, chocolate ink, and seasonal colour.
+   Birdie Blooms — Studio: bold and certain. Warm paper, chocolate ink, solid
+   colour blocks and one sturdy serif used big.
    These are the AUTUMN values (dahlias & amaranth). assets/css/seasons.css swaps
-   --c-accent, --c-splash, --c-cream and friends for winter, spring and summer by date.
-   Type: Gilda Display (headings) · Josefin Sans (everything else, from the logo tagline).
+   --c-bloom, --c-on-bloom, --c-cream, --c-accent and friends for winter, spring
+   and summer by date.
+   Type: Newsreader (headings and reading text) · Josefin Sans (bold capital
+   labels and buttons, from the logo tagline).
    ========================================================================= */
 :root {
   /* Brand */
   --c-brand:        #2b1a16;
   --c-brand-deep:   #1a0f0c;
   --c-accent:       #7a2431;
-  --c-accent-ink:   #ffffff;
-  --c-splash:       #d9662e;
+  --c-accent-ink:   #fbf7f0;
+  --c-bloom:        #e0662c;
+  --c-on-bloom:     #2b1a16;
+  --c-butter:       #f4e4a4;
 
   /* Surfaces & lines */
-  --c-bg:           #ffffff;
-  --c-surface:      #ffffff;
-  --c-cream:        #f6efe7;
-  --c-border:       #ebe3da;
-  --c-border-soft:  #f2ece5;
-  --c-hairline:     #d6c9ba;
-  --nav-bg:         #ffffff;
-  --card-bg:        #f6efe7;
-  --footer-bg:      #f6efe7;
-  --input-bg:       #ffffff;
+  --c-bg:           #fbf7f0;
+  --c-surface:      #fffdf8;
+  --c-cream:        #f7e2d0;
+  --c-border:       #d9cdbf;
+  --c-border-soft:  #e8dfd3;
+  --c-hairline:     #b9ab9c;
+  --nav-bg:         #fbf7f0;
+  --card-bg:        #ece6dc;
+  --footer-bg:      #ece6dc;
+  --input-bg:       #fffdf8;
 
   /* Text */
   --c-ink:          #2b1a16;
-  --c-body:         #3d2b25;
-  --c-muted:        #6a5c53;
+  --c-body:         #2b1a16;
+  --c-muted:        #6f6058;
   --c-muted-2:      #a8998c;
-  --c-on-brand:     #ffffff;
-  --c-placeholder:  #a8998c;
+  --c-on-brand:     #fbf7f0;
+  --c-placeholder:  #8f8074;
 
   /* Links & focus */
   --c-link:         #2b1a16;
   --c-link-hover:   #7a2431;
-  --c-ring:         #7a2431;
-  --c-selection:    #f0dcd8;
+  --c-ring:         #2b1a16;
+  --c-selection:    #f4e4a4;
   --ring-width:     2px;
   --ring-offset:    3px;
 
@@ -65,75 +70,76 @@
   --c-info-bg:      #e3ebf3;
 
   /* Typography */
-  --font-heading:   "Gilda Display";
-  --font-body:      "Josefin Sans";
+  --font-heading:   "Newsreader";
+  --font-body:      "Newsreader";
   --font-ui:        "Josefin Sans";
   --font-mono:      "JetBrains Mono";
-  --fs-display:     92px;
-  --fs-heading:     54px;
-  --fs-card:        25px;
-  --fs-body:        18px;
-  --fs-small:       15px;
-  --fs-caption:     12px;
+  --fs-display:     128px;
+  --fs-heading:     64px;
+  --fs-card:        30px;
+  --fs-body:        20px;
+  --fs-small:       16px;
+  --fs-caption:     13px;
   --fw-heading:     400;
-  --fw-body:        300;
-  --tracking:       0em;
-  --lh-heading:     1.1;
-  --lh-body:        1.7;
-  --measure:        58ch;
-  --prose:          68ch;
+  --fw-body:        400;
+  --tracking:       -0.015em;
+  --lh-heading:     1.05;
+  --lh-body:        1.55;
+  --measure:        36ch;
+  --prose:          62ch;
   --type-ratio:     1.333;
 
   /* Buttons */
   --btn-radius:     999px;
-  --btn-py:         15px;
+  --btn-py:         16px;
   --btn-px:         28px;
-  --btn-weight:     500;
-  --btn-bw:         1px;
-  --btn-tracking:   0.06em;
-  --btn-transform:  none;
+  --btn-weight:     700;
+  --btn-bw:         2px;
+  --btn-tracking:   0.12em;
+  --btn-transform:  uppercase;
 
   /* Components */
-  --card-pad:       28px;
-  --card-radius:    20px;
-  --card-bw:        1px;
-  --badge-radius:   4px;
-  --input-bw:       1px;
-  --input-py:       16px;
-  --input-px:       18px;
-  --input-radius:   10px;
+  --card-pad:       32px;
+  --card-radius:    16px;
+  --card-bw:        2px;
+  --badge-radius:   999px;
+  --input-bw:       2px;
+  --input-py:       15px;
+  --input-px:       20px;
+  --input-radius:   14px;
   --nav-h:          76px;
   --icon-size:      20px;
 
   /* Line weight */
-  --bw:             1px;
-  --bw-thick:       1.5px;
+  --bw:             2px;
+  --bw-thick:       3px;
 
   /* Radius */
-  --radius-sm:      4px;
+  --radius-sm:      6px;
   --radius-md:      12px;
-  --radius-lg:      24px;
+  --radius-lg:      20px;
   --radius-pill:    999px;
 
   /* Elevation */
-  --shadow-sm:      0 1px 2px rgba(60,40,30,0.05);
-  --shadow:         0 6px 24px rgba(60,40,30,0.07), 0 1px 3px rgba(60,40,30,0.04);
-  --shadow-lg:      0 30px 70px rgba(60,40,30,0.16);
+  --shadow-sm:      0 1px 2px rgba(43,26,22,0.06);
+  --shadow:         0 6px 24px rgba(43,26,22,0.08), 0 1px 3px rgba(43,26,22,0.05);
+  --shadow-lg:      0 24px 60px rgba(43,26,22,0.18);
+  --shadow-hard:    8px 10px 0 #2b1a16;
 
   /* Layout */
   --container:      1320px;
-  --section-y:      176px;
-  --hero-y:         120px;
-  --gutter:         32px;
-  --gap:            32px;
+  --section-y:      170px;
+  --hero-y:         150px;
+  --gutter:         64px;
+  --gap:            36px;
   --space:          8px;
 
   /* Spacing scale */
   --space-xs:       6px;
   --space-sm:       12px;
-  --space-md:       20px;
+  --space-md:       22px;
   --space-lg:       36px;
-  --space-xl:       64px;
+  --space-xl:       72px;
 
   /* States */
   --hover-bright:   1.05;
@@ -146,9 +152,8 @@
   --ease:           cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Effects */
-  --grad:           linear-gradient(180deg, #f3ede4, #ffffff);
-  --backdrop-blur:  18px;
-  --overlay:        0.035;
-  --scrim:          rgba(43, 26, 22, 0.45);
+  --grad:           linear-gradient(180deg, rgba(43,26,22,0.45) 0%, rgba(43,26,22,0.22) 38%, rgba(43,26,22,0.3) 65%, rgba(43,26,22,0.55) 100%);
+  --backdrop-blur:  0px;
+  --overlay:        0;
+  --scrim:          rgba(43, 26, 22, 0.5);
 }
-

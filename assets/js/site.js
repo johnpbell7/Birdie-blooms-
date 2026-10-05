@@ -446,16 +446,20 @@
   /* ---------------------------------------------------------------------
      6. UI — header, mobile menu, filters, quotes
      --------------------------------------------------------------------- */
-  var header = $(".site-header"), menu = $("#mobile-menu"), menuBtn = $(".menu-toggle");
+  var header = $(".site-header"), menu = $("#mobile-menu"), menuBtn = $(".menu-toggle"), hero = $(".hero");
   var lastY = 0;
-  window.addEventListener("scroll", function () {
+  // on the homepage the header floats over her photo, then turns solid once you're past it
+  function onScroll() {
     var y = window.scrollY;
     if (header) {
       header.classList.toggle("is-scrolled", y > 10);
+      if (header.classList.contains("over")) header.classList.toggle("is-solid", !hero || y > hero.offsetHeight - header.offsetHeight);
       header.classList.toggle("is-hidden", y > 420 && y > lastY && !(menu && menu.classList.contains("is-open")));
     }
     lastY = y;
-  }, { passive: true });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
   function openMenu() {
     if (!menu) return;
@@ -588,6 +592,45 @@
     sync();
   }
 
+  // The Birdie Card: tap to stamp a B; a full card wins a free bunch and bursts petals
+  function initBirdieCard() {
+    var card = $(".bcard"); if (!card) return;
+    var stage = card.parentElement;
+    var slots = $$(".stamps li:not(.free)", card), free = $(".stamps .free", card), list = $(".stamps", card);
+    var tilts = [-8, 6, -4, 9, -12];
+    function burst() {
+      var b = free.getBoundingClientRect(), s = stage.getBoundingClientRect();
+      var cx = b.left - s.left + b.width / 2, cy = b.top - s.top + b.height / 2;
+      for (var i = 0; i < 22; i++) {
+        var p = doc.createElement("i"); p.className = "petal p" + (1 + (i % 3)); stage.appendChild(p);
+        var a = Math.random() * Math.PI * 2, dist = 90 + Math.random() * 170;
+        gsap.set(p, { x: cx - 7, y: cy - 10, rotation: Math.random() * 360, scale: 0.6 + Math.random() * 0.7 });
+        gsap.to(p, { x: cx + Math.cos(a) * dist, y: cy + Math.sin(a) * dist * 0.8 - 50, rotation: "+=" + (Math.random() * 300 - 150), duration: 1 + Math.random() * 0.6, ease: "power3.out" });
+        gsap.to(p, { y: "+=" + (80 + Math.random() * 60), autoAlpha: 0, duration: 0.9, delay: 0.75 + Math.random() * 0.4, ease: "power1.in", onComplete: function () { this.targets()[0].remove(); } });
+      }
+    }
+    function stamp() {
+      var next = slots.filter(function (li) { return !li.classList.contains("on"); })[0];
+      if (next) {
+        next.classList.add("on");
+        if (motionOn) {
+          gsap.fromTo($(".mark", next), { scale: 2.6, rotation: -40, autoAlpha: 0 }, { scale: 1, rotation: tilts[slots.indexOf(next)], autoAlpha: 1, duration: 0.42, ease: "power4.in" });
+          gsap.fromTo(card, { y: 0 }, { y: 6, duration: 0.07, yoyo: true, repeat: 1, delay: 0.38, ease: "power1.inOut" });
+        }
+      } else if (!free.classList.contains("won")) {
+        free.classList.add("won");
+        if (motionOn) { gsap.fromTo(free, { scale: 0.6 }, { scale: 1, duration: 0.6, ease: "elastic.out(1, 0.4)" }); burst(); }
+      } else {
+        slots.forEach(function (li) { li.classList.remove("on"); }); free.classList.remove("won");
+      }
+      var n = slots.filter(function (li) { return li.classList.contains("on"); }).length;
+      list.setAttribute("aria-label", free.classList.contains("won") ? "Card full: a free bunch" : n + " of five stamps collected");
+    }
+    card.addEventListener("click", stamp);
+    card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); stamp(); } });
+    $$("[data-stamp]").forEach(function (b) { b.addEventListener("click", stamp); });
+  }
+
   function initYear() { $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); }); }
 
   /* ---------------------------------------------------------------------
@@ -609,10 +652,21 @@
 
   function heroIntro() {
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    // home: her photo settles, the logo rises letter by letter, then the line and the button
+    var mark = $(".hero-mark .wm");
+    if (mark) {
+      gsap.set([mark, ".hero-line", ".hero-center .btn"], { visibility: "visible" });
+      tl.from(".hero-media img", { scale: 1.12, duration: 2.2, ease: "power3.out" }, 0)
+        .from($$(".g", mark), { yPercent: 108, duration: 1.3, stagger: 0.05 }, 0.25)
+        .from(".site-header.over .nav-bar > *", { y: -16, autoAlpha: 0, duration: 0.8, stagger: 0.08 }, 0.7)
+        .from(".hero-line", { y: 40, autoAlpha: 0, duration: 1.2 }, 0.75)
+        .from(".hero-center .btn", { y: 24, autoAlpha: 0, duration: 1 }, 1.05);
+    }
+    // inner pages: the big title rises line by line
     var kids = [];
-    $$(".hero-copy, .page-hero-copy").forEach(function (c) { kids = kids.concat($$(":scope > *", c)); });
+    $$(".page-hero-copy").forEach(function (c) { kids = kids.concat($$(":scope > *", c)); });
     if (kids.length) {
-      var head = $(".hero .display, .page-hero .display");
+      var head = $(".page-hero .display");
       var rest = kids.filter(function (el) { return el !== head; });
       gsap.set(kids, { visibility: "visible" });
       var split = head ? splitLines(head) : null;
@@ -620,26 +674,8 @@
       else if (head) tl.from(head, { y: 40, autoAlpha: 0, duration: 1.1 }, 0);
       tl.from(rest, { y: 28, autoAlpha: 0, duration: 1, stagger: 0.08, ease: "power3.out" }, 0.45);
     }
-    var frames = $$(".hero-visual .frame");
-    frames.forEach(function (f, n) {
-      gsap.set(f, { visibility: "visible" });
-      tl.fromTo(f, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.inOut" }, 0.15 + n * 0.25)
-        .from($$("img", f).filter(function (im) { return im.offsetParent !== null; }), { scale: 1.35, duration: 1.9, ease: "expo.out" }, 0.25 + n * 0.25);
-    });
-    var sq = $(".hero-squiggle");
-    if (sq) { var d = drawSquiggle(sq, { duration: 1.8 }); if (d) tl.add(d, 0.9); }
-    return tl;
-  }
-
-  function initLoader() {
-    var loader = $(".loader");
-    if (!loader || !root.classList.contains("intro")) return null;
-    try { sessionStorage.setItem("bb-seen", "1"); } catch (e) {}
-    var tl = gsap.timeline({ onComplete: function () { root.classList.remove("intro"); gsap.set(loader, { clearProps: "all" }); } });
-    var sq = $(".loader-squiggle", loader);
-    if (sq) tl.add(drawSquiggle(sq, { duration: 1.1, ease: "power2.inOut" }), 0);
-    tl.from($(".loader-logo", loader), { autoAlpha: 0, y: 14, duration: 0.8, ease: "power3.out" }, 0.55)
-      .to(loader, { clipPath: "inset(0% 0% 100% 0%)", duration: 1, ease: "expo.inOut" }, "+=0.35");
+    var bg = $(".page-hero-img");
+    if (bg) tl.from(bg, { scale: 1.12, duration: 2.2, ease: "power3.out" }, 0);
     return tl;
   }
 
@@ -647,18 +683,21 @@
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);
     if (window.Flip) gsap.registerPlugin(Flip);
-    var mm = gsap.matchMedia();
+    if (window.DrawSVGPlugin) gsap.registerPlugin(DrawSVGPlugin);
 
     (function () {
-      // intro: optional loader, then hero
-      var loader = initLoader();
-      var intro = heroIntro();
-      if (loader) { intro.pause(); loader.add(function () { intro.play(); }, "-=0.75"); }
+      heroIntro();
 
       // section headings — masked line reveal
       $$("[data-split]").forEach(function (el) {
         var split = splitLines(el); if (!split) return;
         gsap.from(split.lines, { yPercent: 110, duration: 1.2, stagger: 0.1, ease: "power4.out", scrollTrigger: { trigger: el, start: "top 88%", once: true }, onComplete: function () { split.revert(); } });
+      });
+
+      // blocks rise in as they arrive
+      ScrollTrigger.batch("[data-up]", {
+        start: "top 88%", once: true,
+        onEnter: function (els) { gsap.fromTo(els, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 1.1, stagger: 0.12, ease: "power3.out", overwrite: true }); }
       });
 
       // generic fade-up reveals, batched for natural stagger
@@ -682,39 +721,41 @@
         gsap.fromTo(el, { yPercent: -amt / 2 }, { yPercent: amt / 2, ease: "none", scrollTrigger: { trigger: el.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
       });
 
-      // statement — words ink in as you read
-      $$("[data-ink]").forEach(function (el) {
-        var split = window.SplitText ? SplitText.create(el, { type: "words", wordsClass: "w" }) : null;
-        if (!split) return;
-        var faint = getComputedStyle(root).getPropertyValue("--c-hairline").trim() || "#d9d0c5";
-        var ink = getComputedStyle(root).getPropertyValue("--c-ink").trim() || "#1e1a17";
-        gsap.fromTo(split.words, { color: faint }, { color: ink, stagger: 0.1, ease: "none", scrollTrigger: { trigger: el, start: "top 78%", end: "bottom 45%", scrub: 0.6 } });
+      // her photos drift as you scroll: the homepage hero and the full-bleed bands
+      if (hero) gsap.to(".hero-media", { yPercent: 12, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+      $$("[data-drift]").forEach(function (img) {
+        gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
       });
 
-      // marquee — endless, nudged by scroll velocity
-      $$(".marquee-track").forEach(function (track) {
-        var loop = gsap.to(track, { xPercent: -50, duration: 38, ease: "none", repeat: -1 });
-        var boost = gsap.quickTo(loop, "timeScale", { duration: 0.6, ease: "power2.out" });
-        ScrollTrigger.create({ trigger: track, start: "top bottom", end: "bottom top", onUpdate: function (self) {
-          var v = self.getVelocity() / 260; var s = gsap.utils.clamp(-5, 5, v);
-          loop.timeScale(Math.abs(s) < 1 ? (s < 0 ? -1 : 1) : s); boost(s < 0 ? -1 : 1);
-        } });
+      // collages: the back photo moves at a different pace to the front one
+      $$(".collage").forEach(function (c) {
+        var st = { trigger: c, start: "top bottom", end: "bottom top", scrub: true };
+        gsap.fromTo($(".c-back", c), { yPercent: 18 }, { yPercent: -18, ease: "none", scrollTrigger: st });
+        gsap.fromTo($(".c-front", c), { yPercent: 4 }, { yPercent: -4, ease: "none", scrollTrigger: Object.assign({}, st) });
       });
+
+      // seasonal letters: the photos land like prints dropped on a table
+      if ($(".letters-art")) gsap.from(".letters-art img", { y: 80, autoAlpha: 0, duration: 1.2, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ".letters-art", start: "top 80%" } });
+
+      // the ink drawings draw themselves, then their touch of colour pops in
+      if (window.DrawSVGPlugin) $$("[data-illo]").forEach(function (svg) {
+        var strokes = $$("[stroke]", svg), fills = $$("[style*='fill']", svg);
+        var tl = gsap.timeline({ scrollTrigger: { trigger: svg, start: "top 90%" } });
+        tl.from(strokes, { drawSVG: 0, duration: 1.3, ease: "power2.inOut", stagger: 0.08 });
+        if (fills.length) tl.from(fills, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%", duration: 0.5, ease: "back.out(2)", stagger: 0.04 }, "-=0.4");
+      });
+
+      // the Birdie Card lands on the table
+      if ($(".bcard")) gsap.from(".bcard", { y: 120, rotation: -16, autoAlpha: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".loyalty", start: "top 70%" } });
+
+      // the big logo at the foot of every page rises as you arrive
+      var fm = $(".footer-mark .wm-mark");
+      if (fm) gsap.fromTo(fm, { yPercent: 100 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: ".footer-mark", start: "top bottom", end: "bottom bottom", scrub: 0.8 } });
 
       // any other squiggles ink in as they scroll into view
       $$("[data-draw]").forEach(function (svg) {
-        if (svg.closest(".hero-visual") || svg.closest(".loader")) return;
         var t = drawSquiggle(svg, { paused: true });
         if (t) ScrollTrigger.create({ trigger: svg, start: "top 85%", once: true, onEnter: function () { t.play(); } });
-      });
-
-      // horizontal gallery — pinned on desktop only (mobile swipes natively)
-      mm.add("(min-width: 901px)", function () {
-        $$("[data-hscroll]").forEach(function (wrap) {
-          var track = $(".hgallery-track", wrap);
-          var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
-          gsap.to(track, { x: function () { return -dist(); }, ease: "none", scrollTrigger: { trigger: wrap, start: "center center", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.8, invalidateOnRefresh: true, anticipatePin: 1 } });
-        });
       });
 
       // pinned process — swap the picture as each step arrives
@@ -798,6 +839,7 @@
   initQuotes();
   initYear();
   initSeasons();
+  initBirdieCard();
   if (CONFIG.preview) {
     var badge = doc.createElement("p"); badge.className = "preview-badge"; badge.textContent = "Design preview · not live yet";
     doc.body.appendChild(badge);
