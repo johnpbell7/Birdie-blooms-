@@ -8,7 +8,7 @@ Edit the words, products and reviews here, then run it again. Pages are written 
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "?v=5"            # bump to make browsers fetch new CSS/JS/logo files
+V = "?v=6"            # bump to make browsers fetch new CSS/JS/logo files
 EMAIL = "hello@birdieblooms.co.uk"
 INSTA = "https://www.instagram.com/birdie.blooms/"
 IMG = "assets/img/"

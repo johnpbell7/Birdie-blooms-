@@ -49,8 +49,8 @@
   .bar.show { transform: none; }
   .bar-logo { width: 170px; color: var(--ink); }
   .bar-nav, .hero-top nav { display: flex; align-items: center; gap: 14px; font-size: 20px; }
-  .bar-nav a, .hero-top a, .foot a, .col-text a, .ig-handle a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; transition: background-size 0.35s var(--ease); }
-  .bar-nav a:hover, .hero-top a:hover, .foot a:hover { background-size: 100% 1.5px; }
+  .bar-nav a, .hero-top nav a, .foot a, .col-text a, .ig-handle a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; transition: background-size 0.35s var(--ease); }
+  .bar-nav a:hover, .hero-top nav a:hover, .foot a:hover { background-size: 100% 1.5px; }
   .col-text a, .ig-handle a { background-size: 100% 1.5px; }
   .bar-basket { justify-self: end; text-decoration: none; font-size: 20px; }
 
@@ -435,3 +435,6 @@ fieldset.field { margin: 0; padding: 0; border: 0; }
   .ph-photo { width: 86%; margin: 10px auto 0; }
   .ph-photo .ph-illo { display: block; left: -22px; width: 84px; }
 }
+
+/* logo links never get the underline */
+.hero-b, .bar-logo, .menu-top a { background: none !important; text-decoration: none; }
