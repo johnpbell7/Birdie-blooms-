@@ -162,13 +162,13 @@
       list.setAttribute("aria-label", "0 of five stamps collected");
       var autoStamp = function () {
         var tl = gsap.timeline();
-        for (var i = 0; i < 6; i++) tl.call(function () { if (!isFull()) stamp(); }, null, i * 0.6);
+        for (var i = 0; i < 6; i++) tl.call(function () { if (!isFull()) stamp(); }, null, i * 0.55);
         return tl;
       };
       gsap.registerPlugin(ScrollTrigger);
-      gsap.timeline({ scrollTrigger: { trigger: card, start: "top 75%", once: true } })
-        .from(card, { y: 120, rotation: -16, autoAlpha: 0, duration: 1.1, ease: "power4.out" })
-        .add(autoStamp, "-=0.25");
+      gsap.timeline({ scrollTrigger: { trigger: card, start: "center 70%", once: true } })
+        .from(card, { y: 140, rotation: -16, autoAlpha: 0, duration: 0.9, ease: "power4.out" })
+        .add(autoStamp, "+=0.15");
     }
   }
 
@@ -193,7 +193,7 @@
   }
 
   ScrollTrigger.batch("[data-up]", {
-    start: "top 88%", once: true,
+    start: "top 80%", once: true,
     onEnter: function (els) { gsap.fromTo(els, { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: "power3.out", stagger: 0.12, overwrite: true }); }
   });
 
@@ -201,17 +201,27 @@
     gsap.fromTo($(".c-back", c), { yPercent: 18 }, { yPercent: -18, ease: "none", scrollTrigger: { trigger: c, start: "top bottom", end: "bottom top", scrub: true } });
     gsap.fromTo($(".c-front", c), { yPercent: 4 }, { yPercent: -4, ease: "none", scrollTrigger: { trigger: c, start: "top bottom", end: "bottom top", scrub: true } });
   });
-  if ($(".letters-art")) gsap.from(".letters-art img", { y: 80, autoAlpha: 0, duration: 1.2, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ".letters-art", start: "top 80%" } });
+  if ($(".letters-art")) gsap.from(".letters-art img", { y: 80, autoAlpha: 0, duration: 1.2, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ".letters-art", start: "top 70%", once: true } });
 
   $$(".illo").forEach(function (svg) {
     var strokes = $$("[stroke]", svg), fills = $$("[style*='fill']", svg);
     if (!strokes.length) return;
-    var tl = gsap.timeline({ scrollTrigger: { trigger: svg, start: "top 92%" } });
+    var tl = gsap.timeline({ scrollTrigger: { trigger: svg, start: "top 78%", once: true } });
     tl.from(strokes, { drawSVG: 0, duration: 0.7, ease: "power2.out", stagger: 0.04 });
     if (fills.length) tl.from(fills, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(2)", stagger: 0.03 }, "-=0.25");
   });
 
-  if ($(".products")) gsap.from(".product .p-img", { clipPath: "inset(100% 0% 0% 0%)", duration: 1.3, ease: "expo.inOut", stagger: 0.15, scrollTrigger: { trigger: ".products", start: "top 80%" } });
+  if ($(".swatches")) {
+    gsap.timeline({ scrollTrigger: { trigger: ".swatches", start: "top 72%", once: true } })
+      .from(".swatch", { y: 60, rotation: function (i) { return [-4, 3, -2, 4][i % 4]; }, autoAlpha: 0, duration: 0.9, ease: "back.out(1.4)", stagger: 0.14 })
+      .from(".swatch.is-today .sw-now", { scale: 0, duration: 0.5, ease: "back.out(2.5)" }, "-=0.2");
+  }
+  $$(".panel-dot").forEach(function (dot) {
+    gsap.from(dot, { scale: 0.6, rotation: -20, autoAlpha: 0, duration: 1, ease: "back.out(1.6)", scrollTrigger: { trigger: dot, start: "top 75%", once: true } });
+  });
+  if ($(".steps-grid")) gsap.from(".steps-grid b", { scale: 0, duration: 0.6, ease: "back.out(2.5)", stagger: 0.15, scrollTrigger: { trigger: ".steps-grid", start: "top 72%", once: true } });
+
+  if ($(".products")) gsap.from(".product .p-img", { clipPath: "inset(100% 0% 0% 0%)", duration: 1.3, ease: "expo.inOut", stagger: 0.15, scrollTrigger: { trigger: ".products", start: "top 70%", once: true } });
   if ($(".wm-foot")) gsap.from(".wm-foot .g", { yPercent: 108, ease: "none", stagger: 0.04, scrollTrigger: { trigger: ".foot-mark", start: "top bottom", end: "bottom bottom", scrub: 0.8 } });
 
   if (d.fonts && d.fonts.ready) d.fonts.ready.then(function () { ScrollTrigger.refresh(); });

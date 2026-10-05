@@ -8,7 +8,7 @@ Edit the words, products and reviews here, then run it again. Pages are written 
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "?v=4"            # bump to make browsers fetch new CSS/JS/logo files
+V = "?v=5"            # bump to make browsers fetch new CSS/JS/logo files
 EMAIL = "hello@birdieblooms.co.uk"
 INSTA = "https://www.instagram.com/birdie.blooms/"
 IMG = "assets/img/"
@@ -466,7 +466,7 @@ write("weddings.html", weddings)
 panels = "".join(f'''
   <section class="panel" data-s="{k}" id="{k}">
     <div class="panel-in">
-      <div class="panel-dot" data-up>{illo(art)}</div>
+      <div class="panel-dot">{illo(art)}</div>
       <div data-up>
         <p class="label">{months}</p>
         <h2>{n}</h2>
