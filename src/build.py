@@ -138,8 +138,16 @@ def footer():
 </html>
 '''
 
-def page_hero(label, title, sub, block, art=None, cta=None):
+def page_hero(label, title, sub, block, art=None, cta=None, photo=None):
     btn = f'<a class="btn" href="{cta[1]}">{cta[0]} {ARROW}</a>' if cta else ""
+    if photo:
+        side = f'<figure class="ph-photo"><img src="{IMG}{photo[0]}" alt="{photo[1]}">{illo(art, "ph-illo") if art else ""}</figure>'
+        return f'''<section class="page-hero has-photo {block}">
+  <div class="page-hero-in">
+    <div><p class="label">{label}</p><h1>{title}</h1><p class="sub">{sub}</p>{btn}</div>
+    {side}
+  </div>
+</section>'''
     return f'''<section class="page-hero {block}">
   <div class="page-hero-in">
     <div><p class="label">{label}</p><h1>{title}</h1><p class="sub">{sub}</p>{btn}</div>
@@ -419,7 +427,7 @@ wed_form = f'''<div class="form-shell">
     </div>'''
 weddings = head("Weddings &amp; events · Birdie Blooms", "Loose, seasonal wedding and event flowers from Ravenstone &amp; Kibworth, Leicestershire.") + bar("weddings.html", False) + f'''
 <main id="main">
-  {page_hero("Weddings &amp; events", "Wedding flowers, gathered from the season.", "Loose, romantic flowers that look like they’ve just been picked, made for your day, your colours and the time of year.", "block-pastel", "bird", ("Enquire about your date", "#enquire"))}
+  {page_hero("Weddings &amp; events", "Wedding flowers, gathered from the season.", "Loose, romantic flowers that look like they’ve just been picked, made for your day, your colours and the time of year.", "block-pastel", "bird", ("Enquire about your date", "#enquire"), ("wed-bride-garden.webp", "A bride holding a loose bouquet of white roses, daisies and green flowers"))}
 
   <section class="section">
     <div class="section-head center" data-up><p class="label">What I make</p><h2 class="big-serif">From one bouquet to the whole day.</h2></div>

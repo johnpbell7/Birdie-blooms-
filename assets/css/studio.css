@@ -424,3 +424,14 @@ fieldset.field { margin: 0; padding: 0; border: 0; }
 @keyframes bob { 0%, 100% { transform: translateY(0) rotate(0); } 30% { transform: translateY(-5%) rotate(-3deg); } 55% { transform: translateY(0) rotate(2deg); } 70% { transform: translateY(-2%) rotate(0); } }
 @keyframes rock { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
 @media (prefers-reduced-motion: reduce) { .illo { animation: none !important; } }
+
+/* page hero with a photograph */
+.page-hero.has-photo .page-hero-in { grid-template-columns: 1fr minmax(260px, 40%); align-items: center; }
+.ph-photo { position: relative; margin: 0; }
+.ph-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 50%; border: 2px solid var(--ink); border-radius: 16px; box-shadow: 10px 12px 0 var(--ink); }
+.ph-photo .ph-illo { position: absolute; left: -48px; bottom: -30px; width: 110px; padding: 8px; background: var(--pastel); border-radius: 50%; }
+@media (max-width: 860px) {
+  .page-hero.has-photo .page-hero-in { grid-template-columns: 1fr; }
+  .ph-photo { width: 86%; margin: 10px auto 0; }
+  .ph-photo .ph-illo { display: block; left: -22px; width: 84px; }
+}
