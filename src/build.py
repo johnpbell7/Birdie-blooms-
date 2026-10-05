@@ -8,7 +8,7 @@ Edit the words, products and reviews here, then run it again. Pages are written 
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "?v=7"            # bump to make browsers fetch new CSS/JS/logo files
+V = "?v=8"            # bump to make browsers fetch new CSS/JS/logo files
 EMAIL = "hello@birdieblooms.co.uk"
 INSTA = "https://www.instagram.com/birdie.blooms/"
 IMG = "assets/img/"
@@ -18,10 +18,8 @@ PRODUCTS = [
     # name, price, photo (or None to show a drawing), drawing, description
     ("The Birdie Bunch", "£35", "bb-bunch-detail.webp", "dahlia",
      "Dahlias, hydrangea, wheat and eucalyptus, hand-tied and wrapped in paper."),
-    ("The Pumpkin Edit · Orange", "£35", "bb-pumpkin-orange.webp", "pumpkin",
+    ("The Pumpkin Edit", "£35", "bb-pumpkin-orange.webp", "pumpkin",
      "Dahlias, amaranth and hydrangea gathered round a little orange pumpkin, finished with ribbon."),
-    ("The Pumpkin Edit · Ghost", "£35", None, "pumpkin",
-     "The same idea in pale, ghostly tones, round a white pumpkin."),
 ]
 
 # Real reviews only (with the customer's permission). While this is empty, the page invites reviews instead.
@@ -212,19 +210,26 @@ def product_cards():
           <p class="p-desc">{desc}</p>
           <a class="btn btn-light" href="{enquire_link(bouquet=name)}">Enquire {ARROW}</a>
         </article>''')
+    # fill the row with an invitation rather than an empty slot
+    if len(PRODUCTS) % 3:
+        out.append(f'''
+        <article class="product product-more" data-up>
+          <div class="pm-inner">
+            {illo("bird")}
+            <h3>Something else in mind?</h3>
+            <p>Tell me the occasion, the colours and your budget, and I’ll make something just for you.</p>
+            <a class="btn" href="{enquire_link(**{"for": "Bouquet or arrangement"})}">Make an enquiry {ARROW}</a>
+          </div>
+        </article>''')
     return "".join(out)
 
 def first_edit(heading_tag="h2"):
     return f'''<section class="edit block-bloom" id="bouquets">
     <div class="edit-head" data-up>
       <div><p class="label">This season</p><{heading_tag} class="huge-serif">Autumn bouquets</{heading_tag}></div>
-      <p class="edit-note">Three bouquets for autumn, made to order with the season’s best stems.</p>
+      <p class="edit-note">Made to order with the season’s best stems, wrapped and ready to give.</p>
     </div>
     <div class="products">{product_cards()}</div>
-    <div class="edit-more" data-up>
-      <p>Looking for something else? Tell me the occasion, the colours and your budget, and I’ll make something just for you.</p>
-      <a class="btn btn-light" href="{enquire_link(**{'for': 'Bouquet or arrangement'})}">Make an enquiry {ARROW}</a>
-    </div>
   </section>'''
 
 PALETTES = {"winter": "Berry red and frosted green", "spring": "Tulip pink and narcissus yellow",
@@ -232,14 +237,15 @@ PALETTES = {"winter": "Berry red and frosted green", "spring": "Tulip pink and n
 
 def season_picker():
     cards = "".join(f'''
-        <article class="swatch" data-s="{k}" role="listitem">
+        <a class="swatch" data-s="{k}" href="seasons.html#{k}" role="listitem">
           <span class="sw-dot" aria-hidden="true">{illo(art, "sw-illo")}</span>
           <h3 class="sw-name">{n}</h3>
           <p class="sw-months label">{months}</p>
           <p class="sw-colours"><i aria-hidden="true"></i>{PALETTES[k]}</p>
           <p class="sw-flowers">{", ".join(fl[:4])}</p>
+          <span class="sw-go label">See {n.lower()} flowers {ARROW}</span>
           <span class="sw-now label">In season now</span>
-        </article>''' for k, n, months, colour, art, fl, line in SEASONS)
+        </a>''' for k, n, months, colour, art, fl, line in SEASONS)
     return f'''<section class="palette" id="colours" aria-labelledby="pal-title">
     <div class="pal-head" data-up>
       <p class="label">What’s in season</p>

@@ -28,7 +28,7 @@ python3 src/build.py
 ```
 
 At the top of `src/build.py`:
-- **`PRODUCTS`**: the season's bouquets, with name, price, photo and description. Set the photo to `None` to show a drawing instead.
+- **`PRODUCTS`**: the season's bouquets, with name, price, photo and description. Only add bouquets that have a photo. While there are fewer than three, the row is finished with a "Something else in mind?" enquiry card.
 - **`REVIEWS`**: real reviews only, used with the customer's permission. While the list is empty, the home page invites people to share a few words instead. Fake reviews are illegal in the UK.
 - **`SEASONS`**: the flowers and words for each season.
 - **`EMAIL`** and **`INSTA`**: contact details used across the site.
@@ -64,13 +64,13 @@ The colour appears on the bouquets block, the stamps and the browser-tab icon. T
 - **`hello@birdieblooms.co.uk`:** make sure this address exists and is hers, because every enquiry is sent to it.
 - **Delivery area:** the site says Ravenstone, Kibworth and the villages nearby, with collection welcome.
 - **The Birdie Card:** every bunch earns a stamp, and the sixth bunch is free. Is that the offer she wants to run?
-- **Prices:** the autumn bouquets are £35 each.
+- **Prices:** The Birdie Bunch and The Pumpkin Edit are £35 each.
 - **Good to know:** check `policies.html` against how she actually works.
 - **Photos:**
   - Only her own photos are used (`assets/img/bb-*.webp`).
   - There are no photos yet of her weddings, her studio or her, so those pages use drawings and colour instead.
   - New photos can be dropped in at the same file names, or added in `src/build.py`.
-  - The Ghost pumpkin shows a drawing until it's photographed.
+  - The Ghost pumpkin bouquet isn't shown yet because it has no photo. Add it back to `PRODUCTS` once it's photographed.
 - **Search engines:** pages are set to `noindex` while the site is on GitHub. Remove that line in `src/build.py` (`head()`) when it moves to her own domain.
 
 ## Brand assets

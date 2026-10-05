@@ -216,7 +216,7 @@
 
   if ($(".swatches")) {
     gsap.timeline({ scrollTrigger: { trigger: ".swatches", start: "top 72%", once: true } })
-      .from(".swatch", { y: 60, rotation: function (i) { return [-4, 3, -2, 4][i % 4]; }, autoAlpha: 0, duration: 0.9, ease: "back.out(1.4)", stagger: 0.14 })
+      .from(".swatch", { y: 50, autoAlpha: 0, duration: 0.8, ease: "power3.out", stagger: 0.12, clearProps: "transform" })
       .from(".swatch.is-today .sw-now", { scale: 0, duration: 0.5, ease: "back.out(2.5)" }, "-=0.2");
   }
   $$(".panel-dot").forEach(function (dot) {
