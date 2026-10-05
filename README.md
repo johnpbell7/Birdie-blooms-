@@ -4,7 +4,23 @@ The website for Birdie Blooms, a one-woman seasonal flower studio. It is a fast,
 
 The design brief was **high-end yet approachable, white and clean**. The research behind it is in [`docs/research.md`](docs/research.md). It covers 11 independent florists and includes their fonts, price ladders, forms and tone of voice.
 
-## Pages
+## The homepage now: Studio
+
+`index.html` is the **Studio** design, a bold rebuild inspired by Worm and Petalon. It has:
+- her logo huge over her own photo, with "Flowers for big days, and Tuesdays." big and centred
+- solid colour blocks and one sturdy serif (Newsreader)
+- chunky ink drawings and photo collages
+- The First Edit, the Birdie Card loyalty stamp card, kind words (example reviews, clearly labelled), her story, Instagram and seasonal letters
+
+**Colours of the season.** The site picks its colour by date (Dec–Feb winter, Mar–May spring, Jun–Aug summer, Sep–Nov autumn). Visitors can tap a season in the "Pick your colours" section, or the dots in the footer, to recolour the whole site.
+
+The same page is kept at `directions/studio.html`, alongside the earlier concepts in `directions/`. `404.html` matches the new design.
+
+The other pages listed below (`shop.html`, `weddings.html`, `about.html` and so on) are from the earlier design. The new homepage doesn't link to them, and they'll be rebuilt in the Studio style.
+
+Placeholder copy to check: the story text, delivery days, prices, the review quotes and `hello@birdieblooms.co.uk`. The newsletter form and basket are a design preview only, so nothing is sent or sold yet.
+
+## Pages (earlier design)
 
 | Page | What's on it |
 |---|---|
