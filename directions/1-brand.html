@@ -84,6 +84,10 @@
   .download { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 12px 20px 9px; border: 1px solid var(--accent); border-radius: 999px; }
   .download:hover { background: var(--accent); color: #fff; }
 
+  .ils { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+  .il { margin: 0; display: grid; justify-items: center; gap: 12px; padding: 28px 10px 18px; border: 1px solid var(--accent); border-radius: 4px; }
+  .il svg { width: 70%; height: auto; color: var(--ink); }
+  @media (max-width: 900px) { .ils { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   /* in use: mockups laid on a table */
   .table { background: var(--table); }
   .scene { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); align-items: start; }
@@ -103,6 +107,7 @@
   .gift.back { transform: rotate(-3deg) translateY(28px); overflow: hidden; }
   .gift .inner { position: relative; height: 100%; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; text-align: center; padding: 22px 12px 18px; border: 1px solid var(--accent); }
   .gift .inner .mono { width: 16px; color: var(--accent); }
+  .gift-bird { width: 42%; height: auto; margin-top: -10px; color: var(--ink); }
   .gift .inner h3 { align-self: center; font-family: var(--serif); font-size: clamp(22px, 2.2vw, 30px); line-height: 1.1; }
   .gift .inner .wordmark { width: 64%; }
   .gift.back .pat i { --o: 0.85; --tile: 70px; }
@@ -204,6 +209,11 @@
     <a class="download label" href="../assets/brand/birdie-blooms-pattern.svg?v=3">pattern tile (svg) <span aria-hidden="true">↓</span></a>
   </section>
 
+  <section class="wrap">
+    <div class="sec-head" data-rise><span class="mark mono"></span><h2>Illustrations</h2><span class="rule"></span><span class="label muted">one line, one touch of colour</span></div>
+    <div class="ils"><figure class="il" data-rise><svg viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#bird"/></svg><figcaption class="label muted">bird</figcaption></figure><figure class="il" data-rise><svg viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#dahlia"/></svg><figcaption class="label muted">dahlia</figcaption></figure><figure class="il" data-rise><svg viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#tulip"/></svg><figcaption class="label muted">tulip</figcaption></figure><figure class="il" data-rise><svg viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#sprig"/></svg><figcaption class="label muted">sprig</figcaption></figure><figure class="il" data-rise><svg viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#wheat"/></svg><figcaption class="label muted">wheat</figcaption></figure><figure class="il" data-rise><svg viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#pumpkin"/></svg><figcaption class="label muted">pumpkin</figcaption></figure></div>
+  </section>
+
   <section class="table">
     <div class="wrap">
       <div class="sec-head" data-rise><span class="mark mono"></span><h2>In use</h2><span class="rule"></span></div>
@@ -214,7 +224,7 @@
           <span class="cap label muted">tissue &amp; wrapping paper</span>
         </div>
         <div class="item cards" data-rise>
-          <div class="gift front shadow"><div class="inner"><span class="mark mono"></span><h3>Happy Tuesday.</h3><span class="mark wordmark"></span></div></div>
+          <div class="gift front shadow"><div class="inner"><svg class="gift-bird" viewBox="0 0 120 160" aria-hidden="true"><use href="../assets/illustrations/birdie-illustrations.svg?v=1#bird"/></svg><h3>Happy Tuesday.</h3><span class="mark wordmark"></span></div></div>
           <div class="gift back shadow"><div class="pat"><i></i></div><div class="cap-in"><span><span class="mark mono"></span></span></div></div>
           <span class="cap label muted" style="grid-column:1/-1;margin-top:34px">gift card, front &amp; back</span>
         </div>
