@@ -8,7 +8,7 @@ Edit the words, products and reviews here, then run it again. Pages are written 
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "?v=8"            # bump to make browsers fetch new CSS/JS/logo files
+V = "?v=9"            # bump to make browsers fetch new CSS/JS/logo files
 EMAIL = "hello@birdieblooms.co.uk"
 INSTA = "https://www.instagram.com/birdie.blooms/"
 IMG = "assets/img/"
@@ -124,9 +124,8 @@ MENU_BUTTON = f'<button class="menu-btn" type="button" aria-label="Open the menu
 
 def menu(current):
     links = "".join(
-        f'<a class="menu-link" href="{h}"{" aria-current=page" if h == current else ""}><span class="ml-no">0{i + 1}</span>'
-        f'<span class="ml-title">{n}</span>{ARROW}<span class="ml-desc">{d}</span></a>'
-        for i, (h, n, d, a) in enumerate(SITE))
+        f'<a class="menu-link" href="{h}"{" aria-current=page" if h == current else ""}><span class="ml-title">{n}</span>{ARROW}</a>'
+        for h, n, d, a in SITE)
     return f'''<div class="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="menu-top"><a href="index.html" aria-label="Birdie Blooms, home">{wordmark("wm-menu")}</a><button class="menu-close" type="button" aria-label="Close the menu"><span class="mb-label">Close</span>{CLOSE_ICON}</button></div>
   <div class="menu-body">
