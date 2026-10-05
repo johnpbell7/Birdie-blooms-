@@ -87,6 +87,13 @@ Both Bs in the logo are the "Blooms" B. It's a full B with no break.
 
 `directions/` keeps the earlier design concepts for reference. The live site doesn't link to them.
 
+## New logo preview
+
+`new-logo/` is a preview of the home page with the new bird-and-leaves B: https://johnpbell7.github.io/Birdie-blooms-/new-logo/
+
+- It isn't linked from the live pages, which keep the current logo until it's approved.
+- The logo files are in `new-logo/brand/`: the mark, stacked, side-by-side and one-line lockups, and the round leaf seal, each in green and cream.
+
 ## Preview locally
 
 ```bash
