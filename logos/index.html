@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birdie Blooms · Four logo directions</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ballet&family=Barlow+Condensed:wght@500&family=Bellefair&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Cormorant+SC:wght@500;600&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Homemade+Apple&family=Jost:wght@400;500&family=Mea+Culpa&display=swap">
+<style>
+:root{--bg:#F6F2EC;--fg:#2B2522;--muted:#6E645E;--line:rgba(43,37,34,.14)}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:1600px;margin:0 auto;padding:0 clamp(16px,3vw,48px)}
+.intro{padding:clamp(48px,7vw,96px) 0 clamp(36px,5vw,64px)}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+h1{font:400 clamp(40px,6vw,84px)/1.02 'Cormorant Garamond',serif;margin:0 0 18px;letter-spacing:-.01em;text-wrap:balance;max-width:18ch}
+.lede{max-width:62ch;color:var(--muted);font-size:18px;margin:0}
+.fams{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.fam{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px}
+.fam .dot{display:block;width:26px;height:26px;border-radius:50%;background:var(--dot);margin-bottom:14px}
+.fam h3{font:500 26px/1.1 'Cormorant Garamond',serif;margin:0 0 8px} .fam p{margin:0 0 10px;font-size:15px} .fam-refs{color:var(--muted);font-size:13px!important}
+.threads{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.threads div{border-top:1px solid var(--line);padding-top:14px;font-size:15px} .threads b{display:block;font-weight:500;margin-bottom:4px}
+.toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px} .toc a{padding:10px 16px 8px;border:1px solid var(--fg);border-radius:999px;text-decoration:none;color:inherit;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+
+.board{padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.b-head{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,.6fr);gap:22px 34px;align-items:start;margin-bottom:26px}
+.b-no{font:400 64px/1 'Cormorant Garamond',serif;margin:0;color:var(--ink)}
+.b-head h2{font:500 clamp(32px,3.6vw,48px)/1.05 'Cormorant Garamond',serif;margin:4px 0 10px;color:var(--ink)}
+.b-idea{margin:0;max-width:60ch;font-size:17px}
+.b-refs{margin:8px 0 0;font-size:14px;color:var(--muted)} .b-refs span{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:4px}
+.b-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(150px,auto);gap:12px}
+.tile{border-radius:14px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;min-width:0}
+.hero-tile{grid-column:1/3;grid-row:1/4;min-height:560px}
+.primary{grid-column:3/5;grid-row:1/2;padding:40px;min-height:250px}
+.second{grid-column:3/4;grid-row:2/4;padding:28px}
+.markt{grid-column:4/5;grid-row:2/4;padding:28px;flex-direction:column;gap:22px}
+.pal{grid-column:1/3;display:grid;grid-template-columns:repeat(5,1fr);min-height:150px;align-items:stretch}
+.type{grid-column:3/5;flex-direction:column;align-items:stretch;justify-content:center;padding:18px 26px;gap:0}
+.apps{grid-column:1/5;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;background:none;min-height:260px}
+.ph{position:absolute;inset:0;overflow:hidden} .ph-img{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;max-width:none}
+.ph-tint{position:absolute;inset:0} .grain{position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.35;mix-blend-mode:overlay}
+.ph-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:8%}
+.hero-logo{width:86%;filter:drop-shadow(0 1px 12px rgba(0,0,0,.12))}
+.hero-garden,.hero-power{width:62%} .hero-yesterday{width:92%}
+.prim-soft,.prim-yesterday{width:94%} .prim-garden{width:74%} .prim-power{width:50%}
+.alt-soft{width:88%} .alt-garden{width:80%} .alt-power{width:86%} .alt-yesterday{width:82%}
+.mark-soft,.mark-power{width:58%} .mark-garden{width:64%} .mark-yesterday{width:40%}
+.avatars{display:flex;gap:12px} .avatars span{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;overflow:hidden} .avatars img{width:70%;height:70%;object-fit:contain}
+.sw{display:flex;flex-direction:column;justify-content:flex-end;padding:14px;gap:2px} .sw b{font-weight:500;font-size:14px} .sw span{font-size:12px;letter-spacing:.06em;opacity:.85}
+.ty{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline;padding:12px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 18%, transparent)} .ty:last-child{border-bottom:0}
+.ty-s{font-size:clamp(24px,2.4vw,34px);line-height:1.15;grid-row:1/3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .ty-n{font-size:13px;font-weight:500;text-align:right} .ty-r{font-size:12px;opacity:.75;text-align:right}
+.app{border-radius:14px;position:relative;display:flex;align-items:center;justify-content:center;height:300px;overflow:hidden} .app img{max-height:76%;object-fit:contain}
+.card-app img{filter:drop-shadow(0 0 0 transparent)}
+.tag-app{flex-direction:column;gap:10px;clip-path:polygon(16% 0,84% 0,100% 14%,100% 100%,0 100%,0 14%);padding:44px 20px 22px} .tag-app img{max-height:64%}
+.tag-app .hole{position:absolute;top:16px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--bg);box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+.tag-app small{font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.kraft{background:#C9A57A}
+.sticker{border-radius:50%!important;height:300px;width:300px;max-width:100%;justify-self:center}
+.pattern{background-image:url("files/birdie-blooms-power-pattern.svg");background-size:150px 150px}
+.seal-app{background:#EFE5CC} .wax{width:180px;height:180px;border-radius:47% 53% 50% 50%/52% 48% 52% 48%;background:radial-gradient(circle at 35% 30%, #9b3343, #7A1F2D 55%, #5c1520);display:grid;place-items:center;box-shadow:0 8px 18px rgba(0,0,0,.25), inset 0 0 0 10px rgba(255,255,255,.06)}
+.ribbon{width:116%;height:96px;background:#7A1F2D;transform:rotate(-6deg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.18)} .ribbon img{height:70%;max-height:none;width:auto}
+.b-why{margin:22px 0 0;max-width:80ch;font:italic 500 20px/1.45 'Cormorant Garamond',serif;color:var(--muted)}
+.foot{padding:40px 0 70px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media (max-width: 900px){
+  .fams{grid-template-columns:1fr 1fr} .threads{grid-template-columns:1fr}
+  .b-head{grid-template-columns:auto 1fr} .b-refs{grid-column:1/-1}
+  .b-grid{grid-template-columns:1fr 1fr}
+  .hero-tile{grid-column:1/3;grid-row:auto;min-height:380px} .primary{grid-column:1/3;grid-row:auto}
+  .second,.markt{grid-row:auto;min-height:260px} .second{grid-column:1/2} .markt{grid-column:2/3}
+  .pal,.type{grid-column:1/3} .apps{grid-column:1/3;grid-template-columns:1fr}
+}
+@media (max-width: 520px){ .fams{grid-template-columns:1fr} .b-no{font-size:44px} .pal{grid-template-columns:repeat(5,1fr)} .sw b{font-size:11px} .sw span{font-size:9.5px} .ty{grid-template-columns:1fr} .ty-s{grid-row:auto;white-space:normal} .ty-n,.ty-r{text-align:left} }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="intro">
+    <p class="eyebrow">Birdie Blooms · Logo directions</p>
+    <h1>What she likes, and four ways to be Birdie Blooms</h1>
+    <p class="lede">Her eighteen favourites fall into four families. Each direction below takes one family and makes it hers, with its own typeface, mark, colours and uses. Every font is free to use commercially (Google Fonts, Open Font License), and every logo is a clean vector file.</p>
+    <div class="fams"><div class="fam" style="--dot:#EBD3CB"><span class="dot"></span><h3>Soft-focus classic</h3><p>Refined roman capitals, sometimes with one romantic swash letter, set in cream over blurry, grainy flower photos.</p><p class="fam-refs">BLUME, The Plot, Bloom Bar, AESTÉ</p></div><div class="fam" style="--dot:#DCD9B8"><span class="dot"></span><h3>Hand-drawn garden</h3><p>Pen-and-ink birds and flowers, handwriting and little wreaths, in olive, ochre and pink.</p><p class="fam-refs">the bird drawing, faeblette, Quiet Wild, Olive’s Garden</p></div><div class="fam" style="--dot:#F4B9C7"><span class="dot"></span><h3>Seventies bloom</h3><p>Soft, chunky, groovy letters, a daisy for a mark, and happy pinks, berries and oranges.</p><p class="fam-refs">her own logo, Bloom Baby, Beyond Buds, Flower Market</p></div><div class="fam" style="--dot:#C7C25B"><span class="dot"></span><h3>Vintage flourish</h3><p>Swirling scripts, engraved ovals and frames, and woodcut flowers in olive, chartreuse and claret.</p><p class="fam-refs">Wildora, the violet oval, Le Petit Atelier, La Fleur Verte, Sunlit Studio, the Acne scarf</p></div></div>
+    <div class="threads">
+      <div><b>Cream type over soft-focus flowers</b>Seven of her picks show the name in cream or white over a blurry, grainy flower photo. All four directions are built to work that way.</div>
+      <div><b>Words first, small marks</b>She leans towards lettering with a little drawn mark (a bird, a daisy, a violet), not big geometric symbols.</div>
+      <div><b>Earthy, muted colour</b>Olive, chartreuse, blush, berry and cream. Nothing bright or primary, and always a soft paper colour behind it.</div>
+    </div>
+    <nav class="toc"><a href="#soft">01 Soft Focus</a><a href="#garden">02 Garden Notebook</a><a href="#power">03 Flower Power</a><a href="#yesterday">04 A Little Bit of Yesterday</a></nav>
+  </section>
+  
+<section class="board" id="soft" style="--ink:#3B2B27;--paper:#F4EEE6;--accent:#EBD3CB">
+  <header class="b-head">
+    <p class="b-no">01</p>
+    <div><h2>Soft Focus</h2><p class="b-idea">Roman capitals with a single swash B. Quiet, grown-up and luxurious, made to sit over soft, dreamy photographs of her flowers.</p></div>
+    <p class="b-refs"><span>From her picks</span>BLUME · Bloom Bar · The Plot · AESTÉ</p>
+  </header>
+  <div class="b-grid">
+    <div class="tile hero-tile"><div class="ph"><img class="ph-img" src="../assets/img/bb-birdie-bunch.webp" alt="" style="filter:blur(16px) saturate(1.05)"><span class="ph-tint" style="background:rgba(235,211,203,.30)"></span><span class="grain"></span><div class="ph-in"><img src="files/birdie-blooms-soft-wordmark-reversed.svg" alt="Soft Focus: Birdie Blooms logo" class="hero-logo hero-soft"></div></div></div>
+    <div class="tile primary" style="background:#F4EEE6"><img src="files/birdie-blooms-soft-wordmark.svg" alt="" class="prim-soft"></div>
+    <div class="tile second" style="background:#EBD3CB"><img src="files/birdie-blooms-soft-stacked.svg" alt="" class="alt-soft"></div>
+    <div class="tile markt" style="background:#F4EEE6"><img src="files/birdie-blooms-soft-seal.svg" alt="" class="mark-soft"><div class="avatars"><span style="background:#3B2B27"><img src="files/birdie-blooms-soft-seal-reversed.svg" alt=""></span><span style="background:#EBD3CB"><img src="files/birdie-blooms-soft-seal.svg" alt=""></span></div></div>
+    <div class="tile pal"><div class="sw" style="background:#F4EEE6"><b style="color:#3B2B27">Bone</b><span style="color:#3B2B27">#F4EEE6</span></div><div class="sw" style="background:#EBD3CB"><b style="color:#3B2B27">Blush</b><span style="color:#3B2B27">#EBD3CB</span></div><div class="sw" style="background:#C4968B"><b style="color:#3B2B27">Rose clay</b><span style="color:#3B2B27">#C4968B</span></div><div class="sw" style="background:#9A5A48"><b style="color:#fff">Terracotta</b><span style="color:#fff">#9A5A48</span></div><div class="sw" style="background:#3B2B27"><b style="color:#fff">Cocoa</b><span style="color:#fff">#3B2B27</span></div></div>
+    <div class="tile type" style="background:#F4EEE6;color:#3B2B27"><div class="ty"><span class="ty-s" style="font-family:'Bellefair', serif;">BIRDIE BLOOMS</span><span class="ty-n">Bellefair</span><span class="ty-r">Display capitals</span></div><div class="ty"><span class="ty-s" style="font-family:'Mea Culpa', cursive;">B</span><span class="ty-n">Mea Culpa</span><span class="ty-r">The swash B, used once</span></div><div class="ty"><span class="ty-s" style="font-family:'Jost', sans-serif;">Seasonal flowers, made to order</span><span class="ty-n">Jost</span><span class="ty-r">Small print and the website</span></div></div>
+    <div class="tile apps">
+      <div class="app card-app" style="background:#F4EEE6"><img src="files/birdie-blooms-soft-wordmark.svg" alt="" style="width:78%"></div>
+      <div class="app card-app" style="background:#9A5A48"><img src="files/birdie-blooms-soft-seal-reversed.svg" alt="" style="width:46%"></div>
+      <div class="app tag-app" style="background:#EBD3CB"><span class="hole"></span><img src="files/birdie-blooms-soft-seal.svg" alt="" style="width:62%"><small style="color:#3B2B27">Made for you, with love</small></div></div>
+  </div>
+  <p class="b-why">Classic and calm. The swash B gives it one moment of romance, so it never feels cold.</p>
+</section>
+<section class="board" id="garden" style="--ink:#5C5A2E;--paper:#F3ECDD;--accent:#E6A3B0">
+  <header class="b-head">
+    <p class="b-no">02</p>
+    <div><h2>Garden Notebook</h2><p class="b-idea">A little wren on a cosmos stem, drawn in pen, with her name in handwriting. Warm and personal, like a note tucked into a bouquet.</p></div>
+    <p class="b-refs"><span>From her picks</span>Hannah’s bird drawing · faeblette · Olive’s Garden · Quiet Wild</p>
+  </header>
+  <div class="b-grid">
+    <div class="tile hero-tile"><div class="ph"><img class="ph-img" src="../assets/img/bb-bunch-detail.webp" alt="" style="filter:blur(10px) saturate(1.05)"><span class="ph-tint" style="background:rgba(62,71,41,.30)"></span><span class="grain"></span><div class="ph-in"><img src="files/birdie-blooms-garden-wordmark-reversed.svg" alt="Garden Notebook: Birdie Blooms logo" class="hero-logo hero-garden"></div></div></div>
+    <div class="tile primary" style="background:#F3ECDD"><img src="files/birdie-blooms-garden-wordmark.svg" alt="" class="prim-garden"></div>
+    <div class="tile second" style="background:#E6A3B0"><img src="files/birdie-blooms-garden-badge.svg" alt="" class="alt-garden"></div>
+    <div class="tile markt" style="background:#F3ECDD"><img src="files/birdie-blooms-garden-bird.svg" alt="" class="mark-garden"><div class="avatars"><span style="background:#5C5A2E"><img src="files/birdie-blooms-garden-bird-reversed.svg" alt=""></span><span style="background:#E6A3B0"><img src="files/birdie-blooms-garden-bird.svg" alt=""></span></div></div>
+    <div class="tile pal"><div class="sw" style="background:#F3ECDD"><b style="color:#5C5A2E">Paper</b><span style="color:#5C5A2E">#F3ECDD</span></div><div class="sw" style="background:#E6A3B0"><b style="color:#5C5A2E">Petal</b><span style="color:#5C5A2E">#E6A3B0</span></div><div class="sw" style="background:#C99A3E"><b style="color:#5C5A2E">Ochre</b><span style="color:#5C5A2E">#C99A3E</span></div><div class="sw" style="background:#5C5A2E"><b style="color:#fff">Olive ink</b><span style="color:#fff">#5C5A2E</span></div><div class="sw" style="background:#3E4729"><b style="color:#fff">Moss</b><span style="color:#fff">#3E4729</span></div></div>
+    <div class="tile type" style="background:#F3ECDD;color:#5C5A2E"><div class="ty"><span class="ty-s" style="font-family:'Homemade Apple', cursive;">Birdie Blooms</span><span class="ty-n">Homemade Apple</span><span class="ty-r">Her name, in handwriting</span></div><div class="ty"><span class="ty-s" style="font-family:'Cormorant Garamond', serif;font-style:italic;">seasonal flowers, made by hand</span><span class="ty-n">Cormorant Garamond Italic</span><span class="ty-r">Notes and captions</span></div><div class="ty"><span class="ty-s" style="font-family:'Jost', sans-serif;">Ravenstone & Kibworth</span><span class="ty-n">Jost</span><span class="ty-r">Small print and the website</span></div></div>
+    <div class="tile apps">
+      <div class="app tag-app kraft"><span class="hole"></span><img src="files/birdie-blooms-garden-bird.svg" alt="" style="width:62%"><small style="font-family:'Homemade Apple';text-transform:none;letter-spacing:0;font-size:15px;color:#5C5A2E">for you</small></div>
+      <div class="app card-app" style="background:#F3ECDD"><img src="files/birdie-blooms-garden-badge.svg" alt="" style="width:52%"></div>
+      <div class="app card-app" style="background:#3E4729"><img src="files/birdie-blooms-garden-wordmark-reversed.svg" alt="" style="width:74%"></div></div>
+  </div>
+  <p class="b-why">The bird says ‘Birdie’ without spelling it out. The pink and ochre tints sit slightly off the line, like hand-coloured print.</p>
+</section>
+<section class="board" id="power" style="--ink:#7C1D3D;--paper:#FFF4E6;--accent:#F4D57A">
+  <header class="b-head">
+    <p class="b-no">03</p>
+    <div><h2>Flower Power</h2><p class="b-idea">A soft, chunky 70s serif with two daisies dotting the i’s. Joyful and confident, and the closest to the daisy in her current logo.</p></div>
+    <p class="b-refs"><span>From her picks</span>Her current logo · Bloom Baby · Beyond Buds · Flower Market</p>
+  </header>
+  <div class="b-grid">
+    <div class="tile hero-tile"><div class="ph"><img class="ph-img" src="../assets/img/bb-pumpkin-orange.webp" alt="" style="filter:blur(14px) saturate(1.05)"><span class="ph-tint" style="background:rgba(124,29,61,.42)"></span><span class="grain"></span><div class="ph-in"><img src="files/birdie-blooms-power-wordmark-reversed.svg" alt="Flower Power: Birdie Blooms logo" class="hero-logo hero-power"></div></div></div>
+    <div class="tile primary" style="background:#FFF4E6"><img src="files/birdie-blooms-power-wordmark.svg" alt="" class="prim-power"></div>
+    <div class="tile second" style="background:#F4D57A"><img src="files/birdie-blooms-power-badge.svg" alt="" class="alt-power"></div>
+    <div class="tile markt" style="background:#FFF4E6"><img src="files/birdie-blooms-power-daisy.svg" alt="" class="mark-power"><div class="avatars"><span style="background:#7C1D3D"><img src="files/birdie-blooms-power-daisy-reversed.svg" alt=""></span><span style="background:#F4D57A"><img src="files/birdie-blooms-power-daisy.svg" alt=""></span></div></div>
+    <div class="tile pal"><div class="sw" style="background:#FFF4E6"><b style="color:#7C1D3D">Cream</b><span style="color:#7C1D3D">#FFF4E6</span></div><div class="sw" style="background:#F4B9C7"><b style="color:#7C1D3D">Petal</b><span style="color:#7C1D3D">#F4B9C7</span></div><div class="sw" style="background:#F4D57A"><b style="color:#7C1D3D">Butter</b><span style="color:#7C1D3D">#F4D57A</span></div><div class="sw" style="background:#E8643A"><b style="color:#fff">Tangerine</b><span style="color:#fff">#E8643A</span></div><div class="sw" style="background:#7C1D3D"><b style="color:#fff">Berry</b><span style="color:#fff">#7C1D3D</span></div></div>
+    <div class="tile type" style="background:#FFF4E6;color:#7C1D3D"><div class="ty"><span class="ty-s" style="font-family:'Fraunces', serif;font-variation-settings:'SOFT' 100,'WONK' 1;font-weight:900;">Birdie Blooms</span><span class="ty-n">Fraunces Black (soft)</span><span class="ty-r">Her name, big and round</span></div><div class="ty"><span class="ty-s" style="font-family:'Barlow Condensed', sans-serif;">SEASONAL FLOWER STUDIO</span><span class="ty-n">Barlow Condensed</span><span class="ty-r">Labels and taglines</span></div><div class="ty"><span class="ty-s" style="font-family:'Fraunces', serif;font-style:italic;">Ravenstone · Kibworth</span><span class="ty-n">Fraunces Italic</span><span class="ty-r">Little extras</span></div></div>
+    <div class="tile apps">
+      <div class="app sticker" style="background:#7C1D3D"><img src="files/birdie-blooms-power-badge-reversed.svg" alt="" style="width:74%"></div>
+      <div class="app card-app pattern" style="background-color:#7C1D3D"></div>
+      <div class="app card-app" style="background:#F4B9C7"><img src="files/birdie-blooms-power-wordmark-one-colour.svg" alt="" style="width:56%"></div></div>
+  </div>
+  <p class="b-why">It keeps what people already know about Birdie Blooms, the daisy and the warmth, and makes it bolder and more polished.</p>
+</section>
+<section class="board" id="yesterday" style="--ink:#4F5124;--paper:#EFE5CC;--accent:#C7C25B">
+  <header class="b-head">
+    <p class="b-no">04</p>
+    <div><h2>A Little Bit of Yesterday</h2><p class="b-idea">A flourished script and an engraved oval with a pansy and her two Bs. Vintage and romantic, straight from her tagline.</p></div>
+    <p class="b-refs"><span>From her picks</span>Wildora · the violet oval · Le Petit Atelier · La Fleur Verte · Sunlit Studio · the Acne scarf</p>
+  </header>
+  <div class="b-grid">
+    <div class="tile hero-tile"><div class="ph"><img class="ph-img" src="../assets/img/bb-motion.webp" alt="" style="filter:blur(6px) saturate(1.05)"><span class="ph-tint" style="background:rgba(79,81,36,.38)"></span><span class="grain"></span><div class="ph-in"><img src="files/birdie-blooms-yesterday-wordmark-reversed.svg" alt="A Little Bit of Yesterday: Birdie Blooms logo" class="hero-logo hero-yesterday"></div></div></div>
+    <div class="tile primary" style="background:#EFE5CC"><img src="files/birdie-blooms-yesterday-wordmark.svg" alt="" class="prim-yesterday"></div>
+    <div class="tile second" style="background:#C7C25B"><img src="files/birdie-blooms-yesterday-oval-name.svg" alt="" class="alt-yesterday"></div>
+    <div class="tile markt" style="background:#EFE5CC"><img src="files/birdie-blooms-yesterday-oval.svg" alt="" class="mark-yesterday"><div class="avatars"><span style="background:#4F5124"><img src="files/birdie-blooms-yesterday-oval-reversed.svg" alt=""></span><span style="background:#C7C25B"><img src="files/birdie-blooms-yesterday-oval.svg" alt=""></span></div></div>
+    <div class="tile pal"><div class="sw" style="background:#EFE5CC"><b style="color:#4F5124">Parchment</b><span style="color:#4F5124">#EFE5CC</span></div><div class="sw" style="background:#C7C25B"><b style="color:#4F5124">Chartreuse</b><span style="color:#4F5124">#C7C25B</span></div><div class="sw" style="background:#E2B4B0"><b style="color:#4F5124">Blush</b><span style="color:#4F5124">#E2B4B0</span></div><div class="sw" style="background:#7A1F2D"><b style="color:#fff">Claret</b><span style="color:#fff">#7A1F2D</span></div><div class="sw" style="background:#4F5124"><b style="color:#fff">Olive</b><span style="color:#fff">#4F5124</span></div></div>
+    <div class="tile type" style="background:#EFE5CC;color:#4F5124"><div class="ty"><span class="ty-s" style="font-family:'Ballet', cursive;">Birdie Blooms</span><span class="ty-n">Ballet</span><span class="ty-r">Her name, with flourishes</span></div><div class="ty"><span class="ty-s" style="font-family:'Cormorant SC', serif;">WEDDINGS & EVENTS</span><span class="ty-n">Cormorant SC</span><span class="ty-r">Small capitals</span></div><div class="ty"><span class="ty-s" style="font-family:'Cormorant Garamond', serif;">Flowers with a little bit of yesterday.</span><span class="ty-n">Cormorant Garamond</span><span class="ty-r">Text</span></div></div>
+    <div class="tile apps">
+      <div class="app card-app" style="background:#7A1F2D"><img src="files/birdie-blooms-yesterday-oval-reversed.svg" alt="" style="width:34%"></div>
+      <div class="app seal-app"><span class="wax"><img src="files/birdie-blooms-yesterday-oval-reversed.svg" alt="" style="width:46%"></span></div>
+      <div class="app ribbon-app" style="background:#EFE5CC"><div class="ribbon"><img src="files/birdie-blooms-yesterday-wordmark-reversed.svg" alt=""></div></div></div>
+  </div>
+  <p class="b-why">It is the most ‘her tagline’ of the four: old-fashioned in the nicest way, and it looks beautiful stamped, embossed or in gold foil.</p>
+</section>
+  <p class="foot">Drawn for Birdie Blooms. The fonts are from Google Fonts and free for commercial use. The bird, daisy, pansy and seal were drawn for these logos. Download the logo files from the <a href="files/">files page</a>, in their colours and reversed for photos.</p>
+</main>
+</body>
+</html>

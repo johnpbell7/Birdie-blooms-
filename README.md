@@ -87,6 +87,17 @@ Both Bs in the logo are the "Blooms" B. It's a full B with no break.
 
 `directions/` keeps the earlier design concepts for reference. The live site doesn't link to them.
 
+## Logo directions
+
+`logos/` shows four logo directions built from the logos she likes: https://johnpbell7.github.io/Birdie-blooms-/logos/
+
+- **Soft Focus:** roman capitals with one swash B.
+- **Garden Notebook:** an ink-drawn wren and handwriting.
+- **Flower Power:** a soft 70s serif with daisy i-dots.
+- **A Little Bit of Yesterday:** a flourished script and an engraved oval.
+
+Every font is free to use commercially (Google Fonts). The logo files are in `logos/files/`, with a download page at `logos/files/`.
+
 ## New logo preview
 
 `new-logo/` is a preview of the home page with the new bird-and-leaves B: https://johnpbell7.github.io/Birdie-blooms-/new-logo/
