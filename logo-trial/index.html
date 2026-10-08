@@ -6,7 +6,7 @@
 <title>Birdie Blooms · Two logo options</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,600..900,100,1;1,9..144,600..900,100,1&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
 <script>(function(){var d=document.documentElement,o=location.hash==="#2"?"2":location.hash==="#1"?"1":null;try{o=o||localStorage.getItem("bb-opt")}catch(e){}d.setAttribute("data-opt",o==="2"?"2":"1");d.className+=" js";})();</script>
 <style>*{box-sizing:border-box} html{scroll-behavior:smooth;-webkit-text-size-adjust:100%} body{margin:0}
 img{display:block;max-width:100%;height:auto} [hidden]{display:none!important}
@@ -40,126 +40,139 @@ html[data-opt="2"] .switch [data-set="2"] b{background:#4D5A48}
 .slot.on .stamp{opacity:1;transform:scale(1) rotate(var(--t,-8deg));transition:transform .4s cubic-bezier(.5,0,.75,0),opacity .2s}
 .slot:nth-child(2){--t:9deg}.slot:nth-child(3){--t:-4deg}.slot:nth-child(4){--t:12deg}.slot:nth-child(5){--t:-12deg}
 .stamp svg{width:100%;height:100%;display:block}
-@media (prefers-reduced-motion:reduce){.g-mq-track,.g-spin,.g-cta-daisy{animation:none!important}.slot .stamp{transition:none!important}}
+@media (prefers-reduced-motion:reduce){.g-tk-track{animation:none!important}.slot .stamp{transition:none!important}}
 
 /* =================================================================================================
-   OPTION 1 · GROOVY BLOOM
+   OPTION 1 · GROOVY BLOOM  — modern and expressive: one grotesk, bold poppy and blush, ink and chalk
    ================================================================================================= */
-.v1{--cream:#FFF3E8;--petal:#F9C9D4;--berry:#9C1B4C;--hot:#D9346F;--tang:#F2703A;--butter:#FFD66B;--plum:#2B0F1C;background:var(--cream);color:var(--plum);font:500 17px/1.65 Montserrat,system-ui,sans-serif}
-.v1 h2,.v1 h3{font-family:Fraunces,Georgia,serif;font-variation-settings:'SOFT' 100,'WONK' 1;font-weight:900;letter-spacing:-.01em;line-height:1;margin:0;text-wrap:balance}
-.g-wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
-.g-label{font:700 12.5px/1 Montserrat,sans-serif;letter-spacing:.24em;text-transform:uppercase;margin:0 0 14px;color:var(--berry)}
-.g-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px 15px;border-radius:999px;font:700 13.5px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:transform .25s}
-.g-btn:hover{transform:translateY(-2px) rotate(-1.5deg)}
-.g-btn-berry{background:var(--berry);color:var(--cream)}.g-btn-butter{background:var(--butter);color:var(--plum)}.g-btn-ghost{box-shadow:inset 0 0 0 2px var(--cream);color:var(--cream)}
-.g-link{display:inline-flex;gap:10px;align-items:center;font:700 13.5px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--berry);text-decoration:none;border-bottom:3px solid var(--butter);padding-bottom:6px}
+.v1{--paper:#F5F1EB;--white:#FFFDF9;--ink:#161211;--soft:#6B625E;--line:rgba(22,18,17,.14);--hot:#FF4A26;--blush:#F7D2CE;
+  background:var(--paper);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;font-optical-sizing:auto;font-size:17px;line-height:1.6;font-weight:400}
+.v1 h2,.v1 h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:.98;margin:0;text-wrap:balance;font-stretch:88%}
+.g-hot{color:var(--hot)}
+.g-wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,4vw,56px)}
+.g-label{font-size:13px;font-weight:600;letter-spacing:.02em;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.g-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--hot)}
+.g-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;transition:background .25s,color .25s,transform .25s}
+.g-btn .arr{transition:transform .3s}.g-btn:hover .arr,.g-link:hover .arr,.g-way:hover .arr,.g-season:hover .arr{transform:translateX(4px)}
+.g-btn-ink{background:var(--ink);color:var(--paper)}.g-btn-ink:hover{background:var(--hot);color:var(--ink)}
+.g-btn-hot{background:var(--hot);color:var(--ink)}.g-btn-hot:hover{background:var(--paper)}
+.g-btn-glass{background:rgba(255,253,249,.16);color:var(--white);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,253,249,.4)}.g-btn-glass:hover{background:rgba(255,253,249,.28)}
+.g-link{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--hot);padding-bottom:4px}
+.g-link .arr{transition:transform .3s}
 
-.g-head{display:flex;align-items:center;gap:24px;padding:14px clamp(16px,4vw,48px);background:var(--cream)}
-.g-brand{display:block;line-height:0}.g-logo-sm{height:54px;width:auto;color:var(--plum);display:block}
-.g-nav{display:flex;gap:6px;margin-left:auto}
-.g-nav a{font:700 12.5px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--plum);padding:12px 16px 11px;border-radius:999px;transition:background .2s}
-.g-nav a:hover{background:var(--petal)}
-.g-head-cta{padding:13px 22px 12px}
+.g-head{display:flex;align-items:center;gap:28px;padding:14px clamp(16px,4vw,56px);background:var(--paper)}
+.g-brand{display:block;line-height:0}.g-logo-sm{height:48px;width:auto;color:var(--ink);display:block}
+.g-nav{display:flex;gap:30px;margin-left:auto}
+.g-nav a{font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;padding:6px 0;background:linear-gradient(var(--hot),var(--hot)) left bottom/0 2px no-repeat;transition:background-size .3s}
+.g-nav a:hover{background-size:100% 2px}
+.g-head-cta{padding:12px 20px}
 
-.g-hero{position:relative;min-height:min(86vh,860px);display:grid;place-items:center;overflow:hidden;color:var(--cream);text-align:center}
+.g-hero{position:relative;min-height:min(88vh,880px);display:grid;grid-template-rows:1fr auto;overflow:hidden;color:var(--white);margin:0 clamp(8px,1vw,14px);border-radius:22px}
 .g-hero-bg{position:absolute;inset:-20px;background:url(groovy-hero.jpg) center/cover}
-.g-hero-bg::after{content:"";position:absolute;inset:0;background:rgba(84,8,40,.22)}
-.g-hero-in{position:relative;z-index:1;padding:70px 20px;display:grid;justify-items:center;gap:28px}
-.g-logo-hero{width:min(700px,86vw);height:auto;color:var(--cream);display:block}
-.g-hero-line{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:700;font-variation-settings:'SOFT' 100,'WONK' 1;font-size:clamp(24px,3vw,36px);margin:0}
-.g-hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.g-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,10,10,.10),rgba(15,10,10,.38))}
+.g-hero-in{position:relative;z-index:1;display:grid;place-items:center;padding:80px 20px 30px}
+.g-logo-hero{width:min(760px,84vw);height:auto;color:var(--white);display:block}
+.g-hero-foot{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px 30px;padding:24px clamp(18px,3vw,40px) 28px;border-top:1px solid rgba(255,253,249,.25)}
+.g-hero-foot p{margin:0;font-size:clamp(20px,2vw,26px);font-weight:500;letter-spacing:-.02em}
+.g-hero-cta{display:flex;flex-wrap:wrap;gap:10px}
 
-.g-marquee{background:var(--butter);overflow:hidden;padding:16px 0;border-block:3px solid var(--plum)}
-.g-mq-track{display:flex;align-items:center;gap:28px;width:max-content;animation:mq 40s linear infinite}
-.g-mq-track span{font-family:Fraunces,Georgia,serif;font-weight:900;font-variation-settings:'SOFT' 100,'WONK' 1;font-size:clamp(24px,2.6vw,34px);white-space:nowrap}
-.mq-daisy{width:30px;height:30px;color:var(--hot);flex:none}
+.g-ticker{overflow:hidden;padding:22px 0;border-bottom:1px solid var(--line)}
+.g-tk-track{display:flex;align-items:center;gap:30px;width:max-content;animation:mq 50s linear infinite}
+.g-tk-track span{font-size:clamp(26px,2.6vw,38px);font-weight:600;letter-spacing:-.03em;font-stretch:88%;white-space:nowrap}
+.tk-daisy{width:24px;height:24px;color:var(--hot);flex:none}
 
-.g-intro{position:relative;padding:clamp(80px,10vw,140px) clamp(16px,4vw,48px);text-align:center}
-.g-intro p{font-family:Fraunces,Georgia,serif;font-weight:900;font-variation-settings:'SOFT' 100,'WONK' 1;font-size:clamp(30px,4.4vw,58px);line-height:1.14;max-width:20ch;margin:0 auto;letter-spacing:-.01em;text-wrap:balance}
-.g-intro mark{background:var(--petal);color:inherit;padding:0 .16em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.g-spin{position:absolute;width:clamp(64px,8vw,116px);height:auto;color:var(--tang);top:clamp(20px,4vw,50px);right:clamp(12px,8vw,140px);animation:spin 18s linear infinite}
+.g-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,4fr);gap:20px 40px;align-items:start;padding-block:clamp(80px,10vw,150px)}
+.g-intro .g-label{margin-top:.9em}
+.g-statement{margin:0;font-size:clamp(32px,4.6vw,66px);font-weight:600;line-height:1.04;letter-spacing:-.04em;font-stretch:88%;text-wrap:balance}
 
-.g-bouquets{position:relative;background:var(--petal);padding:clamp(60px,8vw,110px) 0 clamp(70px,9vw,120px);margin-top:50px}
-.g-wave{position:absolute;left:0;top:-59px;width:100%;height:60px;fill:var(--petal);display:block}
-.g-sec-head{text-align:center;margin-bottom:clamp(36px,5vw,60px);display:grid;justify-items:center}
-.g-sec-head h2{font-size:clamp(46px,6.4vw,92px)}
-.g-sec-head p:not(.g-label){max-width:42ch;margin:16px 0 0}
-.g-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,30px);align-items:start}
-.g-card{background:var(--cream);border-radius:32px;padding:14px 14px 26px;display:grid;gap:12px;align-content:start;border:3px solid var(--plum);box-shadow:8px 8px 0 var(--plum)}
-.g-photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5}
-.g-photo img{width:100%;height:100%;object-fit:cover}
-.g-price{position:absolute;right:14px;top:14px;width:78px;height:78px;border-radius:50%;background:var(--tang);color:var(--cream);display:grid;place-items:center;font-family:Fraunces,Georgia,serif;font-weight:900;font-size:24px;transform:rotate(-12deg);border:3px solid var(--plum)}
-.g-card h3{font-size:32px;margin:8px 10px 0}.g-card p{margin:0 10px;font-size:15.5px}.g-card .g-btn{justify-self:start;margin:6px 10px 0}
-.g-more{background:var(--berry);color:var(--cream);text-align:center;justify-items:center;align-content:center;padding:44px 26px;align-self:stretch}
-.g-more h3{font-size:38px}.g-more p{margin:0}.g-more .g-btn{justify-self:center}
-.g-more-daisy{width:92px;height:92px;color:var(--butter);animation:spin 22s linear infinite}
+.g-sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;margin-bottom:clamp(30px,4vw,52px)}
+.g-sec-head h2{font-size:clamp(48px,7vw,104px)}
+.g-sec-head > p{max-width:34ch;margin:0;color:var(--soft)}
+.g-bouquets{padding-bottom:clamp(80px,10vw,140px)}
+.g-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);align-items:stretch}
+.g-card{display:grid;gap:10px;align-content:start}
+.g-photo{display:block;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--blush)}
+.g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.1,1)}.g-photo:hover img{transform:scale(1.04)}
+.g-card-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:8px}
+.g-card h3{font-size:clamp(26px,2.4vw,34px)}.g-price{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.g-card p{margin:0;color:var(--soft);font-size:15.5px}.g-card .g-link{justify-self:start;margin-top:6px}
+.g-more{background:var(--hot);border-radius:18px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.g-more-daisy{width:64px;height:64px;color:var(--ink);margin-bottom:auto}
+.g-more h3{font-size:clamp(34px,3.4vw,48px);margin-top:40px}.g-more p{margin:0;max-width:30ch}
 
-.g-ways{display:grid;gap:clamp(56px,7vw,100px);padding-block:clamp(80px,10vw,130px)}
-.g-way{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center}
-.g-way-flip .g-blob{order:2}
-.g-blob{border-radius:58% 42% 50% 50%/46% 52% 48% 54%;overflow:hidden;aspect-ratio:1;border:4px solid var(--plum);max-width:520px;width:100%;justify-self:center}
-.g-blob img{width:100%;height:100%;object-fit:cover}
-.g-blob-2{border-radius:44% 56% 40% 60%/58% 42% 58% 42%}.g-blob-3{border-radius:50% 50% 42% 58%/40% 60% 40% 60%}
-.g-way h3{font-size:clamp(34px,4vw,54px);margin-bottom:18px}.g-way p{margin:0 0 24px;max-width:40ch}
+.g-ways{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,28px);padding-bottom:clamp(80px,10vw,140px)}
+.g-way{display:grid;gap:10px;align-content:start;text-decoration:none;color:var(--ink)}
+.g-way-img{border-radius:18px;overflow:hidden;aspect-ratio:5/4;margin-bottom:16px}
+.g-way-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.1,1)}.g-way:hover .g-way-img img{transform:scale(1.04)}
+.g-way h3{font-size:clamp(30px,3.2vw,46px);margin-bottom:10px;max-width:16ch}.g-way .g-link{justify-self:start}
 
-.g-seasons-sec{background:var(--plum);color:var(--cream);padding:clamp(80px,10vw,130px) 0}
-.g-light .g-label{color:var(--butter)}
-.g-seasons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-.g-season{position:relative;aspect-ratio:1;border-radius:50%;display:grid;align-content:center;justify-items:center;text-align:center;padding:15%;text-decoration:none;color:var(--plum);transition:transform .3s}
-.g-season:hover{transform:rotate(-5deg) scale(1.03)}
-.g-winter{background:#E8505B;color:var(--cream)}.g-spring{background:var(--petal)}.g-summer{background:#8DB4F0}.g-autumn{background:var(--tang)}
-.g-season h3{font-size:clamp(28px,2.8vw,40px)}
-.g-months{font:700 10.5px/1.35 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:8px 0 8px}
-.g-season p{margin:0;font-size:14px;line-height:1.4}
-.g-now{position:absolute;top:6%;left:50%;transform:translateX(-50%) rotate(-6deg);background:var(--butter);color:var(--plum);font:700 10.5px/1 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px 7px;border-radius:999px;white-space:nowrap;opacity:0;border:2px solid var(--plum)}
-.g-season.is-now .g-now{opacity:1}.g-season.is-now{box-shadow:0 0 0 6px var(--butter)}
+.g-seasons-sec{background:var(--ink);color:var(--paper);padding:clamp(80px,10vw,140px) 0}
+.g-on-ink > p{color:rgba(245,241,235,.65)}
+.g-seasons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.2vw,16px)}
+.g-season{position:relative;display:flex;flex-direction:column;gap:10px;min-height:340px;padding:24px;border-radius:18px;background:rgba(245,241,235,.06);box-shadow:inset 0 0 0 1px rgba(245,241,235,.14);color:var(--paper);text-decoration:none;transition:background .3s}
+.g-season:hover{background:rgba(245,241,235,.12)}
+.g-s-top{display:flex;align-items:center;gap:10px;font-size:13px;opacity:.75}
+.g-dot{width:10px;height:10px;border-radius:50%;display:block}
+.g-dot-winter{background:#C2334D}.g-dot-spring{background:#F29BB2}.g-dot-summer{background:#6E8FE0}.g-dot-autumn{background:#FF7A2E}
+.g-season h3{font-size:clamp(40px,4vw,60px);margin-top:auto}
+.g-season p{margin:0;font-size:15px;line-height:1.5;min-height:3em;opacity:.8;max-width:22ch}
+.g-s-go{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin-top:8px}
+.g-now{align-self:flex-start;font-size:12px;font-weight:600;padding:7px 11px;border-radius:999px;background:var(--ink);color:var(--paper);visibility:hidden}
+.g-season.is-now{background:var(--hot);color:var(--ink);box-shadow:none}.g-season.is-now .g-now{visibility:visible}.g-season.is-now p,.g-season.is-now .g-s-top{opacity:.85}
 
-.g-loyal{background:var(--berry);color:var(--cream);padding:clamp(80px,10vw,130px) 0;overflow:hidden}
-.g-loyal-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:center}
-.g-loyal .g-label{color:var(--butter)}.g-loyal h2{font-size:clamp(38px,4.6vw,64px);margin-bottom:28px}
-.g-steps{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:14px}
-.g-steps li{display:flex;gap:14px;align-items:center}
-.g-steps b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--butter);color:var(--plum);font-family:Fraunces,Georgia,serif;font-weight:900;flex:none}
-.g-bcard{background:var(--cream);color:var(--plum);border-radius:30px;padding:26px;border:3px solid var(--plum);box-shadow:10px 10px 0 var(--plum);transform:rotate(-3deg);max-width:470px;margin:0 auto}
-.g-bcard-top{display:flex;justify-content:center;padding-bottom:16px;border-bottom:3px dashed var(--petal)}
-.g-logo-card{width:200px;height:auto;color:var(--plum);display:block}
-.g-bcard .slot{border:3px dashed rgba(43,15,28,.22)}
-.g-bcard .free{border:3px solid var(--plum);font:700 11px/1.3 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-align:center}
-.g-bcard .free.won{background:var(--tang);border-color:var(--tang);color:var(--cream);animation:pop .6s}
+.g-loyal{background:var(--blush);padding:clamp(80px,10vw,140px) 0;overflow:hidden}
+.g-loyal-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,100px);align-items:center}
+.g-loyal h2{font-size:clamp(42px,5.2vw,76px);margin-bottom:30px}
+.g-steps{list-style:none;padding:0;margin:0 0 34px;display:grid;border-top:1px solid var(--line)}
+.g-steps li{display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+.g-steps b{font-weight:600;font-size:13px;color:var(--hot);min-width:22px}
+.g-bcard{background:var(--white);border-radius:24px;padding:28px;max-width:480px;width:100%;margin:0 auto;box-shadow:0 40px 80px -40px rgba(22,18,17,.45);transform:rotate(-3deg)}
+.g-bcard-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.g-bcard-top span{font-size:13px;font-weight:600}
+.g-logo-card{width:150px;height:auto;color:var(--ink);display:block}
+.g-bcard .slot{box-shadow:inset 0 0 0 1.5px rgba(22,18,17,.18)}
+.g-bcard .free{background:var(--ink);color:var(--paper);box-shadow:none;font-size:13px;font-weight:600;line-height:1.2;text-align:center}
+.g-bcard .free.won{background:var(--hot);color:var(--ink);animation:pop .6s}
 .st-daisy{color:var(--hot)}
-.g-bcard-foot{text-align:center;font:700 12px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:0}
+.g-bcard-foot{font-size:13px;color:var(--soft);margin:0;text-align:center}
 
-.g-about{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(36px,6vw,90px);align-items:center;padding-block:clamp(80px,10vw,130px)}
-.g-about h2{font-size:clamp(40px,4.8vw,64px);margin-bottom:20px}.g-about p{max-width:46ch;margin:0 0 26px}
+.g-about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,100px);align-items:center;padding-block:clamp(80px,10vw,140px)}
+.g-about-img{border-radius:18px;overflow:hidden;aspect-ratio:4/5}.g-about-img img{width:100%;height:100%;object-fit:cover}
+.g-about h2{font-size:clamp(42px,5vw,72px);margin-bottom:24px}.g-about p:not(.g-label){max-width:44ch;margin:0 0 28px;color:var(--soft)}
 
-.g-ig{padding-bottom:clamp(80px,10vw,120px)}
-.g-ig-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.g-ig-grid a{display:block;aspect-ratio:1;border-radius:26px;overflow:hidden;border:3px solid var(--plum);transform:rotate(-2deg);transition:transform .3s}
-.g-ig-grid a:nth-child(even){transform:rotate(2deg)}.g-ig-grid a:hover{transform:rotate(0) scale(1.03)}
-.g-ig-grid img{width:100%;height:100%;object-fit:cover}
-.g-ig-handle{text-align:center;margin:28px 0 0}.g-ig-handle a{color:var(--berry);font-weight:700}
+.g-ig{padding-bottom:clamp(80px,10vw,140px)}
+.g-ig .g-sec-head h2{font-size:clamp(40px,5vw,72px)}
+.g-ig-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,1vw,14px)}
+.g-ig-grid a{display:block;aspect-ratio:1;border-radius:14px;overflow:hidden}
+.g-ig-grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.g-ig-grid a:hover img{transform:scale(1.05)}
 
-.g-cta{position:relative;background:var(--tang);color:var(--cream);text-align:center;padding:clamp(80px,10vw,130px) clamp(16px,4vw,48px);display:grid;justify-items:center;gap:20px;overflow:hidden}
-.g-cta h2{font-size:clamp(48px,7vw,104px);position:relative}.g-cta p{max-width:40ch;margin:0;font-weight:600;position:relative}.g-cta .g-btn{position:relative}
-.g-cta-daisy{position:absolute;width:340px;height:340px;color:rgba(255,214,107,.4);left:-80px;bottom:-110px;animation:spin 30s linear infinite}
+.g-cta{background:var(--hot);padding:clamp(80px,10vw,140px) 0}
+.g-cta-in{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:30px 60px;align-items:end}
+.g-cta h2{font-size:clamp(56px,9vw,150px);line-height:.9}
+.g-cta p{margin:0 0 24px;font-size:18px;max-width:34ch}
 
-.g-foot{background:var(--plum);color:var(--cream);padding:clamp(60px,8vw,100px) 0 30px}
-.g-foot-in{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:36px}
-.g-logo-foot{width:230px;height:auto;color:var(--cream);display:block}
-.g-foot .g-label{color:var(--butter)}.g-foot a{color:var(--cream);text-decoration:none}.g-foot a:hover{text-decoration:underline}
-.g-foot p{font-size:15px;line-height:1.9;margin:0}.g-foot .g-foot-base{margin:50px auto 0;font-size:13px;opacity:.7}
+.g-foot{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,100px) 0 30px}
+.g-foot-in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px}
+.g-logo-foot{width:220px;height:auto;color:var(--paper);display:block}
+.g-foot .g-label{color:rgba(245,241,235,.6)}
+.g-foot a{color:var(--paper);text-decoration:none}.g-foot a:hover{color:var(--hot)}
+.g-foot p{font-size:15px;line-height:1.9;margin:0}
+.g-foot .g-foot-base{margin:50px auto 0;font-size:13px;opacity:.6}
 
 @media (max-width:900px){
   .g-nav{display:none}.g-head-cta{margin-left:auto}
   .g-cards{grid-template-columns:1fr 1fr}.g-more{grid-column:1/-1}
-  .g-way,.g-about,.g-loyal-in{grid-template-columns:1fr}.g-way-flip .g-blob{order:0}
-  .g-seasons{grid-template-columns:1fr 1fr;max-width:600px;margin:0 auto}
+  .g-intro{grid-template-columns:1fr}
+  .g-ways,.g-about,.g-loyal-in,.g-cta-in{grid-template-columns:1fr}
+  .g-seasons{grid-template-columns:1fr 1fr}.g-season{min-height:240px}
   .g-foot-in{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
-  .v1{font-size:16px}.g-logo-sm{height:42px}
+  .v1{font-size:16px}.g-logo-sm{height:40px}
+  .g-hero{border-radius:16px;min-height:78vh}
+  .g-hero-foot{flex-direction:column;align-items:flex-start}
   .g-cards{grid-template-columns:1fr}.g-ig-grid{grid-template-columns:1fr 1fr}
-  .g-season{padding:12%}.g-season p{font-size:12px}.g-months{font-size:9px;letter-spacing:.1em}.g-now{font-size:8.5px;padding:6px 8px 5px}
+  .g-seasons{grid-template-columns:1fr 1fr}.g-season{min-height:200px;padding:16px}.g-season p{font-size:13px}.g-s-go{display:none}.g-now{font-size:10px;padding:5px 8px}
   .g-foot-in{grid-template-columns:1fr}
 }
 
@@ -277,14 +290,14 @@ html[data-opt="2"] .switch [data-set="2"] b{background:#4D5A48}
 .m-btn{display:none;border:0;cursor:pointer}
 .m-menu{display:grid;padding:6px clamp(16px,4vw,48px) 18px}
 .m-menu a{display:flex;justify-content:space-between;align-items:center;padding:15px 0 13px;text-decoration:none;color:inherit}
-.g-mbtn{background:var(--plum);color:var(--cream);font:700 12px/1 Montserrat,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:13px 18px 12px;border-radius:999px}
-.g-menu{background:var(--cream);border-bottom:3px solid var(--plum)}
-.g-menu a{font-family:Fraunces,Georgia,serif;font-weight:900;font-variation-settings:'SOFT' 100,'WONK' 1;font-size:28px;color:var(--plum);border-bottom:2px dashed var(--petal)}
 .d-mbtn{background:none;font:400 12px/1 Jost,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);padding:8px 0}
 .d-menu{background:var(--ivory);border-bottom:1px solid rgba(44,38,36,.12)}
 .d-menu a{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;color:var(--ink);border-bottom:1px solid rgba(44,38,36,.12)}
 @media (max-width:900px){.m-btn{display:inline-block}.g-head-cta{margin-left:auto}.d-nav-r{gap:22px}}
 @media (min-width:901px){.m-menu{display:none!important}}
+.g-mbtn{background:var(--ink);color:var(--paper);font:600 14px/1 'Bricolage Grotesque',system-ui,sans-serif;padding:12px 18px;border-radius:999px}
+.g-menu{background:var(--paper);border-bottom:1px solid var(--line)}
+.g-menu a{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;letter-spacing:-.03em;font-size:30px;color:var(--ink);border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body id="top">
@@ -303,7 +316,7 @@ html[data-opt="2"] .switch [data-set="2"] b{background:#4D5A48}
   <header class="g-head">
     <a class="g-brand" href="#top" aria-label="Birdie Blooms, home"><svg class="g-logo-sm" viewBox="133.7 285.0 997.0 686.7" aria-hidden="true"><use href="#lg-groovy"/></svg></a>
     <nav class="g-nav" aria-label="Primary"><a href="../shop.html">Flowers</a><a href="../weddings.html">Weddings</a><a href="../seasons.html">Seasons</a><a href="../about.html">About</a></nav>
-    <a class="g-btn g-btn-berry g-head-cta" href="../contact.html#enquire">Enquire</a>
+    <a class="g-btn g-btn-ink g-head-cta" href="../contact.html#enquire">Enquire</a>
     <button class="m-btn g-mbtn" type="button" aria-expanded="false" aria-controls="m1">Menu</button>
   </header>
   <nav class="m-menu g-menu" id="m1" hidden aria-label="Menu"><a href="../shop.html">Flowers<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a><a href="../weddings.html">Weddings<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a><a href="../seasons.html">Seasons<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a><a href="../about.html">About<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a><a href="../contact.html#enquire">Enquire<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a></nav>
@@ -313,54 +326,79 @@ html[data-opt="2"] .switch [data-set="2"] b{background:#4D5A48}
     <div class="g-hero-in">
       <h1 class="sr">Birdie Blooms, floral design studio</h1>
       <svg class="g-logo-hero" viewBox="133.7 285.0 997.0 686.7" role="img" aria-label="Birdie Blooms, floral design studio"><use href="#lg-groovy"/></svg>
-      <p class="g-hero-line">Flowers for big days, and Tuesdays.</p>
-      <div class="g-hero-cta"><a class="g-btn g-btn-butter" href="../contact.html#enquire">Enquire about flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a><a class="g-btn g-btn-ghost" href="#g-bouquets">Autumn bouquets</a></div>
+    </div>
+    <div class="g-hero-foot">
+      <p>Flowers for big days, and Tuesdays.</p>
+      <div class="g-hero-cta"><a class="g-btn g-btn-hot" href="../contact.html#enquire">Enquire about flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a><a class="g-btn g-btn-glass" href="#g-bouquets">Autumn bouquets</a></div>
     </div>
   </section>
 
-  <div class="g-marquee" aria-hidden="true"><div class="g-mq-track"><span>Seasonal flowers</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Big days</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Tuesdays</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Weddings</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Ravenstone &amp; Kibworth</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Made by hand</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Seasonal flowers</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Big days</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Tuesdays</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Weddings</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Ravenstone &amp; Kibworth</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Made by hand</span><svg class="mq-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></div></div>
+  <div class="g-ticker" aria-hidden="true"><div class="g-tk-track"><span>Seasonal flowers</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Big days</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Tuesdays</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Weddings &amp; events</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Ravenstone &amp; Kibworth</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Made to order</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Seasonal flowers</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Big days</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Tuesdays</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Weddings &amp; events</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Ravenstone &amp; Kibworth</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg><span>Made to order</span><svg class="tk-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></div></div>
 
-  <section class="g-intro">
-    <svg class="g-spin" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg>
-    <p data-r>Hi, I’m Birdie Blooms: a one-woman flower studio in Ravenstone &amp; Kibworth, making loose, <mark>seasonal flowers</mark> for every kind of day.</p>
+  <section class="g-intro g-wrap">
+    <p class="g-label" data-r>Hello</p>
+    <p class="g-statement" data-r>I’m Birdie Blooms: a one-woman flower studio in Ravenstone &amp; Kibworth, making loose, <span class="g-hot">seasonal flowers</span> for every kind of day.</p>
   </section>
 
-  <section class="g-bouquets" id="g-bouquets">
-    <svg class="g-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C120,10 240,10 360,35 C480,60 600,60 720,35 C840,10 960,10 1080,35 C1200,60 1320,60 1440,30 L1440,60 Z"/></svg>
-    <div class="g-wrap">
-      <div class="g-sec-head" data-r><p class="g-label">This season</p><h2>Autumn bouquets</h2><p>Made to order with the season’s best stems, wrapped and ready to give.</p></div>
-      <div class="g-cards">
+  <section class="g-bouquets g-wrap" id="g-bouquets">
+    <div class="g-sec-head" data-r>
+      <div><p class="g-label">This season</p><h2>Autumn bouquets</h2></div>
+      <p>Made to order with the season’s best stems, wrapped and ready to give.</p>
+    </div>
+    <div class="g-cards">
       <article class="g-card" data-r>
-        <div class="g-photo"><img src="../assets/img/bb-bunch-detail.webp" alt="The Birdie Bunch" loading="lazy"><span class="g-price">£35</span></div>
-        <h3>The Birdie Bunch</h3><p>Dahlias, hydrangea, wheat and eucalyptus, hand-tied and wrapped in paper.</p>
-        <a class="g-btn g-btn-berry" href="../contact.html?bouquet=The+Birdie+Bunch#enquire">Enquire <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+        <a class="g-photo" href="../contact.html?bouquet=The+Birdie+Bunch#enquire"><img src="../assets/img/bb-bunch-detail.webp" alt="The Birdie Bunch" loading="lazy"></a>
+        <div class="g-card-head"><h3>The Birdie Bunch</h3><span class="g-price">£35</span></div>
+        <p>Dahlias, hydrangea, wheat and eucalyptus, hand-tied and wrapped in paper.</p>
+        <a class="g-link" href="../contact.html?bouquet=The+Birdie+Bunch#enquire">Enquire <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
       </article>
       <article class="g-card" data-r>
-        <div class="g-photo"><img src="../assets/img/bb-pumpkin-orange.webp" alt="The Pumpkin Edit" loading="lazy"><span class="g-price">£35</span></div>
-        <h3>The Pumpkin Edit</h3><p>Dahlias, amaranth and hydrangea gathered round a little orange pumpkin, finished with ribbon.</p>
-        <a class="g-btn g-btn-berry" href="../contact.html?bouquet=The+Pumpkin+Edit#enquire">Enquire <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+        <a class="g-photo" href="../contact.html?bouquet=The+Pumpkin+Edit#enquire"><img src="../assets/img/bb-pumpkin-orange.webp" alt="The Pumpkin Edit" loading="lazy"></a>
+        <div class="g-card-head"><h3>The Pumpkin Edit</h3><span class="g-price">£35</span></div>
+        <p>Dahlias, amaranth and hydrangea gathered round a little orange pumpkin, finished with ribbon.</p>
+        <a class="g-link" href="../contact.html?bouquet=The+Pumpkin+Edit#enquire">Enquire <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
       </article>
-        <aside class="g-card g-more" data-r>
-          <svg class="g-more-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg>
-          <h3>Something else in mind?</h3>
-          <p>Tell me the occasion, the colours and your budget, and I’ll make something just for you.</p>
-          <a class="g-btn g-btn-butter" href="../contact.html#enquire">Make an enquiry <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
-        </aside>
-      </div>
+      <aside class="g-more" data-r>
+        <svg class="g-more-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg>
+        <h3>Something else in mind?</h3>
+        <p>Tell me the occasion, the colours and your budget, and I’ll make something just for you.</p>
+        <a class="g-btn g-btn-ink" href="../contact.html#enquire">Make an enquiry <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+      </aside>
     </div>
   </section>
 
   <section class="g-ways g-wrap">
-    <div class="g-way" data-r><div class="g-blob"><img src="../assets/img/bb-birdie-bunch.webp" alt="A hand-tied bouquet of dahlias and hydrangea carried over a shoulder" loading="lazy"></div>
-      <div><p class="g-label">Flowers to send</p><h3>For birthdays, thank-yous and just-becauses.</h3><p>Hand-tied bouquets and arrangements in the season’s best stems.</p><a class="g-link" href="../shop.html">See the flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a></div></div>
-    <div class="g-way g-way-flip" data-r><div class="g-blob g-blob-2"><img src="../assets/img/bb-pumpkin-orange.webp" alt="An autumn arrangement with dahlias and a little pumpkin" loading="lazy"></div>
-      <div><p class="g-label">Weddings &amp; events</p><h3>From one bouquet to the whole day.</h3><p>Flowers made to suit you and the season, from the aisle to the last table.</p><a class="g-link" href="../weddings.html">Ask about your date <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a></div></div>
+    <a class="g-way" href="../shop.html" data-r>
+      <div class="g-way-img"><img src="../assets/img/bb-birdie-bunch.webp" alt="A hand-tied bouquet of dahlias and hydrangea carried over a shoulder" loading="lazy"></div>
+      <p class="g-label">Flowers to send</p><h3>For birthdays, thank-yous and just-becauses.</h3>
+      <span class="g-link">See the flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
+    </a>
+    <a class="g-way" href="../weddings.html" data-r>
+      <div class="g-way-img"><img src="../assets/img/bb-pumpkin-orange.webp" alt="An autumn arrangement with dahlias and a little pumpkin" loading="lazy"></div>
+      <p class="g-label">Weddings &amp; events</p><h3>From one bouquet to the whole day.</h3>
+      <span class="g-link">Ask about your date <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
+    </a>
   </section>
 
   <section class="g-seasons-sec">
     <div class="g-wrap">
-      <div class="g-sec-head g-light" data-r><p class="g-label">What’s in season</p><h2>Every season has its flowers</h2></div>
-      <div class="g-seasons"><a class="g-season g-winter" data-s="winter" href="../seasons.html#winter" data-r><span class="g-now">In season now</span><h3>Winter</h3><p class="g-months">December to February</p><p>Amaryllis, hellebores and paperwhites</p></a><a class="g-season g-spring" data-s="spring" href="../seasons.html#spring" data-r><span class="g-now">In season now</span><h3>Spring</h3><p class="g-months">March to May</p><p>Tulips, narcissi and ranunculus</p></a><a class="g-season g-summer" data-s="summer" href="../seasons.html#summer" data-r><span class="g-now">In season now</span><h3>Summer</h3><p class="g-months">June to August</p><p>Sweet peas, peonies and cornflowers</p></a><a class="g-season g-autumn" data-s="autumn" href="../seasons.html#autumn" data-r><span class="g-now">In season now</span><h3>Autumn</h3><p class="g-months">September to November</p><p>Dahlias, amaranth and rosehips</p></a></div>
+      <div class="g-sec-head g-on-ink" data-r>
+        <div><p class="g-label">What’s in season</p><h2>Every season has its flowers</h2></div>
+        <p>I work with what’s growing now, so your flowers change with the year.</p>
+      </div>
+      <div class="g-seasons"><a class="g-season" data-s="winter" href="../seasons.html#winter" data-r>
+        <span class="g-now">In season now</span>
+        <span class="g-s-top"><i class="g-dot g-dot-winter"></i>December to February</span>
+        <h3>Winter</h3><p>Amaryllis, hellebores and paperwhites</p><span class="g-s-go">See winter flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></span></a><a class="g-season" data-s="spring" href="../seasons.html#spring" data-r>
+        <span class="g-now">In season now</span>
+        <span class="g-s-top"><i class="g-dot g-dot-spring"></i>March to May</span>
+        <h3>Spring</h3><p>Tulips, narcissi and ranunculus</p><span class="g-s-go">See spring flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></span></a><a class="g-season" data-s="summer" href="../seasons.html#summer" data-r>
+        <span class="g-now">In season now</span>
+        <span class="g-s-top"><i class="g-dot g-dot-summer"></i>June to August</span>
+        <h3>Summer</h3><p>Sweet peas, peonies and cornflowers</p><span class="g-s-go">See summer flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></span></a><a class="g-season" data-s="autumn" href="../seasons.html#autumn" data-r>
+        <span class="g-now">In season now</span>
+        <span class="g-s-top"><i class="g-dot g-dot-autumn"></i>September to November</span>
+        <h3>Autumn</h3><p>Dahlias, amaranth and rosehips</p><span class="g-s-go">See autumn flowers <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></span></a></div>
     </div>
   </section>
 
@@ -368,36 +406,36 @@ html[data-opt="2"] .switch [data-set="2"] b{background:#4D5A48}
     <div class="g-wrap g-loyal-in">
       <div data-r>
         <p class="g-label">The Birdie Card</p>
-        <h2>Every bunch earns a daisy. The sixth one’s on me.</h2>
-        <ol class="g-steps"><li><b>1</b>Your card comes with your first bunch</li><li><b>2</b>Every bunch earns a daisy stamp</li><li><b>3</b>Five daisies, and your next bunch is free</li></ol>
-        <a class="g-btn g-btn-butter" href="../contact.html?for=The+Birdie+Card#enquire">Start your card <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+        <h2>Every bunch earns a stamp. The sixth one’s <span class="g-hot">on me.</span></h2>
+        <ol class="g-steps"><li><b>01</b>Your card comes with your first bunch</li><li><b>02</b>Every bunch earns a daisy stamp</li><li><b>03</b>Five stamps, and your next bunch is free</li></ol>
+        <a class="g-btn g-btn-ink" href="../contact.html?for=The+Birdie+Card#enquire">Start your card <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
       </div>
-      <div class="g-card-wrap"><div class="g-bcard card" role="img" aria-label="The Birdie Card: five daisy stamps and a free bunch">
-        <div class="g-bcard-top"><svg class="g-logo-card" viewBox="133.7 285.0 997.0 686.7" aria-hidden="true"><use href="#lg-groovy"/></svg></div>
+      <div class="g-bcard card" role="img" aria-label="The Birdie Card: five daisy stamps and a free bunch">
+        <div class="g-bcard-top"><svg class="g-logo-card" viewBox="133.7 285.0 997.0 686.7" aria-hidden="true"><use href="#lg-groovy"/></svg><span>The Birdie Card</span></div>
         <ol class="slots"><li class="slot"><span class="stamp"><svg class="st-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></span></li><li class="slot"><span class="stamp"><svg class="st-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></span></li><li class="slot"><span class="stamp"><svg class="st-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></span></li><li class="slot"><span class="stamp"><svg class="st-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></span></li><li class="slot"><span class="stamp"><svg class="st-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg></span></li><li class="slot free"><span>Free<br>bunch</span></li></ol>
-        <p class="g-bcard-foot">A daisy for every bunch</p>
-      </div></div>
+        <p class="g-bcard-foot">A stamp for every bunch</p>
+      </div>
     </div>
   </section>
 
   <section class="g-about g-wrap">
-    <div class="g-blob g-blob-3" data-r><img src="../assets/img/bb-birdie-bunch.webp" alt="Birdie Blooms carrying an autumn bouquet" loading="lazy"></div>
+    <div class="g-about-img" data-r><img src="../assets/img/bb-motion.webp" alt="Autumn dahlias and amaranth, softly blurred" loading="lazy"></div>
     <div data-r><p class="g-label">About</p><h2>Flowers with a little bit of yesterday.</h2>
       <p>I make loose, garden-style flowers with a nostalgic feel: soft colours, seasonal stems and the odd unexpected thing, like a pumpkin. Every arrangement is made by hand, to order, in Ravenstone and Kibworth.</p>
       <a class="g-link" href="../about.html">More about me <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a></div>
   </section>
 
   <section class="g-ig g-wrap">
-    <div class="g-sec-head" data-r><p class="g-label">Instagram</p><h2>Follow along</h2></div>
+    <div class="g-sec-head" data-r><div><p class="g-label">Instagram</p><h2>@birdie.blooms</h2></div><p><a class="g-link" href="https://www.instagram.com/birdie.blooms/">Follow along <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a></p></div>
     <div class="g-ig-grid" data-r><a href="https://www.instagram.com/birdie.blooms/" aria-label="Birdie Blooms on Instagram"><img src="../assets/img/bb-pumpkin-orange.webp" alt="" loading="lazy"></a><a href="https://www.instagram.com/birdie.blooms/" aria-label="Birdie Blooms on Instagram"><img src="../assets/img/bb-birdie-bunch.webp" alt="" loading="lazy"></a><a href="https://www.instagram.com/birdie.blooms/" aria-label="Birdie Blooms on Instagram"><img src="../assets/img/bb-motion.webp" alt="" loading="lazy"></a><a href="https://www.instagram.com/birdie.blooms/" aria-label="Birdie Blooms on Instagram"><img src="../assets/img/bb-bunch-detail.webp" alt="" loading="lazy"></a></div>
-    <p class="g-ig-handle">New flowers most weeks at <a href="https://www.instagram.com/birdie.blooms/">@birdie.blooms</a></p>
   </section>
 
   <section class="g-cta">
-    <svg class="g-cta-daisy" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-daisy"/></svg>
-    <h2 data-r>Something in mind?</h2>
-    <p data-r>Big day or a Tuesday, tell me about it and I’ll come back to you with ideas and a price.</p>
-    <a class="g-btn g-btn-butter" href="../contact.html#enquire" data-r>Make an enquiry <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+    <div class="g-wrap g-cta-in">
+      <h2 data-r>Something in mind?</h2>
+      <div data-r><p>Big day or a Tuesday, tell me about it and I’ll come back to you with ideas and a price.</p>
+      <a class="g-btn g-btn-ink" href="../contact.html#enquire">Make an enquiry <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8h12.5M9.5 3.5 14 8l-4.5 4.5"/></svg></a></div>
+    </div>
   </section>
 
   <footer class="g-foot">
