@@ -85,7 +85,6 @@ The colour appears on the bouquets block, the stamps and the browser-tab icon. T
 
 Both Bs in the logo are the "Blooms" B. It's a full B with no break.
 
-`directions/` keeps the earlier design concepts for reference. The live site doesn't link to them.
 
 ## Media kit
 
@@ -97,24 +96,6 @@ Both Bs in the logo are the "Blooms" B. It's a full B with no break.
 - **Website visuals:** screenshots of each logo on the home page, and the two designed home pages.
 
 See `media-kit/README.md` for the full list.
-
-## Logo directions
-
-`logos/` shows four logo directions built from the logos she likes: https://johnpbell7.github.io/Birdie-blooms-/logos/
-
-- **Soft Focus:** roman capitals with one swash B.
-- **Garden Notebook:** an ink-drawn wren and handwriting.
-- **Flower Power:** a soft 70s serif with daisy i-dots.
-- **A Little Bit of Yesterday:** a flourished script and an engraved oval.
-
-Every font is free to use commercially (Google Fonts). The logo files are in `logos/files/`, with a download page at `logos/files/`.
-
-## New logo preview
-
-`new-logo/` is a preview of the home page with the new bird-and-leaves B: https://johnpbell7.github.io/Birdie-blooms-/new-logo/
-
-- It isn't linked from the live pages, which keep the current logo until it's approved.
-- The logo files are in `new-logo/brand/`: the mark, stacked, side-by-side and one-line lockups, and the round leaf seal, each in green and cream.
 
 ## Preview locally
 
