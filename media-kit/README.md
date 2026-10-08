@@ -4,6 +4,8 @@ The eight logo options from the brand pitch, in every colour and format, plus th
 
 **Browse it:** https://johnpbell7.github.io/Birdie-blooms-/media-kit/
 
+**Download everything:** `Birdie-Blooms-media-kit.zip` has the whole kit in one file: https://johnpbell7.github.io/Birdie-blooms-/media-kit/Birdie-Blooms-media-kit.zip
+
 ## Documents
 
 | File | What it is |
