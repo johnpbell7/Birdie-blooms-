@@ -87,6 +87,17 @@ Both Bs in the logo are the "Blooms" B. It's a full B with no break.
 
 `directions/` keeps the earlier design concepts for reference. The live site doesn't link to them.
 
+## Media kit
+
+`media-kit/` has the eight logo options from the brand pitch, ready to use: https://johnpbell7.github.io/Birdie-blooms-/media-kit/
+
+- **Formats:** every logo as SVG, transparent PNG and JPG.
+- **Colours:** seven colours (black, white, cream, rose, berry, forest and terracotta), with the JPGs in six colour pairings.
+- **PDFs:** the logo options pitch and "Logos on the website".
+- **Website visuals:** screenshots of each logo on the home page, and the two designed home pages.
+
+See `media-kit/README.md` for the full list.
+
 ## Logo directions
 
 `logos/` shows four logo directions built from the logos she likes: https://johnpbell7.github.io/Birdie-blooms-/logos/
