@@ -12,6 +12,16 @@ V = "?v=9"            # bump to make browsers fetch new CSS/JS/logo files
 EMAIL = "hello@birdieblooms.co.uk"
 INSTA = "https://www.instagram.com/birdie.blooms/"
 IMG = "assets/img/"
+BASE = "https://johnpbell7.github.io/Birdie-blooms-/"   # the live address; change it when the site gets its own domain
+SHARE = {  # page -> (share image, what the picture shows); made in Branding/Share images
+    "index.html": ("home", "Birdie Blooms: seasonal flowers for big days, and Tuesdays, from a one-woman flower studio in Ravenstone and Kibworth"),
+    "shop.html": ("shop", "Birdie Blooms flowers: seasonal bouquets and arrangements, made to order in Ravenstone and Kibworth"),
+    "weddings.html": ("weddings", "Birdie Blooms weddings and events: loose, seasonal flowers, shown as a white and cream bridal bouquet and a flower-covered table"),
+    "seasons.html": ("seasons", "Birdie Blooms: what\u2019s in season, shown as blurred winter, spring, summer and autumn flowers"),
+    "about.html": ("about", "Birdie Blooms: a one-woman flower studio, shown with the florist at her workbench arranging flowers"),
+    "contact.html": ("contact", "Birdie Blooms: enquire about flowers, weddings and events, shown as a florist arranging a bouquet"),
+    "policies.html": ("policies", "Birdie Blooms: good to know, covering ordering, delivery, flower care and privacy"),
+}
 
 # ---- content you'll want to edit ---------------------------------------------------------
 PRODUCTS = [
@@ -90,9 +100,7 @@ def head(title, desc, inner=True):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{desc}">
-<meta property="og:image" content="{IMG}og-image.jpg">
+<!--SOCIAL-->
 <link rel="icon" id="favicon" href="{IMG}favicon-autumn.svg{V}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Josefin+Sans:wght@400;600;700&display=swap">
@@ -327,7 +335,47 @@ def cta_band(title, text, label, href, block=""):
     <a class="btn" href="{href}" data-up>{label} {ARROW}</a>
   </section>'''
 
+def social(name, html):
+    """Canonical, Open Graph and X tags for one page (and the business markup on the home page)."""
+    import re, json
+    title = re.search(r"<title>(.*?)</title>", html).group(1)
+    desc = re.search(r'<meta name="description" content="(.*?)">', html).group(1)
+    image, alt = SHARE[name]
+    url = BASE if name == "index.html" else BASE + name
+    img = f"{BASE}assets/share/{image}.jpg"
+    tags = f'''<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Birdie Blooms">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{img}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{alt}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{img}">
+<meta name="twitter:image:alt" content="{alt}">'''
+    if name == "index.html":
+        import html as H
+        graph = {"@context": "https://schema.org", "@graph": [
+            {"@type": "Florist", "@id": BASE + "#business", "name": "Birdie Blooms", "url": BASE,
+             "logo": BASE + "assets/brand/birdie-blooms-logo.svg", "image": img,
+             "description": H.unescape(desc), "slogan": "Flowers with a little bit of yesterday.",
+             "email": EMAIL,
+             "address": {"@type": "PostalAddress", "addressRegion": "Leicestershire", "addressCountry": "GB"},
+             "areaServed": [{"@type": "Place", "name": "Ravenstone, Leicestershire"}, {"@type": "Place", "name": "Kibworth, Leicestershire"}],
+             "sameAs": [INSTA]},
+            {"@type": "WebSite", "@id": BASE + "#website", "name": "Birdie Blooms", "url": BASE,
+             "publisher": {"@id": BASE + "#business"}, "inLanguage": "en-GB"}]}
+        tags += '\n<script type="application/ld+json">' + json.dumps(graph, ensure_ascii=False, indent=1) + "</script>"
+    return html.replace("<!--SOCIAL-->", tags, 1)
+
 def write(name, html):
+    html = social(name, html)
     html = html.replace('<footer class="foot">', explore(name) + '<footer class="foot">', 1)
     open(os.path.join(ROOT, name), "w").write(html)
     print("wrote", name, f"{len(html) // 1024} KB")

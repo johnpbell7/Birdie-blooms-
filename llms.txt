@@ -1,0 +1,13 @@
+# Birdie Blooms
+
+> Seasonal flowers for big days, and Tuesdays. A one-woman flower studio in Ravenstone & Kibworth, Leicestershire.
+
+## Pages
+
+- [Seasonal flowers in Ravenstone & Kibworth](https://johnpbell7.github.io/Birdie-blooms-/): Seasonal flowers for big days, and Tuesdays. A one-woman flower studio in Ravenstone & Kibworth, Leicestershire.
+- [About](https://johnpbell7.github.io/Birdie-blooms-/about.html): Birdie Blooms is a one-woman flower studio in Ravenstone & Kibworth, Leicestershire.
+- [Enquire](https://johnpbell7.github.io/Birdie-blooms-/contact.html): Enquire about flowers, weddings and events from Birdie Blooms in Ravenstone & Kibworth.
+- [Good to know](https://johnpbell7.github.io/Birdie-blooms-/policies.html): Ordering, delivery, flower care and privacy at Birdie Blooms.
+- [What’s in season](https://johnpbell7.github.io/Birdie-blooms-/seasons.html): Seasonal flowers through the year, from amaryllis in winter to dahlias in autumn.
+- [Flowers](https://johnpbell7.github.io/Birdie-blooms-/shop.html): Seasonal bouquets and arrangements, made to order in Ravenstone & Kibworth.
+- [Weddings & events](https://johnpbell7.github.io/Birdie-blooms-/weddings.html): Loose, seasonal wedding and event flowers from Ravenstone & Kibworth, Leicestershire.
